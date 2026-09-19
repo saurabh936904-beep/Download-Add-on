@@ -1,229 +1,474 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
 <title>Team✓Sniper™</title>
 
+
 <style>
+
 *{
   box-sizing:border-box;
   margin:0;
   padding:0;
 }
 
+
 body{
-  font-family:Arial,Helvetica,sans-serif;
+
+  font-family:
+  Arial,
+  Helvetica,
+  sans-serif;
+
   background:#080808;
+
   color:#fff;
+
   min-height:100vh;
+
 }
+
+
+/* ================= HEADER ================= */
 
 header{
+
   padding:22px 16px;
+
   text-align:center;
+
   border-bottom:1px solid #252525;
-  background:linear-gradient(180deg,#151515,#090909);
+
+  background:
+  linear-gradient(
+    180deg,
+    #151515,
+    #090909
+  );
+
 }
+
 
 .brand{
+
   color:#ffd700;
+
   font-size:28px;
+
   font-weight:800;
+
   cursor:pointer;
+
 }
+
 
 .handle{
+
   color:#888;
+
   margin-top:5px;
+
   font-size:14px;
+
 }
+
+
+/* ================= CONTAINER ================= */
 
 .container{
+
   width:min(100%,900px);
+
   margin:auto;
+
   padding:20px 14px 40px;
+
 }
+
+
+/* ================= LOADING ================= */
 
 .loading{
+
   text-align:center;
+
   color:#aaa;
+
   padding:50px 10px;
+
 }
+
+
+/* ================= GRID ================= */
 
 .grid{
+
   display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(170px,1fr));
+
+  grid-template-columns:
+  repeat(
+    auto-fill,
+    minmax(170px,1fr)
+  );
+
   gap:16px;
+
 }
+
+
+/* ================= CARD ================= */
 
 .card{
+
   background:#111;
+
   border:1px solid #292929;
+
   border-radius:15px;
+
   overflow:hidden;
+
   cursor:pointer;
+
   transition:.2s;
+
 }
+
 
 .card:hover{
+
   transform:translateY(-3px);
+
   border-color:#ffd700;
+
 }
+
 
 .card img{
+
   width:100%;
+
   aspect-ratio:16/9;
+
   object-fit:cover;
+
   display:block;
+
   background:#222;
+
 }
+
 
 .card-title{
+
   padding:13px;
+
   font-size:15px;
+
   font-weight:bold;
+
 }
+
+
+/* ================= BACK ================= */
 
 .back{
+
   display:inline-block;
+
   color:#aaa;
+
   margin-bottom:15px;
+
   cursor:pointer;
+
 }
+
+
+/* ================= DETAIL ================= */
 
 .detail{
+
   background:#111;
+
   border:1px solid #292929;
+
   border-radius:18px;
+
   overflow:hidden;
+
 }
+
 
 .detail-main-img{
+
   width:100%;
+
   max-height:500px;
+
   object-fit:cover;
+
   display:block;
+
   cursor:pointer;
+
+  background:#222;
+
 }
+
 
 .detail-content{
+
   padding:18px;
+
 }
+
 
 .title{
+
   font-size:25px;
+
   font-weight:800;
+
   margin-bottom:10px;
+
 }
+
 
 .description{
+
   color:#bbb;
+
   line-height:1.6;
+
   margin-bottom:20px;
+
   white-space:pre-wrap;
+
 }
+
+
+/* ================= BUTTONS ================= */
 
 .buttons{
+
   display:flex;
+
   gap:10px;
+
   flex-wrap:wrap;
+
 }
+
 
 .btn{
+
   border:0;
+
   border-radius:10px;
+
   padding:13px 20px;
+
   color:#fff;
+
   font-weight:bold;
+
   font-size:15px;
+
   cursor:pointer;
+
   text-decoration:none;
+
   display:inline-block;
+
 }
+
+
+/* GREEN FOR ID */
 
 .download-green{
+
   background:#16a34a;
+
 }
+
+
+/* RED FOR TOKEN */
 
 .download-red{
+
   background:#dc2626;
+
 }
+
 
 .explore{
+
   background:#333;
+
 }
+
+
+/* ================= SCREENSHOTS ================= */
 
 .screenshots-title{
+
   margin:25px 0 12px;
+
   font-size:19px;
+
 }
+
 
 .screenshots{
+
   display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(150px,1fr));
+
+  grid-template-columns:
+  repeat(
+    auto-fill,
+    minmax(150px,1fr)
+  );
+
   gap:12px;
+
 }
+
 
 .screenshots img{
+
   width:100%;
+
   aspect-ratio:16/9;
+
   object-fit:cover;
+
   border-radius:10px;
+
   background:#222;
+
 }
+
+
+/* ================= ERROR ================= */
 
 .error{
+
   text-align:center;
+
   color:#ff5555;
+
   padding:50px 10px;
+
+  line-height:1.6;
+
 }
 
-.retry{
-  margin-top:15px;
-  padding:12px 20px;
-  border:0;
-  border-radius:8px;
-  cursor:pointer;
-  font-weight:bold;
+
+.error small{
+
+  color:#ff9999;
+
+  word-break:break-word;
+
 }
+
+
+.retry{
+
+  margin-top:15px;
+
+  padding:12px 20px;
+
+  border:0;
+
+  border-radius:8px;
+
+  cursor:pointer;
+
+  font-weight:bold;
+
+}
+
+
+/* ================= MOBILE ================= */
 
 @media(max-width:500px){
 
   .grid{
-    grid-template-columns:repeat(2,1fr);
+
+    grid-template-columns:
+    repeat(2,1fr);
+
     gap:10px;
+
   }
+
 
   .card-title{
+
     font-size:14px;
+
   }
 
+
   .title{
+
     font-size:21px;
+
   }
+
 }
+
 </style>
+
 </head>
+
 
 <body>
 
+
+<!-- ================= HEADER ================= -->
+
 <header>
 
-  <div class="brand" onclick="openChannel()">
+  <div
+    class="brand"
+    onclick="openChannel()"
+  >
+
     Team✓Sniper™
+
   </div>
 
+
   <div class="handle">
+
     @teamsniper450
+
   </div>
 
 </header>
 
-<div class="container" id="app">
+
+<!-- ================= APP ================= -->
+
+<div
+  class="container"
+  id="app"
+>
 
   <div class="loading">
+
     Loading latest data...
+
   </div>
 
 </div>
@@ -231,21 +476,26 @@ header{
 
 <script>
 
+
 /* =====================================================
    GOOGLE DRIVE JSON
 ===================================================== */
 
+
 const DRIVE_FILE_ID =
 "1PGjwVdk7zC-2BjNtUIyn3FcITKmntgf7";
+
 
 const DATA_URL =
 "https://drive.google.com/uc?export=download&id=" +
 DRIVE_FILE_ID;
 
 
+
 /* =====================================================
    CHANNEL
 ===================================================== */
+
 
 function openChannel(){
 
@@ -255,13 +505,20 @@ function openChannel(){
 }
 
 
+
 /* =====================================================
    YOUTUBE ID
 ===================================================== */
 
+
 function getYouTubeId(url){
 
-  if(!url) return null;
+  if(!url){
+
+    return null;
+
+  }
+
 
   try{
 
@@ -269,8 +526,12 @@ function getYouTubeId(url){
     new URL(url);
 
 
+    /* youtu.be */
+
     if(
-      u.hostname.includes("youtu.be")
+      u.hostname.includes(
+        "youtu.be"
+      )
     ){
 
       return u.pathname
@@ -280,21 +541,31 @@ function getYouTubeId(url){
     }
 
 
+    /* youtube.com */
+
     if(
-      u.hostname.includes("youtube.com")
+      u.hostname.includes(
+        "youtube.com"
+      )
     ){
+
+      /* watch?v= */
 
       if(
         u.pathname === "/watch"
       ){
 
-        return u.searchParams.get("v");
+        return u.searchParams
+        .get("v");
 
       }
 
 
+      /* shorts */
+
       if(
-        u.pathname.startsWith("/shorts/")
+        u.pathname
+        .startsWith("/shorts/")
       ){
 
         return u.pathname
@@ -303,8 +574,11 @@ function getYouTubeId(url){
       }
 
 
+      /* embed */
+
       if(
-        u.pathname.startsWith("/embed/")
+        u.pathname
+        .startsWith("/embed/")
       ){
 
         return u.pathname
@@ -314,19 +588,30 @@ function getYouTubeId(url){
 
     }
 
-  }catch(e){}
+  }catch(e){
+
+  }
+
 
   return null;
+
 }
+
 
 
 /* =====================================================
    GOOGLE DRIVE ID
 ===================================================== */
 
+
 function getDriveId(url){
 
-  if(!url) return null;
+  if(!url){
+
+    return null;
+
+  }
+
 
   try{
 
@@ -334,6 +619,7 @@ function getDriveId(url){
     url.match(
       /(?:\/d\/|id=)([a-zA-Z0-9_-]+)/
     );
+
 
     return match
     ? match[1]
@@ -344,67 +630,93 @@ function getDriveId(url){
     return null;
 
   }
+
 }
+
 
 
 /* =====================================================
    MEDIA URL
 ===================================================== */
 
+
 function mediaUrl(url){
 
-  if(!url) return "";
+  if(!url){
+
+    return "";
+
+  }
+
 
   const youtubeId =
   getYouTubeId(url);
 
 
+  /* YouTube */
+
   if(youtubeId){
 
     return (
+
       "https://i.ytimg.com/vi/" +
       youtubeId +
       "/maxresdefault.jpg"
+
     );
 
   }
 
 
+  /* Normal URL */
+
   return url;
+
 }
+
 
 
 /* =====================================================
    DOWNLOAD URL
 ===================================================== */
 
+
 function downloadUrl(url){
 
-  if(!url) return "";
+  if(!url){
+
+    return "";
+
+  }
+
+
+  /* ================================================
+     YOUTUBE
+  ================================================ */
 
 
   const youtubeId =
   getYouTubeId(url);
 
 
-  /*
-    YouTube
-  */
-
   if(youtubeId){
 
     return (
+
       "https://i.ytimg.com/vi/" +
       youtubeId +
       "/maxresdefault.jpg"
+
     );
 
   }
 
 
-  /*
-    Google Drive
-  */
+
+  /* ================================================
+     GOOGLE DRIVE
+  ================================================ */
+
 
   const driveId =
   getDriveId(url);
@@ -413,94 +725,248 @@ function downloadUrl(url){
   if(driveId){
 
     return (
+
       "https://drive.usercontent.google.com/download?id=" +
-      encodeURIComponent(driveId) +
+
+      encodeURIComponent(
+        driveId
+      ) +
+
       "&export=download&confirm=t"
+
     );
 
   }
 
 
-  /*
-    Normal URL
-  */
+
+  /* ================================================
+     NORMAL URL
+  ================================================ */
+
 
   return url;
+
 }
+
 
 
 /* =====================================================
    LOAD LATEST JSON
 ===================================================== */
 
+
 async function loadData(){
 
+
   /*
-    Timestamp add करके हर request को
-    नया URL बनाया जाता है.
+    Timestamp लगाने से हर request
+    नया URL बनेगा.
   */
 
+
   const freshUrl =
+
     DATA_URL +
+
     "&_t=" +
+
     Date.now();
 
 
-  const response =
-    await fetch(
-      freshUrl,
-      {
-        method:"GET",
-        cache:"no-store",
 
-        headers:{
-          "Cache-Control":"no-cache",
-          "Pragma":"no-cache"
+  try{
+
+
+    const response =
+
+      await fetch(
+
+        freshUrl,
+
+        {
+
+          method:"GET",
+
+          cache:"no-store",
+
+          redirect:"follow",
+
+          headers:{
+
+            "Cache-Control":
+            "no-cache, no-store, max-age=0",
+
+            "Pragma":
+            "no-cache"
+
+          }
+
         }
-      }
+
+      );
+
+
+
+    /* ============================================
+       HTTP CHECK
+    ============================================ */
+
+
+    if(!response.ok){
+
+      throw new Error(
+
+        "HTTP Error: " +
+
+        response.status +
+
+        " " +
+
+        response.statusText
+
+      );
+
+    }
+
+
+
+    /* ============================================
+       GET RAW RESPONSE
+    ============================================ */
+
+
+    const text =
+
+      await response.text();
+
+
+
+    if(!text){
+
+      throw new Error(
+
+        "Google Drive ne empty response diya."
+
+      );
+
+    }
+
+
+
+    /* ============================================
+       JSON PARSE
+    ============================================ */
+
+
+    let data;
+
+
+    try{
+
+      data =
+      JSON.parse(text);
+
+    }catch(e){
+
+
+      console.log(
+        "Google Drive response:",
+        text.substring(0,1000)
+      );
+
+
+      throw new Error(
+
+        "Google Drive response valid JSON nahi hai."
+
+      );
+
+    }
+
+
+
+    /* ============================================
+       MAIN CHECK
+    ============================================ */
+
+
+    if(
+
+      !data ||
+
+      typeof data.main !== "object" ||
+
+      data.main === null
+
+    ){
+
+      throw new Error(
+
+        "JSON me main object nahi mila."
+
+      );
+
+    }
+
+
+
+    /* ============================================
+       TOKEN CHECK
+    ============================================ */
+
+
+    if(
+
+      typeof data.token !== "object" ||
+
+      data.token === null
+
+    ){
+
+      throw new Error(
+
+        "JSON me root token object nahi mila."
+
+      );
+
+    }
+
+
+
+    console.log(
+      "Latest JSON loaded:",
+      data
     );
 
 
-  if(!response.ok){
+    return data;
 
-    throw new Error(
-      "JSON fetch failed: " +
-      response.status
+
+  }catch(error){
+
+
+    console.error(
+      "JSON LOAD ERROR:",
+      error
     );
+
+
+    throw error;
 
   }
 
-
-  const data =
-  await response.json();
-
-
-  /*
-    Required structure check
-  */
-
-  if(
-    !data ||
-    typeof data.main !== "object" ||
-    typeof data.token !== "object"
-  ){
-
-    throw new Error(
-      "Invalid JSON structure"
-    );
-
-  }
-
-
-  return data;
 }
+
 
 
 /* =====================================================
    PAGE 1
 ===================================================== */
 
+
 function renderPage1(data){
+
 
   const app =
   document.getElementById("app");
@@ -509,63 +975,103 @@ function renderPage1(data){
   app.innerHTML = "";
 
 
+
   const grid =
   document.createElement("div");
+
 
   grid.className =
   "grid";
 
 
+
   /*
-    ONLY MAIN
+    ONLY main
   */
+
 
   const main =
   data.main || {};
+
 
 
   const ids =
   Object.keys(main);
 
 
+
+  /* ============================================
+     NO ITEMS
+  ============================================ */
+
+
   if(ids.length === 0){
 
     app.innerHTML =
-    '<div class="error">' +
-    'No items found.' +
-    '</div>';
+
+      '<div class="error">' +
+
+      'No items found.' +
+
+      '</div>';
 
     return;
+
   }
 
 
+
+  /* ============================================
+     CREATE CARDS
+  ============================================ */
+
+
   ids.forEach(
+
     function(id){
+
 
       const item =
       main[id];
 
 
+      if(!item){
+
+        return;
+
+      }
+
+
+
       const card =
       document.createElement("div");
+
 
       card.className =
       "card";
 
 
+
+      /* ========================================
+         IMAGE
+      ======================================== */
+
+
       const img =
       document.createElement("img");
 
+
       img.src =
-      mediaUrl(item.thumbnail);
+      mediaUrl(
+        item.thumbnail
+      );
+
 
       img.alt =
-      item.title || "Thumbnail";
+      item.title ||
+      "Thumbnail";
 
 
-      /*
-        Broken thumbnail fallback
-      */
 
       img.onerror =
       function(){
@@ -576,70 +1082,110 @@ function renderPage1(data){
       };
 
 
+
+      /* ========================================
+         TITLE
+      ======================================== */
+
+
       const title =
       document.createElement("div");
+
 
       title.className =
       "card-title";
 
+
       title.textContent =
-      item.title || "Untitled";
+      item.title ||
+      "Untitled";
 
 
-      card.appendChild(img);
 
-      card.appendChild(title);
-
-
-      /*
-        PAGE 1 → PAGE 2
-
-        ONLY TOKEN
-
-        ?s=K8xP2mQ7
-      */
-
-      card.addEventListener(
-        "click",
-        function(){
-
-          if(
-            !item.token
-          ){
-
-            return;
-          }
-
-
-          window.location.href =
-          "?s=" +
-          encodeURIComponent(
-            item.token
-          );
-
-        }
+      card.appendChild(
+        img
       );
 
 
-      grid.appendChild(card);
+      card.appendChild(
+        title
+      );
+
+
+
+      /* ========================================
+         CARD CLICK
+
+         ONLY TOKEN
+
+         ?s=TOKEN
+      ======================================== */
+
+
+      card.addEventListener(
+
+        "click",
+
+        function(){
+
+
+          if(!item.token){
+
+            return;
+
+          }
+
+
+
+          window.location.href =
+
+            window.location.pathname +
+
+            "?s=" +
+
+            encodeURIComponent(
+              item.token
+            );
+
+        }
+
+      );
+
+
+
+      grid.appendChild(
+        card
+      );
 
     }
+
   );
 
 
-  app.appendChild(grid);
+
+  app.appendChild(
+    grid
+  );
+
 }
+
 
 
 /* =====================================================
    PAGE 2
 ===================================================== */
 
+
 function renderPage2(
+
   data,
+
   type,
+
   value
+
 ){
+
 
   const app =
   document.getElementById("app");
@@ -653,28 +1199,34 @@ function renderPage2(
   false;
 
 
+
   /* =================================================
      DIRECT ID
 
      ?id=VALID_ID
 
-     VALID → PAGE 2
-     INVALID → PAGE 1
-
-     GREEN + link
+     GREEN
   ================================================= */
 
+
   if(type === "id"){
+
 
     const main =
     data.main || {};
 
 
+
     if(
+
       Object.prototype.hasOwnProperty.call(
+
         main,
+
         value
+
       )
+
     ){
 
       id =
@@ -682,11 +1234,18 @@ function renderPage2(
 
     }else{
 
-      renderPage1(data);
+
+      renderPage1(
+        data
+      );
+
 
       return;
+
     }
+
   }
+
 
 
   /* =================================================
@@ -694,29 +1253,39 @@ function renderPage2(
 
      ?s=VALID_TOKEN
 
-     VALID → PAGE 2
-     INVALID → PAGE 1
-
-     RED + Slink
+     RED
   ================================================= */
 
+
   if(type === "token"){
+
 
     const tokenMap =
     data.token || {};
 
 
+
     if(
+
       !Object.prototype.hasOwnProperty.call(
+
         tokenMap,
+
         value
+
       )
+
     ){
 
-      renderPage1(data);
+      renderPage1(
+        data
+      );
+
 
       return;
+
     }
+
 
 
     id =
@@ -725,38 +1294,52 @@ function renderPage2(
 
     isTokenLink =
     true;
+
   }
+
 
 
   /* =================================================
      FIND ITEM
   ================================================= */
 
+
   const item =
-  data.main &&
-  data.main[id];
+
+    data.main &&
+
+    data.main[id];
+
 
 
   if(!item){
 
-    renderPage1(data);
+    renderPage1(
+      data
+    );
 
     return;
+
   }
 
 
+
   app.innerHTML = "";
+
 
 
   /* =================================================
      BACK
   ================================================= */
 
+
   const back =
   document.createElement("div");
 
+
   back.className =
   "back";
+
 
   back.textContent =
   "← Explore";
@@ -765,57 +1348,75 @@ function renderPage2(
   back.onclick =
   function(){
 
+
     window.location.href =
     window.location.pathname;
 
   };
 
 
-  app.appendChild(back);
+  app.appendChild(
+    back
+  );
+
 
 
   /* =================================================
      DETAIL
   ================================================= */
 
+
   const detail =
   document.createElement("div");
 
+
   detail.className =
   "detail";
+
 
 
   /* =================================================
      MAIN THUMBNAIL
   ================================================= */
 
+
   const mainImg =
   document.createElement("img");
 
+
   mainImg.className =
   "detail-main-img";
+
 
   mainImg.src =
   mediaUrl(
     item.thumbnail
   );
 
+
   mainImg.alt =
-  item.title || "Thumbnail";
+  item.title ||
+  "Thumbnail";
 
 
-  /*
-    Thumbnail → Vlink
-  */
+
+  /* ================================================
+     THUMBNAIL → VLINK
+  ================================================ */
+
 
   mainImg.onclick =
   function(){
 
+
     if(item.Vlink){
 
       window.open(
+
         item.Vlink,
+
         "_blank"
+
       );
 
     }
@@ -823,93 +1424,118 @@ function renderPage2(
   };
 
 
+
   detail.appendChild(
     mainImg
   );
+
 
 
   /* =================================================
      CONTENT
   ================================================= */
 
+
   const content =
   document.createElement("div");
 
+
   content.className =
   "detail-content";
+
 
 
   /* =================================================
      TITLE
   ================================================= */
 
+
   const title =
   document.createElement("div");
+
 
   title.className =
   "title";
 
+
   title.textContent =
-  item.title || "Untitled";
+  item.title ||
+  "Untitled";
+
 
 
   /* =================================================
      DESCRIPTION
   ================================================= */
 
+
   const description =
   document.createElement("div");
+
 
   description.className =
   "description";
 
+
   description.textContent =
-  item.description || "";
+  item.description ||
+  "";
+
 
 
   /* =================================================
      BUTTONS
   ================================================= */
 
+
   const buttons =
   document.createElement("div");
 
+
   buttons.className =
   "buttons";
+
 
 
   const download =
   document.createElement("a");
 
 
-  /*
-    TOKEN:
-    RED + Slink
 
-    ID:
-    GREEN + link
-  */
+  /* ================================================
+     TOKEN = RED + Slink
+
+     ID = GREEN + link
+  ================================================ */
+
 
   if(isTokenLink){
+
 
     download.className =
     "btn download-red";
 
+
     download.textContent =
     "Download Now";
+
 
     download.href =
     downloadUrl(
       item.Slink
     );
 
+
   }else{
+
 
     download.className =
     "btn download-green";
 
+
     download.textContent =
     "Download Now";
+
 
     download.href =
     downloadUrl(
@@ -919,91 +1545,127 @@ function renderPage2(
   }
 
 
+
   download.target =
   "_blank";
 
+
   download.rel =
   "noopener";
+
 
 
   /* =================================================
      EXPLORE
   ================================================= */
 
+
   const explore =
   document.createElement("a");
+
 
   explore.className =
   "btn explore";
 
+
   explore.textContent =
   "Explore";
 
+
   explore.href =
   window.location.pathname;
+
 
 
   buttons.appendChild(
     download
   );
 
+
   buttons.appendChild(
     explore
   );
+
 
 
   content.appendChild(
     title
   );
 
+
   content.appendChild(
     description
   );
+
 
   content.appendChild(
     buttons
   );
 
 
+
   /* =================================================
      SCREENSHOTS
   ================================================= */
 
+
   if(
+
     Array.isArray(
       item.screenshot
     ) &&
+
     item.screenshot.length > 0
+
   ){
+
 
     const screenshotTitle =
     document.createElement("div");
 
+
     screenshotTitle.className =
     "screenshots-title";
+
 
     screenshotTitle.textContent =
     "Screenshots";
 
 
+
     const screenshots =
     document.createElement("div");
+
 
     screenshots.className =
     "screenshots";
 
 
+
     item.screenshot.forEach(
+
       function(url){
+
+
+        if(!url){
+
+          return;
+
+        }
+
+
 
         const img =
         document.createElement("img");
 
+
         img.src =
         mediaUrl(url);
 
+
         img.alt =
         "Screenshot";
+
 
 
         img.onerror =
@@ -1015,23 +1677,28 @@ function renderPage2(
         };
 
 
+
         screenshots.appendChild(
           img
         );
 
       }
+
     );
+
 
 
     content.appendChild(
       screenshotTitle
     );
 
+
     content.appendChild(
       screenshots
     );
 
   }
+
 
 
   detail.appendChild(
@@ -1042,33 +1709,49 @@ function renderPage2(
   app.appendChild(
     detail
   );
+
 }
+
 
 
 /* =====================================================
    ROUTER
 ===================================================== */
 
+
 async function start(){
+
 
   const app =
   document.getElementById("app");
 
 
+
   try{
 
-    /*
-      हमेशा latest JSON
-    */
+
+    /* ==========================================
+       LOAD LATEST JSON
+    ========================================== */
+
 
     const data =
     await loadData();
 
 
+
+    /* ==========================================
+       URL PARAMETERS
+    ========================================== */
+
+
     const params =
     new URLSearchParams(
+
       window.location.search
+
     );
+
 
 
     const id =
@@ -1079,78 +1762,134 @@ async function start(){
     params.get("s");
 
 
-    /* ===============================================
-       DIRECT ID LINK
-    =============================================== */
+
+    /* ==========================================
+       ?id=
+    ========================================== */
+
 
     if(id){
 
       renderPage2(
+
         data,
+
         "id",
+
         id
+
       );
 
       return;
+
     }
 
 
-    /* ===============================================
-       TOKEN LINK
-    =============================================== */
+
+    /* ==========================================
+       ?s=
+    ========================================== */
+
 
     if(token){
 
       renderPage2(
+
         data,
+
         "token",
+
         token
+
       );
 
       return;
+
     }
 
 
-    /* ===============================================
-       NORMAL PAGE 1
-    =============================================== */
 
-    renderPage1(data);
+    /* ==========================================
+       NORMAL PAGE 1
+    ========================================== */
+
+
+    renderPage1(
+      data
+    );
 
 
   }catch(error){
 
+
     console.error(
+
       "Latest JSON error:",
+
       error
+
     );
 
 
-    /*
-      JSON load fail होने पर
-      पुराना fallback data नहीं दिखाएंगे.
-    */
+
+    /* ==========================================
+       EXACT ERROR SHOW
+    ========================================== */
+
 
     app.innerHTML =
-    '<div class="error">' +
-    'Latest data load nahi ho pa raha.' +
-    '<br><br>' +
-    '<button class="retry" onclick="location.reload()">' +
-    'Retry' +
-    '</button>' +
-    '</div>';
+
+      '<div class="error">' +
+
+      '<b>Something went wrong.</b>' +
+
+      '<br><br>' +
+
+      '<small>' +
+
+      'Error: ' +
+
+      String(
+
+        error.message ||
+
+        error
+
+      ) +
+
+      '</small>' +
+
+      '<br><br>' +
+
+      '<button ' +
+
+      'class="retry" ' +
+
+      'onclick="location.reload()">' +
+
+      'Retry' +
+
+      '</button>' +
+
+      '</div>';
 
   }
+
 }
+
 
 
 /* =====================================================
    START
 ===================================================== */
 
+
 start();
+
 
 </script>
 
+
 </body>
+
 </html>
