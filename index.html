@@ -179,6 +179,15 @@ header{
   padding:50px 10px;
 }
 
+.retry{
+  margin-top:15px;
+  padding:12px 20px;
+  border:0;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
 @media(max-width:500px){
 
   .grid{
@@ -212,9 +221,11 @@ header{
 </header>
 
 <div class="container" id="app">
+
   <div class="loading">
-    Loading...
+    Loading latest data...
   </div>
+
 </div>
 
 
@@ -233,60 +244,15 @@ DRIVE_FILE_ID;
 
 
 /* =====================================================
-   FALLBACK DATA
+   CHANNEL
 ===================================================== */
 
-const fallbackData = {
+function openChannel(){
 
-  "listMap": [],
+  window.location.href =
+  "https://youtube.com/@teamsniper450";
 
-  "main": {
-
-    "66040e0fa0594680be1654e01687125e": {
-
-      "thumbnail":
-      "https://youtube.com/shorts/fP53heHmDts",
-
-      "link":
-      "https://drive.google.com/file/d/1PGjwVdk7zC-2BjNtUIyn3FcITKmntgf7/view?usp=drivesdk",
-
-      "description":
-      "nice",
-
-      "Slink":
-      "https://youtube.com/shorts/5b3CVxKkvms",
-
-      "id":
-      "66040e0fa0594680be1654e01687125e",
-
-      "token":
-      "K8xP2mQ7",
-
-      "screenshot":[
-        "https://youtube.com/shorts/fP53heHmDts"
-      ],
-
-      "title":
-      "hi",
-
-      "Vlink":
-      "https://youtube.com/shorts/fP53heHmDts"
-    }
-
-  },
-
-  "listString":[
-    "66040e0fa0594680be1654e01687125e"
-  ],
-
-  "token":{
-
-    "K8xP2mQ7":
-    "66040e0fa0594680be1654e01687125e"
-
-  }
-
-};
+}
 
 
 /* =====================================================
@@ -302,6 +268,7 @@ function getYouTubeId(url){
     const u =
     new URL(url);
 
+
     if(
       u.hostname.includes("youtu.be")
     ){
@@ -311,6 +278,7 @@ function getYouTubeId(url){
       .split("/")[0];
 
     }
+
 
     if(
       u.hostname.includes("youtube.com")
@@ -324,6 +292,7 @@ function getYouTubeId(url){
 
       }
 
+
       if(
         u.pathname.startsWith("/shorts/")
       ){
@@ -332,6 +301,7 @@ function getYouTubeId(url){
         .split("/")[2];
 
       }
+
 
       if(
         u.pathname.startsWith("/embed/")
@@ -351,7 +321,7 @@ function getYouTubeId(url){
 
 
 /* =====================================================
-   DRIVE ID
+   GOOGLE DRIVE ID
 ===================================================== */
 
 function getDriveId(url){
@@ -388,6 +358,7 @@ function mediaUrl(url){
   const youtubeId =
   getYouTubeId(url);
 
+
   if(youtubeId){
 
     return (
@@ -397,6 +368,7 @@ function mediaUrl(url){
     );
 
   }
+
 
   return url;
 }
@@ -410,8 +382,10 @@ function downloadUrl(url){
 
   if(!url) return "";
 
+
   const youtubeId =
   getYouTubeId(url);
+
 
   /*
     YouTube
@@ -435,6 +409,7 @@ function downloadUrl(url){
   const driveId =
   getDriveId(url);
 
+
   if(driveId){
 
     return (
@@ -446,19 +421,78 @@ function downloadUrl(url){
   }
 
 
+  /*
+    Normal URL
+  */
+
   return url;
 }
 
 
 /* =====================================================
-   CHANNEL
+   LOAD LATEST JSON
 ===================================================== */
 
-function openChannel(){
+async function loadData(){
 
-  window.location.href =
-  "https://youtube.com/@teamsniper450";
+  /*
+    Timestamp add करके हर request को
+    नया URL बनाया जाता है.
+  */
 
+  const freshUrl =
+    DATA_URL +
+    "&_t=" +
+    Date.now();
+
+
+  const response =
+    await fetch(
+      freshUrl,
+      {
+        method:"GET",
+        cache:"no-store",
+
+        headers:{
+          "Cache-Control":"no-cache",
+          "Pragma":"no-cache"
+        }
+      }
+    );
+
+
+  if(!response.ok){
+
+    throw new Error(
+      "JSON fetch failed: " +
+      response.status
+    );
+
+  }
+
+
+  const data =
+  await response.json();
+
+
+  /*
+    Required structure check
+  */
+
+  if(
+    !data ||
+    typeof data.main !== "object" ||
+    typeof data.token !== "object"
+  ){
+
+    throw new Error(
+      "Invalid JSON structure"
+    );
+
+  }
+
+
+  return data;
 }
 
 
@@ -471,6 +505,7 @@ function renderPage1(data){
   const app =
   document.getElementById("app");
 
+
   app.innerHTML = "";
 
 
@@ -482,11 +517,12 @@ function renderPage1(data){
 
 
   /*
-    ONLY main
+    ONLY MAIN
   */
 
   const main =
   data.main || {};
+
 
   const ids =
   Object.keys(main);
@@ -503,77 +539,92 @@ function renderPage1(data){
   }
 
 
-  ids.forEach(function(id){
+  ids.forEach(
+    function(id){
 
-    const item =
-    main[id];
-
-
-    const card =
-    document.createElement("div");
-
-    card.className =
-    "card";
+      const item =
+      main[id];
 
 
-    const img =
-    document.createElement("img");
+      const card =
+      document.createElement("div");
 
-    img.src =
-    mediaUrl(item.thumbnail);
-
-    img.alt =
-    item.title || "Thumbnail";
+      card.className =
+      "card";
 
 
-    const title =
-    document.createElement("div");
+      const img =
+      document.createElement("img");
 
-    title.className =
-    "card-title";
+      img.src =
+      mediaUrl(item.thumbnail);
 
-    title.textContent =
-    item.title || "Untitled";
-
-
-    card.appendChild(img);
-
-    card.appendChild(title);
+      img.alt =
+      item.title || "Thumbnail";
 
 
-    /*
-      PAGE 1 → PAGE 2
+      /*
+        Broken thumbnail fallback
+      */
 
-      सिर्फ TOKEN जाएगा.
-
-      Example:
-
-      ?s=K8xP2mQ7
-    */
-
-    card.addEventListener(
-      "click",
+      img.onerror =
       function(){
 
-        if(!item.token){
+        this.style.display =
+        "none";
 
-          return;
+      };
+
+
+      const title =
+      document.createElement("div");
+
+      title.className =
+      "card-title";
+
+      title.textContent =
+      item.title || "Untitled";
+
+
+      card.appendChild(img);
+
+      card.appendChild(title);
+
+
+      /*
+        PAGE 1 → PAGE 2
+
+        ONLY TOKEN
+
+        ?s=K8xP2mQ7
+      */
+
+      card.addEventListener(
+        "click",
+        function(){
+
+          if(
+            !item.token
+          ){
+
+            return;
+          }
+
+
+          window.location.href =
+          "?s=" +
+          encodeURIComponent(
+            item.token
+          );
+
         }
+      );
 
 
-        window.location.href =
-        "?s=" +
-        encodeURIComponent(
-          item.token
-        );
+      grid.appendChild(card);
 
-      }
-    );
-
-
-    grid.appendChild(card);
-
-  });
+    }
+  );
 
 
   app.appendChild(grid);
@@ -594,18 +645,23 @@ function renderPage2(
   document.getElementById("app");
 
 
-  let id = null;
+  let id =
+  null;
 
-  let isTokenLink = false;
+
+  let isTokenLink =
+  false;
 
 
   /* =================================================
-     ID LINK
+     DIRECT ID
 
-     ?id=XXXXXXXX
+     ?id=VALID_ID
 
      VALID → PAGE 2
      INVALID → PAGE 1
+
+     GREEN + link
   ================================================= */
 
   if(type === "id"){
@@ -613,40 +669,35 @@ function renderPage2(
     const main =
     data.main || {};
 
-    /*
-      ID key से directly check
-    */
 
     if(
-      main[value]
+      Object.prototype.hasOwnProperty.call(
+        main,
+        value
+      )
     ){
 
-      id = value;
+      id =
+      value;
 
     }else{
-
-      /*
-        Invalid ID
-        → Page 1
-      */
 
       renderPage1(data);
 
       return;
     }
-
   }
 
 
   /* =================================================
-     TOKEN LINK
+     TOKEN
 
-     ?s=K8xP2mQ7
+     ?s=VALID_TOKEN
 
      VALID → PAGE 2
-     RED + Slink
-
      INVALID → PAGE 1
+
+     RED + Slink
   ================================================= */
 
   if(type === "token"){
@@ -655,16 +706,12 @@ function renderPage2(
     data.token || {};
 
 
-    id =
-    tokenMap[value];
-
-
-    if(!id){
-
-      /*
-        Invalid token
-        → Page 1
-      */
+    if(
+      !Object.prototype.hasOwnProperty.call(
+        tokenMap,
+        value
+      )
+    ){
 
       renderPage1(data);
 
@@ -672,7 +719,12 @@ function renderPage2(
     }
 
 
-    isTokenLink = true;
+    id =
+    tokenMap[value];
+
+
+    isTokenLink =
+    true;
   }
 
 
@@ -709,6 +761,7 @@ function renderPage2(
   back.textContent =
   "← Explore";
 
+
   back.onclick =
   function(){
 
@@ -733,7 +786,7 @@ function renderPage2(
 
 
   /* =================================================
-     THUMBNAIL
+     MAIN THUMBNAIL
   ================================================= */
 
   const mainImg =
@@ -830,13 +883,11 @@ function renderPage2(
 
 
   /*
-    TOKEN LINK
-    → RED
-    → Slink
+    TOKEN:
+    RED + Slink
 
-    ID LINK
-    → GREEN
-    → link
+    ID:
+    GREEN + link
   */
 
   if(isTokenLink){
@@ -954,6 +1005,16 @@ function renderPage2(
         img.alt =
         "Screenshot";
 
+
+        img.onerror =
+        function(){
+
+          this.style.display =
+          "none";
+
+        };
+
+
         screenshots.appendChild(
           img
         );
@@ -977,66 +1038,10 @@ function renderPage2(
     content
   );
 
+
   app.appendChild(
     detail
   );
-}
-
-
-/* =====================================================
-   LOAD JSON
-===================================================== */
-
-async function loadData(){
-
-  try{
-
-    const response =
-    await fetch(
-      DATA_URL,
-      {
-        cache:"no-store"
-      }
-    );
-
-
-    if(!response.ok){
-
-      throw new Error(
-        "Drive fetch failed"
-      );
-
-    }
-
-
-    const data =
-    await response.json();
-
-
-    if(
-      !data ||
-      typeof data.main !== "object" ||
-      typeof data.token !== "object"
-    ){
-
-      throw new Error(
-        "Invalid JSON"
-      );
-
-    }
-
-
-    return data;
-
-  }catch(error){
-
-    console.log(
-      "Using fallback data:",
-      error
-    );
-
-    return fallbackData;
-  }
 }
 
 
@@ -1046,63 +1051,96 @@ async function loadData(){
 
 async function start(){
 
-  const data =
-  await loadData();
+  const app =
+  document.getElementById("app");
 
 
-  const params =
-  new URLSearchParams(
-    window.location.search
-  );
+  try{
+
+    /*
+      हमेशा latest JSON
+    */
+
+    const data =
+    await loadData();
 
 
-  const id =
-  params.get("id");
-
-
-  const token =
-  params.get("s");
-
-
-  /* =================================================
-     PRIORITY:
-
-     ?id=...
-     then
-     ?s=...
-  ================================================= */
-
-
-  if(id){
-
-    renderPage2(
-      data,
-      "id",
-      id
+    const params =
+    new URLSearchParams(
+      window.location.search
     );
 
-    return;
-  }
+
+    const id =
+    params.get("id");
 
 
-  if(token){
+    const token =
+    params.get("s");
 
-    renderPage2(
-      data,
-      "token",
-      token
+
+    /* ===============================================
+       DIRECT ID LINK
+    =============================================== */
+
+    if(id){
+
+      renderPage2(
+        data,
+        "id",
+        id
+      );
+
+      return;
+    }
+
+
+    /* ===============================================
+       TOKEN LINK
+    =============================================== */
+
+    if(token){
+
+      renderPage2(
+        data,
+        "token",
+        token
+      );
+
+      return;
+    }
+
+
+    /* ===============================================
+       NORMAL PAGE 1
+    =============================================== */
+
+    renderPage1(data);
+
+
+  }catch(error){
+
+    console.error(
+      "Latest JSON error:",
+      error
     );
 
-    return;
+
+    /*
+      JSON load fail होने पर
+      पुराना fallback data नहीं दिखाएंगे.
+    */
+
+    app.innerHTML =
+    '<div class="error">' +
+    'Latest data load nahi ho pa raha.' +
+    '<br><br>' +
+    '<button class="retry" onclick="location.reload()">' +
+    'Retry' +
+    '</button>' +
+    '</div>';
+
   }
-
-
-  /*
-    No ID / No Token
-    → Page 1
-  */
-
-  renderPage1(data);
 }
 
 
