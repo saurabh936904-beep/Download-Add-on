@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>Team✓Sniper™</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    background:
+        radial-gradient(circle at top,#18243a 0%,#080b12 45%,#030407 100%);
+    color:#fff;
+    font-family:Arial,Helvetica,sans-serif;
+    min-height:100vh;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+.header{
+    position:sticky;
+    top:0;
+    z-index:100;
+    backdrop-filter:blur(18px);
+    background:rgba(5,8,14,.82);
+    border-bottom:1px solid rgba(255,255,255,.08);
+    padding:16px 18px;
+}
+
+.header-inner{
+    max-width:1100px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+}
+
+.brand{
+    cursor:pointer;
+}
+
+.brand-title{
+    font-size:25px;
+    font-weight:900;
+    letter-spacing:.5px;
+}
+
+.brand-user{
+    margin-top:3px;
+    color:#9ca8ba;
+    font-size:13px;
+}
+
+.container{
+    width:100%;
+    max-width:1100px;
+    margin:auto;
+    padding:25px 16px 50px;
+}
+
+.hero{
+    padding:20px 0 25px;
+}
+
+.hero h1{
+    font-size:32px;
+    font-weight:900;
+    margin-bottom:8px;
+}
+
+.hero p{
+    color:#9da8b8;
+    line-height:1.5;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(230px,1fr));
+    gap:18px;
+}
+
+.card{
+    background:rgba(17,22,32,.9);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:18px;
+    overflow:hidden;
+    cursor:pointer;
+    transition:.25s;
+    box-shadow:0 12px 35px rgba(0,0,0,.25);
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    border-color:rgba(255,255,255,.2);
+}
+
+.card-img{
+    width:100%;
+    aspect-ratio:16/9;
+    object-fit:cover;
+    display:block;
+    background:#111;
+}
+
+.card-body{
+    padding:15px;
+}
+
+.card-title{
+    font-size:17px;
+    font-weight:800;
+    line-height:1.3;
+}
+
+.card-id{
+    margin-top:7px;
+    font-size:10px;
+    color:#667286;
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+}
+
+.detail{
+    max-width:850px;
+    margin:auto;
+}
+
+.back{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:10px 15px;
+    border-radius:10px;
+    background:#151c28;
+    border:1px solid rgba(255,255,255,.08);
+    color:#cbd5e1;
+    margin-bottom:18px;
+    cursor:pointer;
+}
+
+.detail-image{
+    width:100%;
+    max-height:500px;
+    object-fit:cover;
+    border-radius:20px;
+    display:block;
+    background:#111;
+    cursor:pointer;
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.detail-title{
+    font-size:30px;
+    font-weight:900;
+    margin:20px 0 10px;
+}
+
+.description{
+    color:#b7c0ce;
+    line-height:1.65;
+    white-space:pre-wrap;
+    margin-bottom:22px;
+}
+
+.actions{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-bottom:30px;
+}
+
+.btn{
+    border:0;
+    border-radius:12px;
+    padding:14px 22px;
+    font-size:15px;
+    font-weight:800;
+    cursor:pointer;
+    min-width:145px;
+    transition:.2s;
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+}
+
+.btn-download-red{
+    background:#ef233c;
+    color:#fff;
+}
+
+.btn-download-green{
+    background:#16a34a;
+    color:#fff;
+}
+
+.btn-explore{
+    background:#202938;
+    color:#fff;
+    border:1px solid rgba(255,255,255,.1);
+}
+
+.section-title{
+    font-size:20px;
+    font-weight:900;
+    margin:25px 0 14px;
+}
+
+.screenshots{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(180px,1fr));
+    gap:14px;
+}
+
+.screenshot{
+    width:100%;
+    aspect-ratio:16/9;
+    object-fit:cover;
+    border-radius:14px;
+    background:#111;
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.loading{
+    text-align:center;
+    padding:60px 20px;
+    color:#9ca8b8;
+}
+
+.error{
+    max-width:700px;
+    margin:50px auto;
+    padding:20px;
+    border-radius:15px;
+    background:rgba(239,35,60,.1);
+    border:1px solid rgba(239,35,60,.25);
+    color:#ff8b99;
+}
+
+.empty{
+    text-align:center;
+    padding:60px 20px;
+    color:#8995a8;
+}
+
+.footer{
+    text-align:center;
+    padding:30px 15px;
+    color:#687386;
+    font-size:12px;
+}
+
+@media(max-width:600px){
+
+    .brand-title{
+        font-size:21px;
+    }
+
+    .container{
+        padding:20px 12px 40px;
+    }
+
+    .hero h1{
+        font-size:27px;
+    }
+
+    .grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+        gap:11px;
+    }
+
+    .card{
+        border-radius:13px;
+    }
+
+    .card-body{
+        padding:11px;
+    }
+
+    .card-title{
+        font-size:14px;
+    }
+
+    .detail-title{
+        font-size:24px;
+    }
+
+    .btn{
+        width:100%;
+    }
+
+    .screenshots{
+        grid-template-columns:1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+    <div class="header-inner">
+
+        <div class="brand" id="brandButton">
+            <div class="brand-title">Team✓Sniper™</div>
+            <div class="brand-user">@teamsniper450</div>
+        </div>
+
+    </div>
+</header>
+
+<main class="container" id="app">
+    <div class="loading">Loading database...</div>
+</main>
+
+<footer class="footer">
+    Team✓Sniper™ • @teamsniper450
+</footer>
+
+
+<script>
+
+/* =========================================================
+   GOOGLE DRIVE DATABASE
+   ========================================================= */
+
+const DRIVE_FILE_ID =
+    "1PGjwVdk7zC-2BjNtUIyn3FcITKmntgf7";
+
+
+/*
+   Google Drive direct download URL
+*/
+const DATA_URL =
+    "https://drive.google.com/uc?export=download&id=" +
+    DRIVE_FILE_ID;
+
+
+/* =========================================================
+   DEFAULT DATA
+   =========================================================
+   इसका फायदा यह है कि अगर browser में Drive CORS/block
+   हो जाए तो supplied data से website फिर भी test हो सके।
+   ========================================================= */
+
+const fallbackData = {
+    "listMap": [
+        {
+            "thumbnail":
+            "https://youtube.com/shorts/fP53heHmDts?si=TW25n0ZXrV9O7YiO",
+
+            "link":
+            "https://drive.google.com/file/d/1PGjwVdk7zC-2BjNtUIyn3FcITKmntgf7/view?usp=drivesdk",
+
+            "description":
+            "nice",
+
+            "Slink":
+            "https://youtube.com/shorts/5b3CVxKkvms?si=1avhlLQ2B83f2U_a",
+
+            "id":
+            "66040e0fa0594680be1654e01687125e",
+
+            "screenshot": [
+                "https://youtube.com/shorts/5b3CVxKkvms?si=1avhlLQ2B83f2U_a"
+            ],
+
+            "title":
+            "hi",
+
+            "Vlink":
+            "https://youtube.com/shorts/5b3CVxKkvms?si=1avhlLQ2B83f2U_a"
+        }
+    ],
+
+    "main": {
+        "66040e0fa0594680be1654e01687125e": {
+            "thumbnail":
+            "https://youtube.com/shorts/fP53heHmDts?si=TW25n0ZXrV9O7YiO",
+
+            "link":
+            "https://drive.google.com/file/d/1PGjwVdk7zC-2BjNtUIyn3FcITKmntgf7/view?usp=drivesdk",
+
+            "description":
+            "nice",
+
+            "Slink":
+            "https://youtube.com/shorts/5b3CVxKkvms?si=1avhlLQ2B83f2U_a",
+
+            "id":
+            "66040e0fa0594680be1654e01687125e",
+
+            "screenshot": [
+                "https://youtube.com/shorts/5b3CVxKkvms?si=1avhlLQ2B83f2U_a"
+            ],
+
+            "title":
+            "hi",
+
+            "Vlink":
+            "https://youtube.com/shorts/5b3CVxKkvms?si=1avhlLQ2B83f2U_a"
+        }
+    },
+
+    "listString": [
+        "66040e0fa0594680be1654e01687125e"
+    ]
+};
+
+
+/* =========================================================
+   URL HELPERS
+   ========================================================= */
+
+function getQueryId(){
+
+    const params = new URLSearchParams(
+        window.location.search
+    );
+
+    return params.get("id") || "";
+}
+
+
+/* =========================================================
+   YOUTUBE
+   ========================================================= */
+
+function getYouTubeId(url){
+
+    if(!url || typeof url !== "string"){
+        return null;
+    }
+
+    try{
+
+        const u = new URL(url);
+
+        const host =
+            u.hostname.toLowerCase().replace("www.","");
+
+
+        if(host === "youtu.be"){
+
+            const id =
+                u.pathname.substring(1);
+
+            return id || null;
+        }
+
+
+        if(
+            host === "youtube.com" ||
+            host === "m.youtube.com"
+        ){
+
+            if(u.pathname === "/watch"){
+                return u.searchParams.get("v");
+            }
+
+
+            if(u.pathname.startsWith("/shorts/")){
+
+                return u.pathname
+                    .split("/")[2]
+                    ?.split("?")[0] || null;
+            }
+
+
+            if(u.pathname.startsWith("/embed/")){
+
+                return u.pathname
+                    .split("/")[2]
+                    ?.split("?")[0] || null;
+            }
+        }
+
+    }catch(e){}
+
+    return null;
+}
+
+
+/* =========================================================
+   DRIVE
+   ========================================================= */
+
+function getDriveId(url){
+
+    if(!url || typeof url !== "string"){
+        return null;
+    }
+
+    const patterns = [
+
+        /\/file\/d\/([a-zA-Z0-9_-]+)/,
+
+        /[?&]id=([a-zA-Z0-9_-]+)/,
+
+        /\/uc\?.*id=([a-zA-Z0-9_-]+)/
+
+    ];
+
+    for(const pattern of patterns){
+
+        const match = url.match(pattern);
+
+        if(match && match[1]){
+            return match[1];
+        }
+    }
+
+    return null;
+}
+
+
+/* =========================================================
+   LINK TYPE
+   ========================================================= */
+
+function getLinkType(url){
+
+    if(getYouTubeId(url)){
+        return "youtube";
+    }
+
+    if(getDriveId(url)){
+        return "drive";
+    }
+
+    return "other";
+}
+
+
+/* =========================================================
+   THUMBNAIL / DOWNLOAD URL
+   ========================================================= */
+
+function mediaUrl(url){
+
+    if(!url){
+        return "";
+    }
+
+
+    /* YouTube → thumbnail */
+
+    const youtubeId =
+        getYouTubeId(url);
+
+    if(youtubeId){
+
+        return "https://i.ytimg.com/vi/" +
+               youtubeId +
+               "/maxresdefault.jpg";
+    }
+
+
+    /* Drive → direct download */
+
+    const driveId =
+        getDriveId(url);
+
+    if(driveId){
+
+        return "https://drive.usercontent.google.com/download?id=" +
+               encodeURIComponent(driveId) +
+               "&export=download&confirm=t";
+    }
+
+
+    /* Other → direct URL */
+
+    return url;
+}
+
+
+/* =========================================================
+   OPEN DOWNLOAD
+   ========================================================= */
+
+function openDownload(url){
+
+    if(!url){
+        return;
+    }
+
+    const finalUrl =
+        mediaUrl(url);
+
+    window.open(
+        finalUrl,
+        "_blank",
+        "noopener"
+    );
+}
+
+
+/* =========================================================
+   OPEN YOUTUBE VIDEO
+   ========================================================= */
+
+function openVideo(url){
+
+    if(!url){
+        return;
+    }
+
+    const youtubeId =
+        getYouTubeId(url);
+
+    if(youtubeId){
+
+        window.open(
+            "https://www.youtube.com/watch?v=" +
+            youtubeId,
+            "_blank",
+            "noopener"
+        );
+
+        return;
+    }
+
+    window.open(
+        url,
+        "_blank",
+        "noopener"
+    );
+}
+
+
+/* =========================================================
+   SAFE TEXT
+   ========================================================= */
+
+function safeText(value){
+
+    if(value === null ||
+       value === undefined){
+
+        return "";
+    }
+
+    return String(value);
+}
+
+
+/* =========================================================
+   LOAD JSON
+   ========================================================= */
+
+async function loadDatabase(){
+
+    try{
+
+        const response =
+            await fetch(DATA_URL, {
+                cache:"no-store"
+            });
+
+        if(!response.ok){
+            throw new Error(
+                "HTTP " + response.status
+            );
+        }
+
+        const data =
+            await response.json();
+
+        if(
+            !data ||
+            typeof data.main !== "object"
+        ){
+
+            throw new Error(
+                "main key not found"
+            );
+        }
+
+        return data;
+
+    }catch(error){
+
+        console.warn(
+            "Drive database load failed:",
+            error
+        );
+
+        /*
+          fallback supplied JSON
+        */
+
+        return fallbackData;
+    }
+}
+
+
+/* =========================================================
+   PAGE 1
+   ========================================================= */
+
+function renderPage1(data){
+
+    const app =
+        document.getElementById("app");
+
+    const main =
+        data.main || {};
+
+    const ids =
+        Object.keys(main);
+
+
+    if(ids.length === 0){
+
+        app.innerHTML =
+            '<div class="empty">' +
+            'No items found in main.' +
+            '</div>';
+
+        return;
+    }
+
+
+    let html = `
+
+        <section class="hero">
+
+            <h1>Team✓Sniper™</h1>
+
+            <p>
+                Latest videos, downloads and exclusive content.
+            </p>
+
+        </section>
+
+        <section class="grid">
+    `;
+
+
+    ids.forEach(function(id){
+
+        const item =
+            main[id];
+
+        if(!item){
+            return;
+        }
+
+
+        const thumbnail =
+            mediaUrl(
+                item.thumbnail || ""
+            );
+
+
+        const title =
+            safeText(item.title);
+
+
+        html += `
+
+            <article
+                class="card"
+                data-id="${escapeAttr(id)}"
+            >
+
+                <img
+                    class="card-img"
+                    src="${escapeAttr(thumbnail)}"
+                    alt="${escapeAttr(title)}"
+                    loading="lazy"
+                    onerror="this.src='https://via.placeholder.com/800x450?text=Team+Sniper'"
+                >
+
+                <div class="card-body">
+
+                    <div class="card-title">
+                        ${escapeHtml(title)}
+                    </div>
+
+                    <div class="card-id">
+                        ${escapeHtml(id)}
+                    </div>
+
+                </div>
+
+            </article>
+        `;
+    });
+
+
+    html += `
+        </section>
+    `;
+
+
+    app.innerHTML = html;
+
+
+    document
+        .querySelectorAll(".card")
+        .forEach(function(card){
+
+            card.addEventListener(
+                "click",
+                function(){
+
+                    const id =
+                        card.getAttribute("data-id");
+
+                    if(id){
+
+                        window.location.href =
+                            "?id=" +
+                            encodeURIComponent(id);
+                    }
+                }
+            );
+        });
+}
+
+
+/* =========================================================
+   PAGE 2
+   ========================================================= */
+
+function renderPage2(data,id){
+
+    const app =
+        document.getElementById("app");
+
+    const main =
+        data.main || {};
+
+    const item =
+        main[id];
+
+
+    /*
+       ID match
+    */
+
+    const matched =
+        !!item;
+
+
+    /*
+       Match है तो link
+       Match नहीं तो Slink
+    */
+
+    const downloadLink =
+        matched
+        ? safeText(item.link)
+        : "";
+
+
+    const fallbackLink =
+        matched
+        ? safeText(item.Slink)
+        : "";
+
+
+    /*
+       Thumbnail
+    */
+
+    const thumbnailSource =
+        matched
+        ? safeText(item.thumbnail)
+        : "";
+
+
+    const thumbnail =
+        mediaUrl(thumbnailSource);
+
+
+    /*
+       Button color
+    */
+
+    const buttonClass =
+        matched
+        ? "btn btn-download-green"
+        : "btn btn-download-red";
+
+
+    /*
+       Button target
+
+       matched = link
+       unmatched = Slink
+    */
+
+    const finalDownload =
+        matched
+        ? downloadLink
+        : fallbackLink;
+
+
+    /*
+       Screenshots
+    */
+
+    const screenshots =
+        matched &&
+        Array.isArray(item.screenshot)
+        ? item.screenshot
+        : [];
+
+
+    let screenshotHtml = "";
+
+
+    screenshots.forEach(function(url){
+
+        const image =
+            mediaUrl(url);
+
+        screenshotHtml += `
+
+            <img
+                class="screenshot"
+                src="${escapeAttr(image)}"
+                alt="Screenshot"
+                loading="lazy"
+                onerror="this.src='https://via.placeholder.com/800x450?text=Screenshot'"
+            >
+        `;
+    });
+
+
+    if(!screenshotHtml){
+
+        screenshotHtml =
+            '<div class="empty">' +
+            'No screenshots available.' +
+            '</div>';
+    }
+
+
+    app.innerHTML = `
+
+        <section class="detail">
+
+            <button
+                class="back"
+                id="backButton"
+            >
+                ← Back
+            </button>
+
+
+            <img
+                id="detailThumbnail"
+                class="detail-image"
+                src="${escapeAttr(thumbnail)}"
+                alt="${escapeAttr(
+                    matched ? item.title : "Not Found"
+                )}"
+                onerror="this.src='https://via.placeholder.com/800x450?text=Team+Sniper'"
+            >
+
+
+            <h1 class="detail-title">
+                ${escapeHtml(
+                    matched
+                    ? item.title
+                    : "Content Not Found"
+                )}
+            </h1>
+
+
+            <div class="description">
+                ${escapeHtml(
+                    matched
+                    ? item.description
+                    : "This ID does not match any item in the database."
+                )}
+            </div>
+
+
+            <div class="actions">
+
+                <button
+                    class="${buttonClass}"
+                    id="downloadButton"
+                >
+                    Download Now
+                </button>
+
+
+                <button
+                    class="btn btn-explore"
+                    id="exploreButton"
+                >
+                    Explore
+                </button>
+
+            </div>
+
+
+            <h2 class="section-title">
+                Screenshots
+            </h2>
+
+
+            <div class="screenshots">
+                ${screenshotHtml}
+            </div>
+
+        </section>
+    `;
+
+
+    /*
+       Back
+    */
+
+    document
+        .getElementById("backButton")
+        .addEventListener(
+            "click",
+            function(){
+
+                window.location.href =
+                    window.location.pathname;
+            }
+        );
+
+
+    /*
+       Explore
+    */
+
+    document
+        .getElementById("exploreButton")
+        .addEventListener(
+            "click",
+            function(){
+
+                window.location.href =
+                    window.location.pathname;
+            }
+        );
+
+
+    /*
+       Download
+    */
+
+    document
+        .getElementById("downloadButton")
+        .addEventListener(
+            "click",
+            function(){
+
+                if(finalDownload){
+
+                    openDownload(
+                        finalDownload
+                    );
+
+                }else{
+
+                    alert(
+                        "Download link available nahi hai."
+                    );
+                }
+            }
+        );
+
+
+    /*
+       Page 2 thumbnail
+       → Vlink
+    */
+
+    if(matched){
+
+        document
+            .getElementById("detailThumbnail")
+            .addEventListener(
+                "click",
+                function(){
+
+                    if(item.Vlink){
+
+                        openVideo(
+                            item.Vlink
+                        );
+                    }
+                }
+            );
+    }
+}
+
+
+/* =========================================================
+   ESCAPE HTML
+   ========================================================= */
+
+function escapeHtml(value){
+
+    return safeText(value)
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+}
+
+
+function escapeAttr(value){
+
+    return escapeHtml(value);
+}
+
+
+/* =========================================================
+   START
+   ========================================================= */
+
+async function start(){
+
+    const data =
+        await loadDatabase();
+
+
+    const id =
+        getQueryId();
+
+
+    /*
+       ID है
+       → Page 2
+
+       ID नहीं है
+       → Page 1
+    */
+
+    if(id){
+
+        renderPage2(
+            data,
+            id
+        );
+
+    }else{
+
+        renderPage1(
+            data
+        );
+    }
+}
+
+
+/* =========================================================
+   BRAND → YOUTUBE
+   ========================================================= */
+
+document
+    .getElementById("brandButton")
+    .addEventListener(
+        "click",
+        function(){
+
+            window.open(
+                "https://youtube.com/@teamsniper450",
+                "_blank",
+                "noopener"
+            );
+        }
+    );
+
+
+start();
+
+</script>
+
+</body>
+</html>
