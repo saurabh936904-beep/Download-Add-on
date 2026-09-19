@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Team✓Sniper™</title>
 
 <style>
@@ -179,6 +178,7 @@ header{
   text-align:center;
   color:#ff5555;
   padding:50px 10px;
+  line-height:1.6;
 }
 
 @media(max-width:500px){
@@ -228,109 +228,11 @@ header{
 <script>
 
 /* =====================================================
-   GOOGLE DRIVE JSON
+   GITHUB GIST RAW JSON
 ===================================================== */
-
-const DRIVE_FILE_ID =
-"1PGjwVdk7zC-2BjNtUIyn3FcITKmntgf7";
 
 const DATA_URL =
-"https://drive.google.com/uc?export=download&id=" +
-DRIVE_FILE_ID;
-
-
-/* =====================================================
-   CURRENT FALLBACK DATA
-===================================================== */
-
-const fallbackData = {
-
-  "listMap":[
-
-    {
-      "thumbnail":
-      "https://youtube.com/shorts/NXG4YUQz9m4?si=ysbcRJRIUVIgbhSc",
-
-      "link":
-      "https://youtube.com/shorts/NXG4YUQz9m4?si=ysbcRJRIUVIgbhSc",
-
-      "description":
-      "Download",
-
-      "Slink":
-      "https://youtube.com/shorts/NXG4YUQz9m4?si=ysbcRJRIUVIgbhSc",
-
-      "id":
-      "af4477e509bf41f38b9ba4c18663ae9e",
-
-      "screenshot":[
-        "https://youtube.com/shorts/TwQlmUtpriU?si=tEOopASPpC5Mrr_M",
-        "https://youtube.com/shorts/5-QGYOqh5ms?si=VaLtufvQ-xPJ48pj"
-      ],
-
-      "title":
-      "Addon",
-
-      "Vlink":
-      "https://youtube.com/shorts/NXG4YUQz9m4?si=ysbcRJRIUVIgbhSc",
-
-      "token":
-      "6aaafd43926c4f718469531ba7897039"
-    }
-
-  ],
-
-
-  "main":{
-
-    "af4477e509bf41f38b9ba4c18663ae9e":{
-
-      "thumbnail":
-      "https://youtube.com/shorts/NXG4YUQz9m4?si=ysbcRJRIUVIgbhSc",
-
-      "link":
-      "https://youtube.com/shorts/NXG4YUQz9m4?si=ysbcRJRIUVIgbhSc",
-
-      "description":
-      "Download",
-
-      "Slink":
-      "https://youtube.com/shorts/NXG4YUQz9m4?si=ysbcRJRIUVIgbhSc",
-
-      "id":
-      "af4477e509bf41f38b9ba4c18663ae9e",
-
-      "screenshot":[
-        "https://youtube.com/shorts/TwQlmUtpriU?si=tEOopASPpC5Mrr_M",
-        "https://youtube.com/shorts/5-QGYOqh5ms?si=VaLtufvQ-xPJ48pj"
-      ],
-
-      "title":
-      "Addon",
-
-      "Vlink":
-      "https://youtube.com/shorts/NXG4YUQz9m4?si=ysbcRJRIUVIgbhSc",
-
-      "token":
-      "6aaafd43926c4f718469531ba7897039"
-    }
-
-  },
-
-
-  "listString":[
-    "af4477e509bf41f38b9ba4c18663ae9e"
-  ],
-
-
-  "token":{
-
-    "6aaafd43926c4f718469531ba7897039":
-    "af4477e509bf41f38b9ba4c18663ae9e"
-
-  }
-
-};
+"https://gist.githubusercontent.com/saurabh936904-beep/73067a85d4c453239c89d4f67a76ea7f/raw/da501a9ee44f6b890f1515f0c1f4052dca3909c5/database.json";
 
 
 /* =====================================================
@@ -343,19 +245,17 @@ function getYouTubeId(url){
 
   try{
 
-    const u =
-    new URL(url);
+    const u = new URL(url);
 
     if(
       u.hostname.includes("youtu.be")
     ){
 
       return u.pathname
-      .substring(1)
-      .split("/")[0];
+        .substring(1)
+        .split("/")[0];
 
     }
-
 
     if(
       u.hostname.includes("youtube.com")
@@ -369,23 +269,21 @@ function getYouTubeId(url){
 
       }
 
-
       if(
         u.pathname.startsWith("/shorts/")
       ){
 
         return u.pathname
-        .split("/")[2];
+          .split("/")[2];
 
       }
-
 
       if(
         u.pathname.startsWith("/embed/")
       ){
 
         return u.pathname
-        .split("/")[2];
+          .split("/")[2];
 
       }
 
@@ -398,7 +296,7 @@ function getYouTubeId(url){
 
 
 /* =====================================================
-   DRIVE ID
+   GOOGLE DRIVE ID
 ===================================================== */
 
 function getDriveId(url){
@@ -408,19 +306,20 @@ function getDriveId(url){
   try{
 
     const match =
-    url.match(
-      /(?:\/d\/|id=)([a-zA-Z0-9_-]+)/
-    );
+      url.match(
+        /(?:\/d\/|id=)([a-zA-Z0-9_-]+)/
+      );
 
     return match
-    ? match[1]
-    : null;
+      ? match[1]
+      : null;
 
   }catch(e){
 
     return null;
 
   }
+
 }
 
 
@@ -433,8 +332,7 @@ function mediaUrl(url){
   if(!url) return "";
 
   const youtubeId =
-  getYouTubeId(url);
-
+    getYouTubeId(url);
 
   if(youtubeId){
 
@@ -446,8 +344,8 @@ function mediaUrl(url){
 
   }
 
-
   return url;
+
 }
 
 
@@ -460,8 +358,7 @@ function downloadUrl(url){
   if(!url) return "";
 
   const youtubeId =
-  getYouTubeId(url);
-
+    getYouTubeId(url);
 
   if(youtubeId){
 
@@ -475,8 +372,7 @@ function downloadUrl(url){
 
 
   const driveId =
-  getDriveId(url);
-
+    getDriveId(url);
 
   if(driveId){
 
@@ -490,17 +386,18 @@ function downloadUrl(url){
 
 
   return url;
+
 }
 
 
 /* =====================================================
-   YOUTUBE CHANNEL
+   CHANNEL
 ===================================================== */
 
 function openChannel(){
 
   window.location.href =
-  "https://youtube.com/@teamsniper450";
+    "https://youtube.com/@teamsniper450";
 
 }
 
@@ -512,30 +409,35 @@ function openChannel(){
 function renderPage1(data){
 
   const app =
-  document.getElementById("app");
+    document.getElementById("app");
 
   app.innerHTML = "";
 
 
   const grid =
-  document.createElement("div");
+    document.createElement("div");
 
   grid.className =
-  "grid";
+    "grid";
 
+
+  /*
+    ONLY main is used.
+  */
 
   const main =
-  data.main || {};
-
+    data.main || {};
 
   const ids =
-  Object.keys(main);
+    Object.keys(main);
 
 
   if(ids.length === 0){
 
     app.innerHTML =
-    '<div class="error">No items found.</div>';
+      '<div class="error">' +
+      'No items found.' +
+      '</div>';
 
     return;
 
@@ -545,34 +447,43 @@ function renderPage1(data){
   ids.forEach(function(id){
 
     const item =
-    main[id];
+      main[id];
 
 
     const card =
-    document.createElement("div");
+      document.createElement("div");
 
     card.className =
-    "card";
+      "card";
 
 
     const img =
-    document.createElement("img");
+      document.createElement("img");
 
     img.src =
-    mediaUrl(item.thumbnail);
+      mediaUrl(item.thumbnail);
 
     img.alt =
-    item.title || "Thumbnail";
+      item.title || "Thumbnail";
+
+
+    img.onerror =
+      function(){
+
+        this.style.display =
+          "none";
+
+      };
 
 
     const title =
-    document.createElement("div");
+      document.createElement("div");
 
     title.className =
-    "card-title";
+      "card-title";
 
     title.textContent =
-    item.title || "Untitled";
+      item.title || "Untitled";
 
 
     card.appendChild(img);
@@ -581,9 +492,9 @@ function renderPage1(data){
 
 
     /*
-      PAGE 1 → PAGE 2
+      PAGE 1 CLICK
 
-      ONLY TOKEN
+      ONLY TOKEN IN URL
 
       ?s=TOKEN
     */
@@ -593,15 +504,16 @@ function renderPage1(data){
       function(){
 
         if(!item.token){
+
           return;
+
         }
 
-
         window.location.href =
-        "?s=" +
-        encodeURIComponent(
-          item.token
-        );
+          "?s=" +
+          encodeURIComponent(
+            item.token
+          );
 
       }
     );
@@ -628,7 +540,7 @@ function renderPage2(
 ){
 
   const app =
-  document.getElementById("app");
+    document.getElementById("app");
 
 
   let id = null;
@@ -637,13 +549,15 @@ function renderPage2(
 
 
   /* ===================================================
-     ?id=ID
+     ID
+
+     ?id=XXXXXXXX
   =================================================== */
 
   if(type === "id"){
 
     const main =
-    data.main || {};
+      data.main || {};
 
 
     if(main[value]){
@@ -662,17 +576,19 @@ function renderPage2(
 
 
   /* ===================================================
-     ?s=TOKEN
+     TOKEN
+
+     ?s=XXXXXXXX
   =================================================== */
 
   if(type === "token"){
 
     const tokenMap =
-    data.token || {};
+      data.token || {};
 
 
     id =
-    tokenMap[value];
+      tokenMap[value];
 
 
     if(!id){
@@ -690,12 +606,12 @@ function renderPage2(
 
 
   /* ===================================================
-     ITEM
+     GET ITEM
   =================================================== */
 
   const item =
-  data.main &&
-  data.main[id];
+    data.main &&
+    data.main[id];
 
 
   if(!item){
@@ -715,22 +631,22 @@ function renderPage2(
   =================================================== */
 
   const back =
-  document.createElement("div");
+    document.createElement("div");
 
   back.className =
-  "back";
+    "back";
 
   back.textContent =
-  "← Explore";
+    "← Explore";
 
 
   back.onclick =
-  function(){
+    function(){
 
-    window.location.href =
-    window.location.pathname;
+      window.location.href =
+        window.location.pathname;
 
-  };
+    };
 
 
   app.appendChild(back);
@@ -741,10 +657,10 @@ function renderPage2(
   =================================================== */
 
   const detail =
-  document.createElement("div");
+    document.createElement("div");
 
   detail.className =
-  "detail";
+    "detail";
 
 
   /* ===================================================
@@ -752,38 +668,34 @@ function renderPage2(
   =================================================== */
 
   const mainImg =
-  document.createElement("img");
+    document.createElement("img");
 
   mainImg.className =
-  "detail-main-img";
+    "detail-main-img";
 
   mainImg.src =
-  mediaUrl(
-    item.thumbnail
-  );
+    mediaUrl(item.thumbnail);
 
   mainImg.alt =
-  item.title || "Thumbnail";
+    item.title || "Thumbnail";
 
 
   mainImg.onclick =
-  function(){
+    function(){
 
-    if(item.Vlink){
+      if(item.Vlink){
 
-      window.open(
-        item.Vlink,
-        "_blank"
-      );
+        window.open(
+          item.Vlink,
+          "_blank"
+        );
 
-    }
+      }
 
-  };
+    };
 
 
-  detail.appendChild(
-    mainImg
-  );
+  detail.appendChild(mainImg);
 
 
   /* ===================================================
@@ -791,34 +703,34 @@ function renderPage2(
   =================================================== */
 
   const content =
-  document.createElement("div");
+    document.createElement("div");
 
   content.className =
-  "detail-content";
+    "detail-content";
 
 
   /* TITLE */
 
   const title =
-  document.createElement("div");
+    document.createElement("div");
 
   title.className =
-  "title";
+    "title";
 
   title.textContent =
-  item.title || "Untitled";
+    item.title || "Untitled";
 
 
   /* DESCRIPTION */
 
   const description =
-  document.createElement("div");
+    document.createElement("div");
 
   description.className =
-  "description";
+    "description";
 
   description.textContent =
-  item.description || "";
+    item.description || "";
 
 
   /* ===================================================
@@ -826,75 +738,73 @@ function renderPage2(
   =================================================== */
 
   const buttons =
-  document.createElement("div");
+    document.createElement("div");
 
   buttons.className =
-  "buttons";
+    "buttons";
 
 
   const download =
-  document.createElement("a");
+    document.createElement("a");
 
 
   /*
-     ?id=ID
-     GREEN
-     item.link
+     TOKEN = RED + Slink
 
-     ?s=TOKEN
-     RED
-     item.Slink
+     ID = GREEN + link
   */
 
   if(isTokenLink){
 
     download.className =
-    "btn download-red";
+      "btn download-red";
 
     download.textContent =
-    "Download Now";
+      "Download Now";
 
     download.href =
-    downloadUrl(
-      item.Slink
-    );
+      downloadUrl(
+        item.Slink
+      );
 
   }else{
 
     download.className =
-    "btn download-green";
+      "btn download-green";
 
     download.textContent =
-    "Download Now";
+      "Download Now";
 
     download.href =
-    downloadUrl(
-      item.link
-    );
+      downloadUrl(
+        item.link
+      );
 
   }
 
 
   download.target =
-  "_blank";
+    "_blank";
 
   download.rel =
-  "noopener";
+    "noopener";
 
 
-  /* EXPLORE */
+  /* ===================================================
+     EXPLORE BUTTON
+  =================================================== */
 
   const explore =
-  document.createElement("a");
+    document.createElement("a");
 
   explore.className =
-  "btn explore";
+    "btn explore";
 
   explore.textContent =
-  "Explore";
+    "Explore";
 
   explore.href =
-  window.location.pathname;
+    window.location.pathname;
 
 
   buttons.appendChild(
@@ -924,40 +834,47 @@ function renderPage2(
   =================================================== */
 
   if(
-    Array.isArray(
-      item.screenshot
-    ) &&
+    Array.isArray(item.screenshot) &&
     item.screenshot.length > 0
   ){
 
     const screenshotTitle =
-    document.createElement("div");
+      document.createElement("div");
 
     screenshotTitle.className =
-    "screenshots-title";
+      "screenshots-title";
 
     screenshotTitle.textContent =
-    "Screenshots";
+      "Screenshots";
 
 
     const screenshots =
-    document.createElement("div");
+      document.createElement("div");
 
     screenshots.className =
-    "screenshots";
+      "screenshots";
 
 
     item.screenshot.forEach(
       function(url){
 
         const img =
-        document.createElement("img");
+          document.createElement("img");
 
         img.src =
-        mediaUrl(url);
+          mediaUrl(url);
 
         img.alt =
-        "Screenshot";
+          "Screenshot";
+
+
+        img.onerror =
+          function(){
+
+            this.style.display =
+              "none";
+
+          };
 
 
         screenshots.appendChild(
@@ -992,7 +909,7 @@ function renderPage2(
 
 
 /* =====================================================
-   LOAD JSON
+   LOAD JSON FROM GITHUB GIST
 ===================================================== */
 
 async function loadData(){
@@ -1000,19 +917,19 @@ async function loadData(){
   try{
 
     const response =
-    await fetch(
-      DATA_URL,
-      {
-        method:"GET",
-        cache:"no-store"
-      }
-    );
+      await fetch(
+        DATA_URL,
+        {
+          method:"GET",
+          cache:"no-store"
+        }
+      );
 
 
     if(!response.ok){
 
       throw new Error(
-        "Drive fetch failed: HTTP " +
+        "HTTP Error: " +
         response.status
       );
 
@@ -1020,7 +937,19 @@ async function loadData(){
 
 
     const data =
-    await response.json();
+      await response.json();
+
+
+    /*
+      CURRENT JSON STRUCTURE:
+
+      {
+        listMap: [],
+        main: {},
+        listString: [],
+        token: {}
+      }
+    */
 
 
     if(
@@ -1037,28 +966,21 @@ async function loadData(){
 
 
     console.log(
-      "Live JSON loaded successfully."
+      "GitHub Gist JSON loaded successfully."
     );
 
 
     return data;
 
-
   }catch(error){
 
-    console.log(
-      "Google Drive read failed:",
+    console.error(
+      "JSON Load Error:",
       error
     );
 
 
-    /*
-       IMPORTANT:
-       Live JSON fail hone par
-       current fallback data use hoga.
-    */
-
-    return fallbackData;
+    throw error;
 
   }
 
@@ -1066,68 +988,91 @@ async function loadData(){
 
 
 /* =====================================================
-   ROUTER
+   START / ROUTER
 ===================================================== */
 
 async function start(){
 
-  const data =
-  await loadData();
+  try{
+
+    const data =
+      await loadData();
 
 
-  const params =
-  new URLSearchParams(
-    window.location.search
-  );
+    const params =
+      new URLSearchParams(
+        window.location.search
+      );
 
 
-  const id =
-  params.get("id");
+    const id =
+      params.get("id");
 
 
-  const token =
-  params.get("s");
+    const token =
+      params.get("s");
 
 
-  /* ===================================================
-     ID
-  =================================================== */
+    /* ===============================================
+       ?id=ID
+    =============================================== */
 
-  if(id){
+    if(id){
 
-    renderPage2(
-      data,
-      "id",
-      id
-    );
+      renderPage2(
+        data,
+        "id",
+        id
+      );
 
-    return;
+      return;
+
+    }
+
+
+    /* ===============================================
+       ?s=TOKEN
+    =============================================== */
+
+    if(token){
+
+      renderPage2(
+        data,
+        "token",
+        token
+      );
+
+      return;
+
+    }
+
+
+    /* ===============================================
+       NO PARAMETER
+
+       → PAGE 1
+    =============================================== */
+
+    renderPage1(data);
+
+
+  }catch(error){
+
+    document.getElementById("app").innerHTML =
+
+      '<div class="error">' +
+
+      '<h3>Something went wrong</h3>' +
+
+      '<br>' +
+
+      'JSON Load Error: ' +
+
+      (error.message || error) +
+
+      '</div>';
 
   }
-
-
-  /* ===================================================
-     TOKEN
-  =================================================== */
-
-  if(token){
-
-    renderPage2(
-      data,
-      "token",
-      token
-    );
-
-    return;
-
-  }
-
-
-  /* ===================================================
-     PAGE 1
-  =================================================== */
-
-  renderPage1(data);
 
 }
 
