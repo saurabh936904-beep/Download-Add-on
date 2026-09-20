@@ -157,9 +157,36 @@ header{
   background:#dc2626;
 }
 
+
+/* =====================================================
+   HOW TO DOWNLOAD BUTTON
+===================================================== */
+
+.how-download{
+  background:#2563eb;
+}
+
+.how-download:hover{
+  background:#1d4ed8;
+}
+
+
+/* =====================================================
+   EXPLORE
+===================================================== */
+
 .explore{
   background:#333;
 }
+
+.explore:hover{
+  background:#444;
+}
+
+
+/* =====================================================
+   SCREENSHOTS
+===================================================== */
 
 .screenshots-title{
   margin:25px 0 12px;
@@ -188,6 +215,7 @@ header{
   padding:50px 10px;
   line-height:1.6;
 }
+
 
 @media(max-width:500px){
 
@@ -254,6 +282,15 @@ header{
 const DATA_URL = 
 "https://gist.githubusercontent.com/saurabh936904-beep/73067a85d4c453239c89d4f67a76ea7f/raw/database.json?v=" + new Date().getTime();
 
+
+/* =====================================================
+   DEFAULT HOW TO DOWNLOAD VIDEO
+===================================================== */
+
+const DEFAULT_HLINK =
+"https://youtu.be/LM6_fEaCjyY";
+
+
 /* =====================================================
    YOUTUBE ID
 ===================================================== */
@@ -316,6 +353,7 @@ function getYouTubeId(url){
   }catch(e){}
 
   return null;
+
 }
 
 
@@ -445,7 +483,6 @@ function getItems(data){
 
      Duplicate IDs removed.
   */
-
 
   const result = [];
 
@@ -828,7 +865,7 @@ function renderPage2(
 
 
   /* ===================================================
-     EXPLORE
+     BACK / EXPLORE
   =================================================== */
 
   const back =
@@ -919,7 +956,9 @@ function renderPage2(
   "detail-content";
 
 
-  /* TITLE */
+  /* ===================================================
+     TITLE
+  =================================================== */
 
   const title =
   document.createElement("div");
@@ -932,7 +971,9 @@ function renderPage2(
   "Untitled";
 
 
-  /* DESCRIPTION */
+  /* ===================================================
+     DESCRIPTION
+  =================================================== */
 
   const description =
   document.createElement("div");
@@ -956,21 +997,20 @@ function renderPage2(
   "buttons";
 
 
+  /* ===================================================
+     DOWNLOAD BUTTON
+  =================================================== */
+
   const download =
   document.createElement("a");
 
 
   /*
      ?s=TOKEN
-
-     RED
-     Slink
-
+     → Slink = RED
 
      ?id=ID
-
-     GREEN
-     link
+     → link = GREEN
   */
 
   if(
@@ -1016,8 +1056,70 @@ function renderPage2(
   "noopener";
 
 
+  buttons.appendChild(
+    download
+  );
+
+
   /* ===================================================
-     EXPLORE
+     HOW TO DOWNLOAD BUTTON
+     
+     Hlink available:
+     → Hlink open
+
+     Hlink empty:
+     → Default video open
+
+     Hlink missing:
+     → Default video open
+  =================================================== */
+
+  const howDownload =
+  document.createElement("a");
+
+
+  howDownload.className =
+  "btn how-download";
+
+
+  howDownload.textContent =
+  "How to Download";
+
+
+  let howToLink =
+    DEFAULT_HLINK;
+
+
+  if(
+    typeof item.Hlink === "string" &&
+    item.Hlink.trim() !== ""
+  ){
+
+    howToLink =
+    item.Hlink.trim();
+
+  }
+
+
+  howDownload.href =
+  howToLink;
+
+
+  howDownload.target =
+  "_blank";
+
+
+  howDownload.rel =
+  "noopener";
+
+
+  buttons.appendChild(
+    howDownload
+  );
+
+
+  /* ===================================================
+     EXPLORE BUTTON
   =================================================== */
 
   const explore =
@@ -1037,14 +1139,13 @@ function renderPage2(
 
 
   buttons.appendChild(
-    download
-  );
-
-
-  buttons.appendChild(
     explore
   );
 
+
+  /* ===================================================
+     ADD CONTENT
+  =================================================== */
 
   content.appendChild(
     title
