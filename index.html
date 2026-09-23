@@ -44,6 +44,93 @@ header{
   font-size:14px;
 }
 
+
+/* =====================================================
+   HEADER TITLE + SEARCH BUTTON
+===================================================== */
+
+.title-search-row{
+  width:min(100%,900px);
+  margin:0 auto;
+  padding:0 14px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+}
+
+.page-title{
+  font-size:22px;
+  font-weight:800;
+  color:#fff;
+}
+
+
+/* =====================================================
+   SEARCH BUTTON
+===================================================== */
+
+.search-button{
+  width:42px;
+  height:42px;
+  border:1px solid #333;
+  border-radius:50%;
+  background:#191919;
+  color:#ffd700;
+  font-size:21px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-shrink:0;
+}
+
+.search-button:hover{
+  background:#252525;
+  border-color:#ffd700;
+}
+
+
+/* =====================================================
+   SEARCH BOX
+===================================================== */
+
+.search-box{
+  width:min(100%,900px);
+  margin:12px auto 0;
+  padding:0 14px;
+  display:none;
+}
+
+.search-box.active{
+  display:block;
+}
+
+.search-input{
+  width:100%;
+  height:45px;
+  border:1px solid #333;
+  border-radius:10px;
+  outline:none;
+  background:#111;
+  color:#fff;
+  padding:0 14px;
+  font-size:15px;
+}
+
+.search-input:focus{
+  border-color:#ffd700;
+}
+
+.search-input::placeholder{
+  color:#777;
+}
+
+
+/* =====================================================
+   CONTAINER
+===================================================== */
+
 .container{
   width:min(100%,900px);
   margin:auto;
@@ -55,6 +142,11 @@ header{
   color:#aaa;
   padding:50px 10px;
 }
+
+
+/* =====================================================
+   GRID
+===================================================== */
 
 .grid{
   display:grid;
@@ -157,11 +249,6 @@ header{
   background:#dc2626;
 }
 
-
-/* =====================================================
-   HOW TO DOWNLOAD BUTTON
-===================================================== */
-
 .how-download{
   background:#2563eb;
 }
@@ -169,11 +256,6 @@ header{
 .how-download:hover{
   background:#1d4ed8;
 }
-
-
-/* =====================================================
-   EXPLORE
-===================================================== */
 
 .explore{
   background:#333;
@@ -216,6 +298,25 @@ header{
   line-height:1.6;
 }
 
+
+/* =====================================================
+   NO SEARCH RESULT
+===================================================== */
+
+.no-result{
+  text-align:center;
+  color:#888;
+  padding:50px 10px;
+}
+
+.no-result strong{
+  color:#ffd700;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
 
 @media(max-width:500px){
 
@@ -261,6 +362,47 @@ header{
 </header>
 
 
+<!-- =====================================================
+     PAGE TITLE + SEARCH BUTTON
+===================================================== -->
+
+<div class="title-search-row">
+
+  <div class="page-title">
+    Explore
+  </div>
+
+  <button
+    class="search-button"
+    id="searchButton"
+    type="button"
+    onclick="toggleSearch()">
+
+    🔍
+
+  </button>
+
+</div>
+
+
+<!-- =====================================================
+     SEARCH BOX
+===================================================== -->
+
+<div
+  class="search-box"
+  id="searchBox">
+
+  <input
+    type="text"
+    class="search-input"
+    id="searchInput"
+    placeholder="Search title or token..."
+    autocomplete="off">
+
+</div>
+
+
 <div
   class="container"
   id="app">
@@ -279,7 +421,7 @@ header{
    GITHUB GIST RAW JSON
 ===================================================== */
 
-const DATA_URL = 
+const DATA_URL =
 "https://gist.githubusercontent.com/saurabh936904-beep/73067a85d4c453239c89d4f67a76ea7f/raw/database.json?v=" + new Date().getTime();
 
 
@@ -289,6 +431,13 @@ const DATA_URL =
 
 const DEFAULT_HLINK =
 "https://youtu.be/LM6_fEaCjyY";
+
+
+/* =====================================================
+   GLOBAL DATA
+===================================================== */
+
+let ALL_DATA = null;
 
 
 /* =====================================================
@@ -304,7 +453,6 @@ function getYouTubeId(url){
     const u =
     new URL(url);
 
-
     if(
       u.hostname.includes("youtu.be")
     ){
@@ -314,7 +462,6 @@ function getYouTubeId(url){
       .split("/")[0];
 
     }
-
 
     if(
       u.hostname.includes("youtube.com")
@@ -328,7 +475,6 @@ function getYouTubeId(url){
 
       }
 
-
       if(
         u.pathname.startsWith("/shorts/")
       ){
@@ -337,7 +483,6 @@ function getYouTubeId(url){
         .split("/")[2];
 
       }
-
 
       if(
         u.pathname.startsWith("/embed/")
@@ -396,7 +541,6 @@ function mediaUrl(url){
   const youtubeId =
   getYouTubeId(url);
 
-
   if(youtubeId){
 
     return (
@@ -406,7 +550,6 @@ function mediaUrl(url){
     );
 
   }
-
 
   return url;
 
@@ -424,7 +567,6 @@ function downloadUrl(url){
   const youtubeId =
   getYouTubeId(url);
 
-
   if(youtubeId){
 
     return (
@@ -435,10 +577,8 @@ function downloadUrl(url){
 
   }
 
-
   const driveId =
   getDriveId(url);
-
 
   if(driveId){
 
@@ -449,7 +589,6 @@ function downloadUrl(url){
     );
 
   }
-
 
   return url;
 
@@ -474,16 +613,6 @@ function openChannel(){
 
 function getItems(data){
 
-  /*
-     IMPORTANT:
-
-     listMap = actual item list
-
-     main = lookup only
-
-     Duplicate IDs removed.
-  */
-
   const result = [];
 
   const used =
@@ -506,7 +635,6 @@ function getItems(data){
 
         }
 
-
         if(
           used.has(item.id)
         ){
@@ -514,7 +642,6 @@ function getItems(data){
           return;
 
         }
-
 
         used.add(item.id);
 
@@ -525,11 +652,6 @@ function getItems(data){
 
   }
 
-
-  /*
-     Agar listMap empty ho,
-     tab main se items lenge.
-  */
 
   if(
     result.length === 0 &&
@@ -544,7 +666,6 @@ function getItems(data){
         const item =
         data.main[id];
 
-
         if(
           !item ||
           used.has(id)
@@ -553,7 +674,6 @@ function getItems(data){
           return;
 
         }
-
 
         used.add(id);
 
@@ -571,10 +691,113 @@ function getItems(data){
 
 
 /* =====================================================
-   PAGE 1
+   SEARCH FILTER
 ===================================================== */
 
-function renderPage1(data){
+function filterItems(
+  items,
+  searchText
+){
+
+  /*
+     Case-insensitive search.
+
+     Example:
+
+     Minecraft
+     minecraft
+     MINECRAFT
+
+     सभी same माने जाएंगे।
+  */
+
+  const query =
+  String(searchText || "")
+  .trim()
+  .toLowerCase();
+
+
+  if(!query){
+
+    return items;
+
+  }
+
+
+  return items.filter(
+    function(item){
+
+      const title =
+      String(
+        item.title || ""
+      )
+      .toLowerCase();
+
+
+      const token =
+      String(
+        item.token || ""
+      )
+      .toLowerCase();
+
+
+      /*
+         TITLE OR TOKEN MATCH
+      */
+
+      return (
+        title.includes(query) ||
+        token.includes(query)
+      );
+
+    }
+  );
+
+}
+
+
+/* =====================================================
+   RENDER SEARCH RESULT
+===================================================== */
+
+function renderSearchResults(
+  searchText
+){
+
+  if(!ALL_DATA){
+
+    return;
+
+  }
+
+
+  const items =
+  getItems(ALL_DATA);
+
+
+  const filtered =
+  filterItems(
+    items,
+    searchText
+  );
+
+
+  renderItems(
+    filtered,
+    searchText
+  );
+
+}
+
+
+/* =====================================================
+   RENDER ITEM GRID
+===================================================== */
+
+function renderItems(
+  items,
+  searchText
+){
 
   const app =
   document.getElementById("app");
@@ -583,16 +806,24 @@ function renderPage1(data){
   app.innerHTML = "";
 
 
-  const items =
-  getItems(data);
-
-
   if(items.length === 0){
 
-    app.innerHTML =
-    '<div class="error">' +
-    'No items found.' +
-    '</div>';
+    const noResult =
+    document.createElement("div");
+
+    noResult.className =
+    "no-result";
+
+
+    noResult.innerHTML =
+    'No result found for <strong>"' +
+    escapeHtml(searchText || "") +
+    '"</strong>';
+
+
+    app.appendChild(
+      noResult
+    );
 
     return;
 
@@ -648,12 +879,6 @@ function renderPage1(data){
       card.appendChild(title);
 
 
-      /*
-         ONLY TOKEN
-
-         ?s=TOKEN
-      */
-
       card.addEventListener(
         "click",
         function(){
@@ -689,6 +914,59 @@ function renderPage1(data){
 
 
 /* =====================================================
+   ESCAPE HTML
+===================================================== */
+
+function escapeHtml(text){
+
+  return String(text)
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+
+/* =====================================================
+   PAGE 1
+===================================================== */
+
+function renderPage1(data){
+
+  const app =
+  document.getElementById("app");
+
+
+  app.innerHTML = "";
+
+
+  const items =
+  getItems(data);
+
+
+  if(items.length === 0){
+
+    app.innerHTML =
+    '<div class="error">' +
+    'No items found.' +
+    '</div>';
+
+    return;
+
+  }
+
+
+  renderItems(
+    items,
+    ""
+  );
+
+}
+
+
+/* =====================================================
    FIND ITEM BY ID
 ===================================================== */
 
@@ -717,10 +995,6 @@ function findItemById(
 
   }
 
-
-  /*
-     main lookup fallback
-  */
 
   if(
     data.main &&
@@ -767,10 +1041,6 @@ function findItemByToken(
   }
 
 
-  /*
-     token map fallback
-  */
-
   if(
     data.token &&
     data.token[token]
@@ -809,10 +1079,6 @@ function renderPage2(
   false;
 
 
-  /* ===================================================
-     ?id=ID
-  =================================================== */
-
   if(
     type === "id"
   ){
@@ -826,10 +1092,6 @@ function renderPage2(
   }
 
 
-  /* ===================================================
-     ?s=TOKEN
-  =================================================== */
-
   if(
     type === "token"
   ){
@@ -840,17 +1102,11 @@ function renderPage2(
       value
     );
 
-
     isTokenLink =
     true;
 
   }
 
-
-  /*
-     Invalid ID/TOKEN
-     → PAGE 1
-  */
 
   if(!item){
 
@@ -863,10 +1119,6 @@ function renderPage2(
 
   app.innerHTML = "";
 
-
-  /* ===================================================
-     BACK / EXPLORE
-  =================================================== */
 
   const back =
   document.createElement("div");
@@ -890,20 +1142,12 @@ function renderPage2(
   app.appendChild(back);
 
 
-  /* ===================================================
-     DETAIL
-  =================================================== */
-
   const detail =
   document.createElement("div");
 
   detail.className =
   "detail";
 
-
-  /* ===================================================
-     THUMBNAIL
-  =================================================== */
 
   const mainImg =
   document.createElement("img");
@@ -945,20 +1189,12 @@ function renderPage2(
   );
 
 
-  /* ===================================================
-     CONTENT
-  =================================================== */
-
   const content =
   document.createElement("div");
 
   content.className =
   "detail-content";
 
-
-  /* ===================================================
-     TITLE
-  =================================================== */
 
   const title =
   document.createElement("div");
@@ -971,10 +1207,6 @@ function renderPage2(
   "Untitled";
 
 
-  /* ===================================================
-     DESCRIPTION
-  =================================================== */
-
   const description =
   document.createElement("div");
 
@@ -986,10 +1218,6 @@ function renderPage2(
   "";
 
 
-  /* ===================================================
-     BUTTONS
-  =================================================== */
-
   const buttons =
   document.createElement("div");
 
@@ -997,21 +1225,9 @@ function renderPage2(
   "buttons";
 
 
-  /* ===================================================
-     DOWNLOAD BUTTON
-  =================================================== */
-
   const download =
   document.createElement("a");
 
-
-  /*
-     ?s=TOKEN
-     → Slink = RED
-
-     ?id=ID
-     → link = GREEN
-  */
 
   if(
     isTokenLink
@@ -1020,10 +1236,8 @@ function renderPage2(
     download.className =
     "btn download-red";
 
-
     download.textContent =
     "Download Now";
-
 
     download.href =
     downloadUrl(
@@ -1035,10 +1249,8 @@ function renderPage2(
     download.className =
     "btn download-green";
 
-
     download.textContent =
     "Download Now";
-
 
     download.href =
     downloadUrl(
@@ -1051,7 +1263,6 @@ function renderPage2(
   download.target =
   "_blank";
 
-
   download.rel =
   "noopener";
 
@@ -1061,26 +1272,12 @@ function renderPage2(
   );
 
 
-  /* ===================================================
-     HOW TO DOWNLOAD BUTTON
-     
-     Hlink available:
-     → Hlink open
-
-     Hlink empty:
-     → Default video open
-
-     Hlink missing:
-     → Default video open
-  =================================================== */
-
   const howDownload =
   document.createElement("a");
 
 
   howDownload.className =
   "btn how-download";
-
 
   howDownload.textContent =
   "How to Download";
@@ -1104,10 +1301,8 @@ function renderPage2(
   howDownload.href =
   howToLink;
 
-
   howDownload.target =
   "_blank";
-
 
   howDownload.rel =
   "noopener";
@@ -1118,10 +1313,6 @@ function renderPage2(
   );
 
 
-  /* ===================================================
-     EXPLORE BUTTON
-  =================================================== */
-
   const explore =
   document.createElement("a");
 
@@ -1129,10 +1320,8 @@ function renderPage2(
   explore.className =
   "btn explore";
 
-
   explore.textContent =
   "Explore";
-
 
   explore.href =
   window.location.pathname;
@@ -1143,28 +1332,18 @@ function renderPage2(
   );
 
 
-  /* ===================================================
-     ADD CONTENT
-  =================================================== */
-
   content.appendChild(
     title
   );
-
 
   content.appendChild(
     description
   );
 
-
   content.appendChild(
     buttons
   );
 
-
-  /* ===================================================
-     SCREENSHOTS
-  =================================================== */
 
   if(
     Array.isArray(
@@ -1238,6 +1417,71 @@ function renderPage2(
   );
 
 }
+
+
+/* =====================================================
+   SEARCH BUTTON
+===================================================== */
+
+function toggleSearch(){
+
+  const searchBox =
+  document.getElementById(
+    "searchBox"
+  );
+
+  const searchInput =
+  document.getElementById(
+    "searchInput"
+  );
+
+
+  searchBox.classList.toggle(
+    "active"
+  );
+
+
+  if(
+    searchBox.classList.contains(
+      "active"
+    )
+  ){
+
+    searchInput.focus();
+
+  }else{
+
+    searchInput.value = "";
+
+    if(ALL_DATA){
+
+      renderPage1(
+        ALL_DATA
+      );
+
+    }
+
+  }
+
+}
+
+
+/* =====================================================
+   LIVE SEARCH
+===================================================== */
+
+document
+.getElementById("searchInput")
+.addEventListener(
+  "input",
+  function(){
+
+    renderSearchResults(
+      this.value
+    );
+
+  }
+);
 
 
 /* =====================================================
@@ -1334,6 +1578,10 @@ async function start(){
     await loadData();
 
 
+    ALL_DATA =
+    data;
+
+
     console.log(
       "Total listMap items:",
       data.listMap.length
@@ -1354,10 +1602,6 @@ async function start(){
     params.get("s");
 
 
-    /* =================================================
-       ?id=ID
-    ================================================= */
-
     if(id){
 
       renderPage2(
@@ -1370,10 +1614,6 @@ async function start(){
 
     }
 
-
-    /* =================================================
-       ?s=TOKEN
-    ================================================= */
 
     if(token){
 
@@ -1388,11 +1628,9 @@ async function start(){
     }
 
 
-    /* =================================================
-       PAGE 1
-    ================================================= */
-
-    renderPage1(data);
+    renderPage1(
+      data
+    );
 
   }catch(error){
 
