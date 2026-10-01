@@ -11,10 +11,6 @@
 
 <style>
 
-/* =====================================================
-   GLOBAL
-===================================================== */
-
 *{
   box-sizing:border-box;
   margin:0;
@@ -26,11 +22,7 @@ html{
 }
 
 body{
-  font-family:
-  Arial,
-  Helvetica,
-  sans-serif;
-
+  font-family:Arial,Helvetica,sans-serif;
   background:
   radial-gradient(
     circle at 50% -20%,
@@ -38,156 +30,86 @@ body{
     #0b0b0d 38%,
     #050507 100%
   );
-
   color:#fff;
   min-height:100vh;
 }
-
-
-/* =====================================================
-   HEADER
-===================================================== */
 
 header{
   position:sticky;
   top:0;
   z-index:100;
-
   padding:20px 16px 18px;
-
   text-align:center;
-
   border-bottom:1px solid #292929;
-
-  background:
-  rgba(8,8,10,.88);
-
-  backdrop-filter:
-  blur(18px);
-
-  box-shadow:
-  0 10px 35px rgba(0,0,0,.35);
+  background:rgba(8,8,10,.88);
+  backdrop-filter:blur(18px);
+  box-shadow:0 10px 35px rgba(0,0,0,.35);
 }
 
 .brand{
   color:#ffd700;
-
   font-size:29px;
-
   font-weight:900;
-
   letter-spacing:.5px;
-
   cursor:pointer;
-
-  text-shadow:
-  0 0 18px rgba(255,215,0,.18);
+  text-shadow:0 0 18px rgba(255,215,0,.18);
 }
 
 .handle{
   color:#777;
-
   margin-top:5px;
-
   font-size:13px;
 }
 
-
-/* =====================================================
-   PAGE HEADER
-===================================================== */
-
 .title-search-row{
   width:min(100%,1000px);
-
   margin:0 auto;
-
   padding:22px 15px 0;
-
   display:flex;
-
   align-items:center;
-
   justify-content:space-between;
-
   gap:12px;
 }
 
 .page-title{
   font-size:25px;
-
   font-weight:900;
-
   letter-spacing:.2px;
 }
 
 .page-subtitle{
   color:#777;
-
   font-size:12px;
-
   margin-top:4px;
 }
-
-
-/* =====================================================
-   SEARCH BUTTON
-===================================================== */
 
 .search-button{
   width:45px;
   height:45px;
-
   border:1px solid #343434;
-
   border-radius:50%;
-
   background:
-  linear-gradient(
-    145deg,
-    #1c1c20,
-    #0e0e10
-  );
-
+  linear-gradient(145deg,#1c1c20,#0e0e10);
   color:#ffd700;
-
   font-size:20px;
-
   cursor:pointer;
-
   display:flex;
-
   align-items:center;
-
   justify-content:center;
-
   flex-shrink:0;
-
   transition:.2s;
 }
 
 .search-button:hover{
   border-color:#ffd700;
-
-  transform:
-  translateY(-2px);
-
-  box-shadow:
-  0 8px 25px rgba(255,215,0,.12);
+  transform:translateY(-2px);
+  box-shadow:0 8px 25px rgba(255,215,0,.12);
 }
-
-
-/* =====================================================
-   SEARCH
-===================================================== */
 
 .search-box{
   width:min(100%,1000px);
-
   margin:13px auto 0;
-
   padding:0 15px;
-
   display:none;
 }
 
@@ -197,112 +119,62 @@ header{
 
 .search-input{
   width:100%;
-
   height:48px;
-
   border:1px solid #333;
-
   border-radius:14px;
-
   outline:none;
-
-  background:
-  rgba(20,20,22,.9);
-
+  background:rgba(20,20,22,.9);
   color:#fff;
-
   padding:0 16px;
-
   font-size:15px;
-
-  box-shadow:
-  inset 0 0 20px rgba(0,0,0,.2);
+  box-shadow:inset 0 0 20px rgba(0,0,0,.2);
 }
 
 .search-input:focus{
   border-color:#ffd700;
-
-  box-shadow:
-  0 0 0 3px rgba(255,215,0,.06);
+  box-shadow:0 0 0 3px rgba(255,215,0,.06);
 }
 
 .search-input::placeholder{
   color:#666;
 }
 
-
-/* =====================================================
-   CONTAINER
-===================================================== */
-
 .container{
   width:min(100%,1000px);
-
   margin:auto;
-
   padding:20px 15px 100px;
 }
 
 .loading{
   text-align:center;
-
   color:#999;
-
   padding:70px 10px;
 }
 
-
-/* =====================================================
-   GRID
-===================================================== */
-
 .grid{
   display:grid;
-
-  grid-template-columns:
-  repeat(auto-fill,minmax(180px,1fr));
-
+  grid-template-columns:repeat(auto-fill,minmax(180px,1fr));
   gap:17px;
 }
 
-
-/* =====================================================
-   CARD
-===================================================== */
-
 .card{
   position:relative;
-
   background:
-  linear-gradient(
-    145deg,
-    #151518,
-    #0d0d0f
-  );
-
+  linear-gradient(145deg,#151518,#0d0d0f);
   border:1px solid #29292d;
-
   border-radius:18px;
-
   overflow:hidden;
-
   cursor:pointer;
-
   transition:
   transform .2s,
   border-color .2s,
   box-shadow .2s;
-
-  box-shadow:
-  0 10px 30px rgba(0,0,0,.22);
+  box-shadow:0 10px 30px rgba(0,0,0,.22);
 }
 
 .card:hover{
-  transform:
-  translateY(-5px);
-
+  transform:translateY(-5px);
   border-color:#8e781d;
-
   box-shadow:
   0 18px 45px rgba(0,0,0,.4),
   0 0 25px rgba(255,215,0,.05);
@@ -310,13 +182,9 @@ header{
 
 .card img{
   width:100%;
-
   aspect-ratio:16/9;
-
   object-fit:cover;
-
   display:block;
-
   background:#18181a;
 }
 
@@ -326,85 +194,49 @@ header{
 
 .card-title{
   font-size:15px;
-
   font-weight:800;
-
   line-height:1.35;
 }
 
 .card-token{
   margin-top:7px;
-
   color:#777;
-
   font-size:10px;
-
   white-space:nowrap;
-
   overflow:hidden;
-
   text-overflow:ellipsis;
 }
 
-
-/* =====================================================
-   STATUS BADGE
-===================================================== */
-
 .status-badge{
   position:absolute;
-
   top:10px;
   left:10px;
-
   padding:6px 9px;
-
   border-radius:9px;
-
   font-size:10px;
-
   font-weight:800;
-
-  backdrop-filter:
-  blur(8px);
-
+  backdrop-filter:blur(8px);
   border:1px solid rgba(255,255,255,.08);
 }
 
 .status-public{
   color:#62e6a0;
-
-  background:
-  rgba(18,65,42,.85);
+  background:rgba(18,65,42,.85);
 }
 
 .status-unlisted{
   color:#ffd76a;
-
-  background:
-  rgba(76,59,12,.88);
+  background:rgba(76,59,12,.88);
 }
-
-
-/* =====================================================
-   BACK
-===================================================== */
 
 .back{
   display:inline-flex;
-
   align-items:center;
-
   gap:7px;
-
   color:#aaa;
-
   margin-bottom:16px;
-
   cursor:pointer;
-
   font-size:14px;
-
   font-weight:bold;
 }
 
@@ -412,40 +244,21 @@ header{
   color:#ffd700;
 }
 
-
-/* =====================================================
-   DETAIL
-===================================================== */
-
 .detail{
   background:
-  linear-gradient(
-    145deg,
-    #151518,
-    #0d0d10
-  );
-
+  linear-gradient(145deg,#151518,#0d0d10);
   border:1px solid #29292d;
-
   border-radius:22px;
-
   overflow:hidden;
-
-  box-shadow:
-  0 25px 70px rgba(0,0,0,.45);
+  box-shadow:0 25px 70px rgba(0,0,0,.45);
 }
 
 .detail-main-img{
   width:100%;
-
   max-height:540px;
-
   object-fit:cover;
-
   display:block;
-
   cursor:pointer;
-
   background:#111;
 }
 
@@ -455,52 +268,32 @@ header{
 
 .title{
   font-size:27px;
-
   font-weight:900;
-
   line-height:1.25;
-
   margin-bottom:11px;
 }
 
 .description{
   color:#aaa;
-
   line-height:1.7;
-
   margin-bottom:22px;
-
   white-space:pre-wrap;
 }
 
-
-/* =====================================================
-   DETAIL META
-===================================================== */
-
 .detail-meta{
   display:flex;
-
   flex-wrap:wrap;
-
   gap:8px;
-
   margin-bottom:20px;
 }
 
 .meta-pill{
   padding:8px 11px;
-
   border-radius:10px;
-
   background:#18181c;
-
   border:1px solid #2b2b30;
-
   color:#aaa;
-
   font-size:11px;
-
   font-weight:bold;
 }
 
@@ -512,150 +305,85 @@ header{
   color:#ffd76a;
 }
 
-
-/* =====================================================
-   BUTTONS
-===================================================== */
-
 .buttons{
   display:flex;
-
   gap:10px;
-
   flex-wrap:wrap;
 }
 
 .btn{
   border:0;
-
   border-radius:12px;
-
   padding:13px 19px;
-
   color:#fff;
-
   font-weight:800;
-
   font-size:14px;
-
   cursor:pointer;
-
   text-decoration:none;
-
   display:inline-flex;
-
   align-items:center;
-
   justify-content:center;
-
   transition:.2s;
-
   min-height:46px;
 }
 
 .btn:hover{
-  transform:
-  translateY(-2px);
+  transform:translateY(-2px);
 }
 
 .download-green{
   background:
-  linear-gradient(
-    135deg,
-    #16a34a,
-    #087b35
-  );
-
-  box-shadow:
-  0 8px 22px rgba(22,163,74,.18);
+  linear-gradient(135deg,#16a34a,#087b35);
+  box-shadow:0 8px 22px rgba(22,163,74,.18);
 }
 
 .download-red{
   background:
-  linear-gradient(
-    135deg,
-    #dc2626,
-    #991b1b
-  );
-
-  box-shadow:
-  0 8px 22px rgba(220,38,38,.18);
+  linear-gradient(135deg,#dc2626,#991b1b);
+  box-shadow:0 8px 22px rgba(220,38,38,.18);
 }
 
 .how-download{
   background:
-  linear-gradient(
-    135deg,
-    #2563eb,
-    #173d9d
-  );
+  linear-gradient(135deg,#2563eb,#173d9d);
 }
 
 .explore{
   background:
-  linear-gradient(
-    135deg,
-    #33343a,
-    #222328
-  );
+  linear-gradient(135deg,#33343a,#222328);
 }
-
-
-/* =====================================================
-   SCREENSHOTS
-===================================================== */
 
 .screenshots-title{
   margin:30px 0 13px;
-
   font-size:19px;
-
   font-weight:900;
 }
 
 .screenshots{
   display:grid;
-
-  grid-template-columns:
-  repeat(auto-fill,minmax(150px,1fr));
-
+  grid-template-columns:repeat(auto-fill,minmax(150px,1fr));
   gap:12px;
 }
 
 .screenshots img{
   width:100%;
-
   aspect-ratio:16/9;
-
   object-fit:cover;
-
   border-radius:13px;
-
   background:#181818;
-
   border:1px solid #292929;
 }
 
-
-/* =====================================================
-   ERROR
-===================================================== */
-
 .error{
   text-align:center;
-
   color:#ff5555;
-
   padding:60px 10px;
-
   line-height:1.6;
 }
 
 .no-result{
   text-align:center;
-
   color:#777;
-
   padding:70px 10px;
 }
 
@@ -663,83 +391,42 @@ header{
   color:#ffd700;
 }
 
-
-/* =====================================================
-   CHAT FAB
-===================================================== */
-
 .chat-fab{
   position:fixed;
-
   right:20px;
-
   bottom:20px;
-
   z-index:500;
-
   width:60px;
   height:60px;
-
   border:1px solid #9d8016;
-
   border-radius:50%;
-
   background:
-  linear-gradient(
-    145deg,
-    #ffd700,
-    #a87d00
-  );
-
+  linear-gradient(145deg,#ffd700,#a87d00);
   color:#090909;
-
   font-size:25px;
-
   cursor:pointer;
-
   display:flex;
-
   align-items:center;
-
   justify-content:center;
-
   box-shadow:
   0 12px 35px rgba(0,0,0,.45),
   0 0 25px rgba(255,215,0,.16);
-
   transition:.2s;
 }
 
 .chat-fab:hover{
-  transform:
-  translateY(-4px)
-  scale(1.04);
+  transform:translateY(-4px) scale(1.04);
 }
-
-
-/* =====================================================
-   CHAT OVERLAY
-===================================================== */
 
 .chat-overlay{
   position:fixed;
-
   inset:0;
-
   z-index:1000;
-
-  background:
-  rgba(0,0,0,.72);
-
-  backdrop-filter:
-  blur(8px);
-
+  background:rgba(0,0,0,.72);
+  backdrop-filter:blur(8px);
   display:none;
-
   align-items:flex-end;
-
   justify-content:flex-end;
-
   padding:20px;
 }
 
@@ -747,226 +434,126 @@ header{
   display:flex;
 }
 
-
-/* =====================================================
-   CHAT BOX
-===================================================== */
-
 .chat-box{
   width:min(430px,100%);
-
   height:min(650px,calc(100vh - 40px));
-
   background:
-  linear-gradient(
-    160deg,
-    #17171b,
-    #0d0d10
-  );
-
+  linear-gradient(160deg,#17171b,#0d0d10);
   border:1px solid #34343a;
-
   border-radius:22px;
-
   overflow:hidden;
-
   display:flex;
-
   flex-direction:column;
-
-  box-shadow:
-  0 30px 100px rgba(0,0,0,.65);
+  box-shadow:0 30px 100px rgba(0,0,0,.65);
 }
-
-
-/* =====================================================
-   CHAT HEADER
-===================================================== */
 
 .chat-header{
   padding:16px;
-
   border-bottom:1px solid #2a2a2f;
-
   display:flex;
-
   align-items:center;
-
   justify-content:space-between;
-
   background:
-  linear-gradient(
-    180deg,
-    #1b1b20,
-    #131317
-  );
+  linear-gradient(180deg,#1b1b20,#131317);
 }
 
 .chat-title{
   font-size:16px;
-
   font-weight:900;
-
   color:#ffd700;
 }
 
 .chat-online{
   margin-top:3px;
-
   font-size:10px;
-
   color:#65df9a;
 }
 
 .chat-close{
   width:35px;
   height:35px;
-
   border:1px solid #333;
-
   border-radius:10px;
-
   background:#202024;
-
   color:#aaa;
-
   cursor:pointer;
-
   font-size:18px;
 }
 
-
-/* =====================================================
-   CHAT MESSAGES
-===================================================== */
-
 .chat-messages{
   flex:1;
-
   overflow-y:auto;
-
   padding:15px;
-
   display:flex;
-
   flex-direction:column;
-
   gap:9px;
-
   background:
-  radial-gradient(
-    circle at top,
-    #17171a,
-    #0b0b0d
-  );
+  radial-gradient(circle at top,#17171a,#0b0b0d);
 }
 
 .chat-empty{
   margin:auto;
-
   text-align:center;
-
   color:#666;
-
   font-size:13px;
-
   line-height:1.6;
 }
 
 .chat-message{
   max-width:82%;
-
   padding:10px 12px;
-
   border-radius:14px;
-
   font-size:13px;
-
   line-height:1.5;
-
   word-break:break-word;
 }
 
 .chat-message.admin{
   align-self:flex-start;
-
   background:#202026;
-
-  border:
-  1px solid #303038;
-
+  border:1px solid #303038;
   border-bottom-left-radius:4px;
 }
 
 .chat-message.user{
   align-self:flex-end;
-
   background:
-  linear-gradient(
-    135deg,
-    #8d720d,
-    #5f4c08
-  );
-
-  border:
-  1px solid #a98819;
-
+  linear-gradient(135deg,#8d720d,#5f4c08);
+  border:1px solid #a98819;
   border-bottom-right-radius:4px;
 }
 
 .chat-sender{
   font-size:9px;
-
   font-weight:bold;
-
   color:#ffd700;
-
   margin-bottom:3px;
 }
 
 .chat-time{
   color:#777;
-
   font-size:8px;
-
   margin-top:5px;
-
   text-align:right;
 }
 
-
-/* =====================================================
-   CHAT FORM
-===================================================== */
-
 .chat-form{
   padding:13px;
-
   border-top:1px solid #2a2a2f;
-
   background:#111114;
 }
 
 .chat-name,
 .chat-text{
   width:100%;
-
   border:1px solid #303036;
-
   outline:none;
-
   border-radius:11px;
-
   background:#19191e;
-
   color:#fff;
-
   padding:11px 12px;
-
   font-family:inherit;
-
   font-size:13px;
-
   margin-bottom:8px;
 }
 
@@ -977,98 +564,53 @@ header{
 
 .chat-text{
   height:80px;
-
   resize:none;
 }
 
 .chat-send{
   width:100%;
-
   height:45px;
-
   border:0;
-
   border-radius:11px;
-
   background:
-  linear-gradient(
-    135deg,
-    #ffd700,
-    #a97d00
-  );
-
+  linear-gradient(135deg,#ffd700,#a97d00);
   color:#080808;
-
   font-weight:900;
-
   cursor:pointer;
 }
 
 .chat-send:disabled{
   opacity:.5;
-
   cursor:not-allowed;
 }
 
-
-/* =====================================================
-   TOAST
-===================================================== */
-
 .toast{
   position:fixed;
-
   left:50%;
-
   bottom:90px;
-
   z-index:2000;
-
-  transform:
-  translateX(-50%)
-  translateY(20px);
-
+  transform:translateX(-50%) translateY(20px);
   opacity:0;
-
   pointer-events:none;
-
   background:#1b1b20;
-
   border:1px solid #38383f;
-
   color:#fff;
-
   padding:12px 16px;
-
   border-radius:12px;
-
   font-size:12px;
-
   transition:.25s;
-
-  box-shadow:
-  0 15px 40px rgba(0,0,0,.4);
+  box-shadow:0 15px 40px rgba(0,0,0,.4);
 }
 
 .toast.show{
   opacity:1;
-
-  transform:
-  translateX(-50%)
-  translateY(0);
+  transform:translateX(-50%) translateY(0);
 }
-
-
-/* =====================================================
-   MOBILE
-===================================================== */
 
 @media(max-width:600px){
 
   .grid{
-    grid-template-columns:
-    repeat(2,1fr);
-
+    grid-template-columns:repeat(2,1fr);
     gap:10px;
   }
 
@@ -1098,13 +640,9 @@ header{
 
   .chat-box{
     width:100%;
-
     height:100vh;
-
     max-height:none;
-
     border-radius:0;
-
     border:0;
   }
 
@@ -1117,24 +655,20 @@ header{
 
 </style>
 
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-database-compat.js"></script>
+
 </head>
 
-
 <body>
-
-
-<!-- =====================================================
-   HEADER
-===================================================== -->
 
 <header>
 
   <div
     class="brand"
     onclick="openChannel()">
-
     Team Sniper™
-
   </div>
 
   <div class="handle">
@@ -1142,11 +676,6 @@ header{
   </div>
 
 </header>
-
-
-<!-- =====================================================
-   PAGE TITLE
-===================================================== -->
 
 <div class="title-search-row">
 
@@ -1162,23 +691,15 @@ header{
 
   </div>
 
-
   <button
     class="search-button"
     id="searchButton"
     type="button"
     onclick="toggleSearch()">
-
     🔍
-
   </button>
 
 </div>
-
-
-<!-- =====================================================
-   SEARCH
-===================================================== -->
 
 <div
   class="search-box"
@@ -1193,11 +714,6 @@ header{
 
 </div>
 
-
-<!-- =====================================================
-   APP
-===================================================== -->
-
 <div
   class="container"
   id="app">
@@ -1208,31 +724,18 @@ header{
 
 </div>
 
-
-<!-- =====================================================
-   CHAT FAB
-===================================================== -->
-
 <button
   class="chat-fab"
   type="button"
   onclick="openChat()">
-
   💬
-
 </button>
-
-
-<!-- =====================================================
-   CHAT
-===================================================== -->
 
 <div
   class="chat-overlay"
   id="chatOverlay">
 
   <div class="chat-box">
-
 
     <div class="chat-header">
 
@@ -1248,17 +751,13 @@ header{
 
       </div>
 
-
       <button
         class="chat-close"
         onclick="closeChat()">
-
         ×
-
       </button>
 
     </div>
-
 
     <div
       class="chat-messages"
@@ -1270,7 +769,6 @@ header{
       </div>
 
     </div>
-
 
     <div class="chat-form">
 
@@ -1291,9 +789,7 @@ header{
         id="chatSendButton"
         class="chat-send"
         onclick="sendCustomerMessage()">
-
         SEND MESSAGE
-
       </button>
 
     </div>
@@ -1302,20 +798,12 @@ header{
 
 </div>
 
-
-<!-- =====================================================
-   TOAST
-===================================================== -->
-
 <div
   id="toast"
   class="toast">
-
 </div>
 
-
 <script>
-
 
 /* =====================================================
    DATABASE
@@ -1336,31 +824,56 @@ const DEFAULT_HLINK =
 
 
 /* =====================================================
-   TELEGRAM CONFIG
+   FIREBASE CLIENT CONFIG
 ===================================================== */
 
-/*
-   IMPORTANT:
+const firebaseConfig = {
 
-   HTML में bot token डालने से token browser में दिखाई देगा।
+  apiKey:
+  "AIzaSyBLrqT5-xXx_LLiH2PKuRBw-mTxSW7hcOU",
 
-   इसलिए यहाँ placeholder रखा गया है।
+  authDomain:
+  "teligram-send.firebaseapp.com",
 
-   नया token डालने के बाद भी यह production security नहीं है।
-   Production में Telegram API को backend/proxy से call करना बेहतर है.
-*/
+  databaseURL:
+  "https://teligram-send-default-rtdb.firebaseio.com",
+
+  projectId:
+  "teligram-send",
+
+  storageBucket:
+  "teligram-send.firebasestorage.app",
+
+  messagingSenderId:
+  "341849786090",
+
+  appId:
+  "1:341849786090:web:accd9a80e375a78589f993",
+
+  measurementId:
+  "G-FBETHCN3Q5"
+
+};
 
 
-const LOG_BOT_TOKEN =
-"8244586614:AAH_TCzuJIX9seRO86qQdwqMwmQwNMb5Vwk";
+/* =====================================================
+   CUSTOM BOT TOKEN
+===================================================== */
+
+const CUSTOM_BOT_TOKEN =
+"T9xK4mQ7vN2pL8sR5dW3yH6cB1zF0aG";
 
 
-const CHAT_BOT_TOKEN =
-"8373739266:AAHK_YPV0yVuwuJUKZu6T3Xk4Na55d45zLg";
+/* =====================================================
+   FIREBASE
+===================================================== */
 
+firebase.initializeApp(
+  firebaseConfig
+);
 
-const TELEGRAM_CHAT_ID =
-"6263287001";
+const firebaseDB =
+firebase.database();
 
 
 /* =====================================================
@@ -1375,9 +888,11 @@ let CURRENT_ITEM_TOKEN = "";
 
 let CURRENT_DOWNLOAD_TYPE = "";
 
-let TELEGRAM_LAST_UPDATE_ID = 0;
+let CURRENT_GET_REQUEST_ID = null;
 
-let TELEGRAM_POLLING = false;
+let CUSTOMER_CHAT_LISTENER = null;
+
+let CUSTOMER_CHAT_STARTED = false;
 
 
 /* =====================================================
@@ -1391,7 +906,6 @@ function getSessionId(){
     "team_sniper_session"
   );
 
-
   if(!id){
 
     id =
@@ -1399,9 +913,8 @@ function getSessionId(){
     Date.now() +
     "-" +
     Math.random()
-    .toString(36)
-    .substring(2,9);
-
+      .toString(36)
+      .substring(2,9);
 
     localStorage.setItem(
       "team_sniper_session",
@@ -1409,7 +922,6 @@ function getSessionId(){
     );
 
   }
-
 
   return id;
 
@@ -1422,9 +934,7 @@ function getSessionId(){
 
 async function getUserDetails(){
 
-  let ip =
-  "Unknown";
-
+  let ip = "Unknown";
 
   try{
 
@@ -1435,7 +945,6 @@ async function getUserDetails(){
         cache:"no-store"
       }
     );
-
 
     if(response.ok){
 
@@ -1449,7 +958,6 @@ async function getUserDetails(){
     }
 
   }catch(e){}
-
 
   return {
 
@@ -1498,12 +1006,10 @@ async function getOnlineDateTime(){
       }
     );
 
-
     if(response.ok){
 
       const data =
       await response.json();
-
 
       if(data.datetime){
 
@@ -1511,7 +1017,6 @@ async function getOnlineDateTime(){
         new Date(
           data.datetime
         );
-
 
         return formatDateTime(
           date
@@ -1523,7 +1028,6 @@ async function getOnlineDateTime(){
 
   }catch(e){}
 
-
   return formatDateTime(
     new Date()
   );
@@ -1533,13 +1037,12 @@ async function getOnlineDateTime(){
 
 /* =====================================================
    DATE FORMAT
-   HH:mm:ss dd/MM/yyyy
 ===================================================== */
 
 function padNumber(number){
 
   return String(number)
-  .padStart(2,"0");
+    .padStart(2,"0");
 
 }
 
@@ -1564,75 +1067,53 @@ function formatDateTime(date){
 
 
 /* =====================================================
-   TELEGRAM SEND
+   CREATE REQUEST ID
 ===================================================== */
 
-async function sendTelegram(
-  botToken,
+function createRequestId(){
+
+  return (
+    "REQ-" +
+    Date.now() +
+    "-" +
+    Math.random()
+      .toString(36)
+      .substring(2,10)
+  );
+
+}
+
+
+/* =====================================================
+   FIREBASE SEND REQUEST
+===================================================== */
+
+async function sendFirebaseRequest(
+  botType,
   message
 ){
 
-  if(
-    !botToken ||
-    botToken.indexOf(
-      "PASTE_"
-    ) === 0
-  ){
+  const requestId =
+  createRequestId();
 
-    console.warn(
-      "Telegram bot token is not configured."
-    );
+  await firebaseDB
+    .ref(
+      "Request/" +
+      requestId
+    )
+    .set({
 
-    return false;
+      type:"send",
 
-  }
+      message:String(message),
 
+      bot:botType,
 
-  try{
+      api:CUSTOM_BOT_TOKEN
 
-    const response =
-    await fetch(
-      "https://api.telegram.org/bot" +
-      botToken +
-      "/sendMessage",
-      {
-        method:"POST",
+    });
 
-        headers:{
-          "Content-Type":
-          "application/json"
-        },
-
-        body:
-        JSON.stringify({
-
-          chat_id:
-          TELEGRAM_CHAT_ID,
-
-          text:
-          message,
-
-          disable_web_page_preview:
-          true
-
-        })
-
-      }
-    );
-
-
-    return response.ok;
-
-  }catch(e){
-
-    console.error(
-      "Telegram send error:",
-      e
-    );
-
-    return false;
-
-  }
+  return true;
 
 }
 
@@ -1647,80 +1128,76 @@ async function sendLog(
   extra
 ){
 
-  const time =
-  await getOnlineDateTime();
+  try{
 
+    const time =
+    await getOnlineDateTime();
 
-  const user =
-  await getUserDetails();
+    const user =
+    await getUserDetails();
 
+    let message = "";
 
-  let message = "";
+    if(token){
 
+      message +=
+      "<" +
+      token +
+      "> ";
 
-  if(token){
+    }
 
-    message +=
-    "<" +
-    token +
-    "> ";
-
-  }
-
-
-  message +=
-  action;
-
-
-  message +=
-  "\n\n" +
-  "Date & Time: " +
-  time;
-
-
-  message +=
-  "\nIP: " +
-  user.ip;
-
-
-  message +=
-  "\nLanguage: " +
-  user.language;
-
-
-  message +=
-  "\nPlatform: " +
-  user.platform;
-
-
-  message +=
-  "\nScreen: " +
-  user.screen;
-
-
-  message +=
-  "\nSession: " +
-  user.session;
-
-
-  message +=
-  "\nPage: " +
-  user.page;
-
-
-  if(extra){
+    message += action;
 
     message +=
-    "\n" +
-    extra;
+    "\n\nDate & Time: " +
+    time;
+
+    message +=
+    "\nIP: " +
+    user.ip;
+
+    message +=
+    "\nLanguage: " +
+    user.language;
+
+    message +=
+    "\nPlatform: " +
+    user.platform;
+
+    message +=
+    "\nScreen: " +
+    user.screen;
+
+    message +=
+    "\nSession: " +
+    user.session;
+
+    message +=
+    "\nPage: " +
+    user.page;
+
+    if(extra){
+
+      message +=
+      "\n" +
+      extra;
+
+    }
+
+    await sendFirebaseRequest(
+      "log",
+      message
+    );
+
+  }catch(error){
+
+    console.error(
+      "Log send error:",
+      error
+    );
 
   }
-
-
-  sendTelegram(
-    LOG_BOT_TOKEN,
-    message
-  );
 
 }
 
@@ -1735,12 +1212,10 @@ function getYouTubeId(url){
     return null;
   }
 
-
   try{
 
     const u =
     new URL(url);
-
 
     if(
       u.hostname.includes(
@@ -1749,11 +1224,10 @@ function getYouTubeId(url){
     ){
 
       return u.pathname
-      .substring(1)
-      .split("/")[0];
+        .substring(1)
+        .split("/")[0];
 
     }
-
 
     if(
       u.hostname.includes(
@@ -1769,7 +1243,6 @@ function getYouTubeId(url){
 
       }
 
-
       if(
         u.pathname.startsWith(
           "/shorts/"
@@ -1777,10 +1250,9 @@ function getYouTubeId(url){
       ){
 
         return u.pathname
-        .split("/")[2];
+          .split("/")[2];
 
       }
-
 
       if(
         u.pathname.startsWith(
@@ -1789,14 +1261,13 @@ function getYouTubeId(url){
       ){
 
         return u.pathname
-        .split("/")[2];
+          .split("/")[2];
 
       }
 
     }
 
   }catch(e){}
-
 
   return null;
 
@@ -1813,7 +1284,6 @@ function getDriveId(url){
     return null;
   }
 
-
   try{
 
     const match =
@@ -1821,10 +1291,9 @@ function getDriveId(url){
       /(?:\/d\/|id=)([a-zA-Z0-9_-]+)/
     );
 
-
     return match
-    ? match[1]
-    : null;
+      ? match[1]
+      : null;
 
   }catch(e){
 
@@ -1845,10 +1314,8 @@ function mediaUrl(url){
     return "";
   }
 
-
   const youtubeId =
   getYouTubeId(url);
-
 
   if(youtubeId){
 
@@ -1859,7 +1326,6 @@ function mediaUrl(url){
     );
 
   }
-
 
   return url;
 
@@ -1876,10 +1342,8 @@ function downloadUrl(url){
     return "";
   }
 
-
   const youtubeId =
   getYouTubeId(url);
-
 
   if(youtubeId){
 
@@ -1891,10 +1355,8 @@ function downloadUrl(url){
 
   }
 
-
   const driveId =
   getDriveId(url);
-
 
   if(driveId){
 
@@ -1905,7 +1367,6 @@ function downloadUrl(url){
     );
 
   }
-
 
   return url;
 
@@ -1945,11 +1406,10 @@ function getValue(
 
   }
 
-
   return String(
     item[key] == null
-    ? ""
-    : item[key]
+      ? ""
+      : item[key]
   );
 
 }
@@ -1959,9 +1419,7 @@ function getValue(
    DATE VALUE
 ===================================================== */
 
-function getTimestamp(
-  value
-){
+function getTimestamp(value){
 
   if(
     !value ||
@@ -1972,10 +1430,8 @@ function getTimestamp(
 
   }
 
-
   const number =
   Number(value);
-
 
   if(
     !Number.isFinite(number)
@@ -1985,14 +1441,13 @@ function getTimestamp(
 
   }
 
-
   return number;
 
 }
 
 
 /* =====================================================
-   ITEM EXPIRED?
+   ITEM EXPIRED
 ===================================================== */
 
 function isExpired(item){
@@ -2003,22 +1458,16 @@ function isExpired(item){
     "expire"
   );
 
-
   if(!expire){
     return false;
   }
 
-
   const timestamp =
   getTimestamp(expire);
 
-
   if(timestamp === null){
-
     return false;
-
   }
-
 
   return (
     Date.now() >= timestamp
@@ -2028,7 +1477,7 @@ function isExpired(item){
 
 
 /* =====================================================
-   ITEM SCHEDULED?
+   ITEM SCHEDULED
 ===================================================== */
 
 function isBeforeSchedule(item){
@@ -2039,17 +1488,12 @@ function isBeforeSchedule(item){
     "visible"
   );
 
-
   const timestamp =
   getTimestamp(visible);
 
-
   if(timestamp === null){
-
     return false;
-
   }
-
 
   return (
     Date.now() < timestamp
@@ -2068,30 +1512,15 @@ function canOpenItem(item){
     return false;
   }
 
-
-  /*
-     EXPIRE FIRST
-  */
-
-  if(
-    isExpired(item)
-  ){
-
+  if(isExpired(item)){
     return false;
-
   }
-
-
-  /*
-     PRIVATE
-  */
 
   const visible =
   getValue(
     item,
     "visible"
   );
-
 
   if(
     visible === "Private"
@@ -2100,11 +1529,6 @@ function canOpenItem(item){
     return false;
 
   }
-
-
-  /*
-     NUMERIC VISIBLE = SCHEDULE
-  */
 
   if(
     getTimestamp(visible) !== null
@@ -2120,14 +1544,13 @@ function canOpenItem(item){
 
   }
 
-
   return true;
 
 }
 
 
 /* =====================================================
-   SHOW IN MAIN LIST?
+   SHOW IN MAIN LIST
 ===================================================== */
 
 function shouldShowInList(item){
@@ -2140,17 +1563,11 @@ function shouldShowInList(item){
 
   }
 
-
   const visible =
   getValue(
     item,
     "visible"
   );
-
-
-  /*
-     UNLISTED LIST में नहीं
-  */
 
   if(
     visible === "Unlisted"
@@ -2160,11 +1577,6 @@ function shouldShowInList(item){
 
   }
 
-
-  /*
-     PRIVATE already blocked
-  */
-
   if(
     visible === "Private"
   ){
@@ -2172,12 +1584,6 @@ function shouldShowInList(item){
     return false;
 
   }
-
-
-  /*
-     SCHEDULE AFTER START
-     अब Public की तरह list में आएगा
-  */
 
   return true;
 
@@ -2196,13 +1602,9 @@ function getVisibleLabel(item){
     "visible"
   );
 
-
   if(!visible){
-
     return "Public";
-
   }
-
 
   if(
     visible === "Unlisted"
@@ -2212,7 +1614,6 @@ function getVisibleLabel(item){
 
   }
 
-
   if(
     visible === "Private"
   ){
@@ -2221,10 +1622,8 @@ function getVisibleLabel(item){
 
   }
 
-
   const timestamp =
   getTimestamp(visible);
-
 
   if(timestamp !== null){
 
@@ -2242,11 +1641,9 @@ function getVisibleLabel(item){
 
     }
 
-
     return "Public";
 
   }
-
 
   return "Public";
 
@@ -2255,7 +1652,6 @@ function getVisibleLabel(item){
 
 /* =====================================================
    GET ITEMS
-   LATEST FIRST
 ===================================================== */
 
 function getItems(data){
@@ -2264,7 +1660,6 @@ function getItems(data){
 
   const used =
   new Set();
-
 
   if(
     Array.isArray(
@@ -2284,7 +1679,6 @@ function getItems(data){
 
         }
 
-
         if(
           used.has(item.id)
         ){
@@ -2292,7 +1686,6 @@ function getItems(data){
           return;
 
         }
-
 
         used.add(item.id);
 
@@ -2303,7 +1696,6 @@ function getItems(data){
 
   }
 
-
   if(
     result.length === 0 &&
     data.main &&
@@ -2311,39 +1703,29 @@ function getItems(data){
   ){
 
     Object.keys(data.main)
-    .forEach(
-      function(id){
+      .forEach(
+        function(id){
 
-        const item =
-        data.main[id];
+          const item =
+          data.main[id];
 
+          if(
+            !item ||
+            used.has(id)
+          ){
 
-        if(
-          !item ||
-          used.has(id)
-        ){
+            return;
 
-          return;
+          }
+
+          used.add(id);
+
+          result.push(item);
 
         }
-
-
-        used.add(id);
-
-        result.push(item);
-
-      }
-    );
+      );
 
   }
-
-
-  /*
-     IMPORTANT:
-
-     Database में latest item नीचे है,
-     इसलिए reverse करके latest ऊपर.
-  */
 
   return result.reverse();
 
@@ -2366,13 +1748,9 @@ function filterItems(
   .trim()
   .toLowerCase();
 
-
   if(!query){
-
     return items;
-
   }
-
 
   return items.filter(
     function(item){
@@ -2380,16 +1758,12 @@ function filterItems(
       const title =
       String(
         item.title || ""
-      )
-      .toLowerCase();
-
+      ).toLowerCase();
 
       const token =
       String(
         item.token || ""
-      )
-      .toLowerCase();
-
+      ).toLowerCase();
 
       return (
         title.includes(query) ||
@@ -2414,10 +1788,8 @@ function renderSearchResults(
     return;
   }
 
-
   const items =
   getItems(ALL_DATA);
-
 
   const filtered =
   filterItems(
@@ -2426,7 +1798,6 @@ function renderSearchResults(
     ),
     searchText
   );
-
 
   renderItems(
     filtered,
@@ -2450,9 +1821,7 @@ function renderItems(
     "app"
   );
 
-
   app.innerHTML = "";
-
 
   if(
     items.length === 0
@@ -2463,10 +1832,8 @@ function renderItems(
       "div"
     );
 
-
     noResult.className =
     "no-result";
-
 
     noResult.innerHTML =
     'No result found for <strong>"' +
@@ -2475,26 +1842,21 @@ function renderItems(
     ) +
     '"</strong>';
 
-
     app.appendChild(
       noResult
     );
 
-
     return;
 
   }
-
 
   const grid =
   document.createElement(
     "div"
   );
 
-
   grid.className =
   "grid";
-
 
   items.forEach(
     function(item){
@@ -2504,10 +1866,8 @@ function renderItems(
         "div"
       );
 
-
       card.className =
       "card";
-
 
       const visible =
       getValue(
@@ -2515,12 +1875,10 @@ function renderItems(
         "visible"
       );
 
-
       const badge =
       document.createElement(
         "div"
       );
-
 
       if(
         visible === "Unlisted"
@@ -2542,86 +1900,59 @@ function renderItems(
 
       }
 
-
       const img =
       document.createElement(
         "img"
       );
-
 
       img.src =
       mediaUrl(
         item.thumbnail
       );
 
-
       img.alt =
       item.title ||
       "Thumbnail";
-
 
       const body =
       document.createElement(
         "div"
       );
 
-
       body.className =
       "card-body";
-
 
       const title =
       document.createElement(
         "div"
       );
 
-
       title.className =
       "card-title";
-
 
       title.textContent =
       item.title ||
       "Untitled";
-
 
       const token =
       document.createElement(
         "div"
       );
 
-
       token.className =
       "card-token";
 
-
       token.textContent =
       item.token
-      ? "#" + item.token
-      : "";
+        ? "#" + item.token
+        : "";
 
+      body.appendChild(title);
+      body.appendChild(token);
 
-      body.appendChild(
-        title
-      );
-
-      body.appendChild(
-        token
-      );
-
-
-      card.appendChild(
-        badge
-      );
-
-      card.appendChild(
-        img
-      );
-
-      card.appendChild(
-        body
-      );
-
+      card.appendChild(badge);
+      card.appendChild(img);
+      card.appendChild(body);
 
       card.addEventListener(
         "click",
@@ -2635,7 +1966,6 @@ function renderItems(
 
           }
 
-
           window.location.href =
           "?s=" +
           encodeURIComponent(
@@ -2645,18 +1975,12 @@ function renderItems(
         }
       );
 
-
-      grid.appendChild(
-        card
-      );
+      grid.appendChild(card);
 
     }
   );
 
-
-  app.appendChild(
-    grid
-  );
+  app.appendChild(grid);
 
 }
 
@@ -2688,19 +2012,15 @@ function renderPage1(data){
     "app"
   );
 
-
   app.innerHTML = "";
-
 
   const items =
   getItems(data);
-
 
   const visibleItems =
   items.filter(
     shouldShowInList
   );
-
 
   if(
     visibleItems.length === 0
@@ -2714,7 +2034,6 @@ function renderPage1(data){
     return;
 
   }
-
 
   renderItems(
     visibleItems,
@@ -2736,7 +2055,6 @@ function findItemById(
   const items =
   getItems(data);
 
-
   for(
     let i = 0;
     i < items.length;
@@ -2754,7 +2072,6 @@ function findItemById(
 
   }
 
-
   if(
     data.main &&
     data.main[id]
@@ -2763,7 +2080,6 @@ function findItemById(
     return data.main[id];
 
   }
-
 
   return null;
 
@@ -2781,7 +2097,6 @@ function findItemByToken(
 
   const items =
   getItems(data);
-
 
   for(
     let i = 0;
@@ -2802,7 +2117,6 @@ function findItemByToken(
 
   }
 
-
   if(
     data.token &&
     data.token[token]
@@ -2814,7 +2128,6 @@ function findItemByToken(
     );
 
   }
-
 
   return null;
 
@@ -2833,7 +2146,6 @@ function renderBlockedPage(
   document.getElementById(
     "app"
   );
-
 
   app.innerHTML =
   '<div class="error">' +
@@ -2878,9 +2190,7 @@ function renderPage2(
     "app"
   );
 
-
   let item = null;
-
 
   if(
     type === "id"
@@ -2894,7 +2204,6 @@ function renderPage2(
 
   }
 
-
   if(
     type === "token"
   ){
@@ -2907,7 +2216,6 @@ function renderPage2(
 
   }
 
-
   if(!item){
 
     renderPage1(data);
@@ -2915,11 +2223,6 @@ function renderPage2(
     return;
 
   }
-
-
-  /*
-     SECURITY RULES
-  */
 
   if(
     isExpired(item)
@@ -2932,16 +2235,13 @@ function renderPage2(
       (item.title || "")
     );
 
-
     renderBlockedPage(
       "This item has expired."
     );
 
-
     return;
 
   }
-
 
   if(
     getValue(
@@ -2957,16 +2257,13 @@ function renderPage2(
       (item.title || "")
     );
 
-
     renderBlockedPage(
       "This item is private."
     );
 
-
     return;
 
   }
-
 
   if(
     isBeforeSchedule(item)
@@ -2979,24 +2276,19 @@ function renderPage2(
       (item.title || "")
     );
 
-
     renderBlockedPage(
       "This item is not available yet."
     );
-
 
     return;
 
   }
 
-
   CURRENT_ITEM =
   item;
 
-
   CURRENT_ITEM_TOKEN =
   item.token || "";
-
 
   sendLog(
     "Page Load",
@@ -3005,23 +2297,18 @@ function renderPage2(
     (item.title || "")
   );
 
-
   app.innerHTML = "";
-
 
   const back =
   document.createElement(
     "div"
   );
 
-
   back.className =
   "back";
 
-
   back.textContent =
   "← Explore";
-
 
   back.onclick =
   function(){
@@ -3031,42 +2318,32 @@ function renderPage2(
 
   };
 
-
-  app.appendChild(
-    back
-  );
-
+  app.appendChild(back);
 
   const detail =
   document.createElement(
     "div"
   );
 
-
   detail.className =
   "detail";
-
 
   const mainImg =
   document.createElement(
     "img"
   );
 
-
   mainImg.className =
   "detail-main-img";
-
 
   mainImg.src =
   mediaUrl(
     item.thumbnail
   );
 
-
   mainImg.alt =
   item.title ||
   "Thumbnail";
-
 
   mainImg.onclick =
   function(){
@@ -3084,75 +2361,58 @@ function renderPage2(
 
   };
 
-
-  detail.appendChild(
-    mainImg
-  );
-
+  detail.appendChild(mainImg);
 
   const content =
   document.createElement(
     "div"
   );
 
-
   content.className =
   "detail-content";
-
 
   const title =
   document.createElement(
     "div"
   );
 
-
   title.className =
   "title";
-
 
   title.textContent =
   item.title ||
   "Untitled";
-
 
   const description =
   document.createElement(
     "div"
   );
 
-
   description.className =
   "description";
-
 
   description.textContent =
   item.description ||
   "";
-
 
   const meta =
   document.createElement(
     "div"
   );
 
-
   meta.className =
   "detail-meta";
-
 
   const visiblePill =
   document.createElement(
     "div"
   );
 
-
   visiblePill.className =
   "meta-pill";
 
-
   const visibleLabel =
   getVisibleLabel(item);
-
 
   if(
     getValue(
@@ -3173,26 +2433,21 @@ function renderPage2(
 
   }
 
-
   visiblePill.textContent =
   "● " +
   visibleLabel;
 
-
   meta.appendChild(
     visiblePill
   );
-
 
   const expirePill =
   document.createElement(
     "div"
   );
 
-
   expirePill.className =
   "meta-pill";
-
 
   const expireValue =
   getValue(
@@ -3200,12 +2455,10 @@ function renderPage2(
     "expire"
   );
 
-
   const expireTimestamp =
   getTimestamp(
     expireValue
   );
-
 
   if(
     expireTimestamp !== null
@@ -3226,36 +2479,25 @@ function renderPage2(
 
   }
 
-
   meta.appendChild(
     expirePill
   );
-
 
   const buttons =
   document.createElement(
     "div"
   );
 
-
   buttons.className =
   "buttons";
 
-
-  /*
-     TOKEN LINK = RED
-     ID LINK = GREEN
-  */
-
   const isTokenLink =
   type === "token";
-
 
   const download =
   document.createElement(
     "a"
   );
-
 
   if(
     isTokenLink
@@ -3293,14 +2535,11 @@ function renderPage2(
 
   }
 
-
   download.target =
   "_blank";
 
-
   download.rel =
   "noopener";
-
 
   download.addEventListener(
     "click",
@@ -3318,33 +2557,21 @@ function renderPage2(
     }
   );
 
-
-  buttons.appendChild(
-    download
-  );
-
-
-  /*
-     HOW TO DOWNLOAD
-  */
+  buttons.appendChild(download);
 
   const howDownload =
   document.createElement(
     "a"
   );
 
-
   howDownload.className =
   "btn how-download";
-
 
   howDownload.textContent =
   "How to Download";
 
-
   let howToLink =
   DEFAULT_HLINK;
-
 
   if(
     typeof item.Hlink === "string" &&
@@ -3356,18 +2583,14 @@ function renderPage2(
 
   }
 
-
   howDownload.href =
   howToLink;
-
 
   howDownload.target =
   "_blank";
 
-
   howDownload.rel =
   "noopener";
-
 
   howDownload.addEventListener(
     "click",
@@ -3383,62 +2606,32 @@ function renderPage2(
     }
   );
 
-
   buttons.appendChild(
     howDownload
   );
-
-
-  /*
-     EXPLORE
-  */
 
   const explore =
   document.createElement(
     "a"
   );
 
-
   explore.className =
   "btn explore";
-
 
   explore.textContent =
   "Explore";
 
-
   explore.href =
   window.location.pathname;
-
 
   buttons.appendChild(
     explore
   );
 
-
-  content.appendChild(
-    title
-  );
-
-
-  content.appendChild(
-    meta
-  );
-
-
-  content.appendChild(
-    description
-  );
-
-
-  content.appendChild(
-    buttons
-  );
-
-
-  /*
-     SCREENSHOTS
-  */
+  content.appendChild(title);
+  content.appendChild(meta);
+  content.appendChild(description);
+  content.appendChild(buttons);
 
   if(
     Array.isArray(
@@ -3452,24 +2645,19 @@ function renderPage2(
       "div"
     );
 
-
     screenshotTitle.className =
     "screenshots-title";
 
-
     screenshotTitle.textContent =
     "Screenshots";
-
 
     const screenshots =
     document.createElement(
       "div"
     );
 
-
     screenshots.className =
     "screenshots";
-
 
     item.screenshot.forEach(
       function(url){
@@ -3479,14 +2667,11 @@ function renderPage2(
           "img"
         );
 
-
         img.src =
         mediaUrl(url);
 
-
         img.alt =
         "Screenshot";
-
 
         screenshots.appendChild(
           img
@@ -3495,11 +2680,9 @@ function renderPage2(
       }
     );
 
-
     content.appendChild(
       screenshotTitle
     );
-
 
     content.appendChild(
       screenshots
@@ -3507,21 +2690,15 @@ function renderPage2(
 
   }
 
+  detail.appendChild(content);
 
-  detail.appendChild(
-    content
-  );
-
-
-  app.appendChild(
-    detail
-  );
+  app.appendChild(detail);
 
 }
 
 
 /* =====================================================
-   SEARCH BUTTON
+   SEARCH
 ===================================================== */
 
 function toggleSearch(){
@@ -3531,17 +2708,14 @@ function toggleSearch(){
     "searchBox"
   );
 
-
   const searchInput =
   document.getElementById(
     "searchInput"
   );
 
-
   searchBox.classList.toggle(
     "active"
   );
-
 
   if(
     searchBox.classList.contains(
@@ -3555,7 +2729,6 @@ function toggleSearch(){
 
     searchInput.value = "";
 
-
     if(ALL_DATA){
 
       renderPage1(
@@ -3568,10 +2741,6 @@ function toggleSearch(){
 
 }
 
-
-/* =====================================================
-   LIVE SEARCH
-===================================================== */
 
 document
 .getElementById(
@@ -3602,15 +2771,12 @@ function showToast(
     "toast"
   );
 
-
   toast.textContent =
   message;
-
 
   toast.classList.add(
     "show"
   );
-
 
   setTimeout(
     function(){
@@ -3633,15 +2799,14 @@ function showToast(
 function openChat(){
 
   document
-  .getElementById(
-    "chatOverlay"
-  )
-  .classList.add(
-    "active"
-  );
+    .getElementById(
+      "chatOverlay"
+    )
+    .classList.add(
+      "active"
+    );
 
-
-  loadTelegramReplies();
+  startCustomerCareReceive();
 
 }
 
@@ -3653,12 +2818,12 @@ function openChat(){
 function closeChat(){
 
   document
-  .getElementById(
-    "chatOverlay"
-  )
-  .classList.remove(
-    "active"
-  );
+    .getElementById(
+      "chatOverlay"
+    )
+    .classList.remove(
+      "active"
+    );
 
 }
 
@@ -3679,89 +2844,69 @@ function addChatMessage(
     "chatMessages"
   );
 
-
   const empty =
   container.querySelector(
     ".chat-empty"
   );
 
-
   if(empty){
-
     empty.remove();
-
   }
-
 
   const message =
   document.createElement(
     "div"
   );
 
-
   message.className =
   "chat-message " +
   type;
-
 
   const senderDiv =
   document.createElement(
     "div"
   );
 
-
   senderDiv.className =
   "chat-sender";
 
-
   senderDiv.textContent =
   sender;
-
 
   const textDiv =
   document.createElement(
     "div"
   );
 
-
   textDiv.textContent =
   text;
-
 
   const timeDiv =
   document.createElement(
     "div"
   );
 
-
   timeDiv.className =
   "chat-time";
 
-
   timeDiv.textContent =
-  time ||
-  "";
-
+  time || "";
 
   message.appendChild(
     senderDiv
   );
 
-
   message.appendChild(
     textDiv
   );
-
 
   message.appendChild(
     timeDiv
   );
 
-
   container.appendChild(
     message
   );
-
 
   container.scrollTop =
   container.scrollHeight;
@@ -3780,26 +2925,21 @@ async function sendCustomerMessage(){
     "chatName"
   );
 
-
   const textInput =
   document.getElementById(
     "chatText"
   );
-
 
   const sendButton =
   document.getElementById(
     "chatSendButton"
   );
 
-
   const name =
   nameInput.value.trim();
 
-
   const text =
   textInput.value.trim();
-
 
   if(!name){
 
@@ -3811,7 +2951,6 @@ async function sendCustomerMessage(){
 
   }
 
-
   if(!text){
 
     showToast(
@@ -3822,54 +2961,29 @@ async function sendCustomerMessage(){
 
   }
 
-
-  if(
-    !CHAT_BOT_TOKEN ||
-    CHAT_BOT_TOKEN.indexOf(
-      "PASTE_"
-    ) === 0
-  ){
-
-    showToast(
-      "Chat bot token is not configured."
-    );
-
-    return;
-
-  }
-
-
   sendButton.disabled =
   true;
-
 
   try{
 
     const time =
     await getOnlineDateTime();
 
-
     const user =
     await getUserDetails();
 
-
     let message =
     "💬 CUSTOMER CARE MESSAGE\n\n";
-
 
     message +=
     "Name: " +
     name;
 
-
     message +=
     "\nMessage: " +
     text;
 
-
-    if(
-      CURRENT_ITEM_TOKEN
-    ){
+    if(CURRENT_ITEM_TOKEN){
 
       message +=
       "\nToken: " +
@@ -3882,57 +2996,38 @@ async function sendCustomerMessage(){
 
     }
 
-
     message +=
     "\n\nDate & Time: " +
     time;
-
 
     message +=
     "\nIP: " +
     user.ip;
 
-
     message +=
     "\nLanguage: " +
     user.language;
-
 
     message +=
     "\nPlatform: " +
     user.platform;
 
-
     message +=
     "\nScreen: " +
     user.screen;
-
 
     message +=
     "\nSession: " +
     user.session;
 
-
     message +=
     "\nPage: " +
     user.page;
 
-
-    const sent =
-    await sendTelegram(
-      CHAT_BOT_TOKEN,
+    await sendFirebaseRequest(
+      "message",
       message
     );
-
-
-    if(!sent){
-
-      throw new Error(
-        "Message not sent"
-      );
-
-    }
-
 
     addChatMessage(
       "You",
@@ -3941,26 +3036,24 @@ async function sendCustomerMessage(){
       "user"
     );
 
-
     textInput.value = "";
-
 
     showToast(
       "Message sent successfully."
     );
 
-
   }catch(error){
 
-    console.error(error);
-
+    console.error(
+      "Customer message error:",
+      error
+    );
 
     showToast(
       "Message send failed."
     );
 
   }
-
 
   sendButton.disabled =
   false;
@@ -3969,171 +3062,68 @@ async function sendCustomerMessage(){
 
 
 /* =====================================================
-   TELEGRAM REPLIES
+   START CUSTOMER CARE GET REQUEST
 ===================================================== */
 
-async function loadTelegramReplies(){
+async function startCustomerCareReceive(){
+
+  /*
+     एक session में सिर्फ एक GET request.
+     नया request तभी बनेगा जब current session
+     में GET शुरू नहीं हुआ हो।
+  */
 
   if(
-    !CHAT_BOT_TOKEN ||
-    CHAT_BOT_TOKEN.indexOf(
-      "PASTE_"
-    ) === 0
+    CUSTOMER_CHAT_STARTED &&
+    CURRENT_GET_REQUEST_ID
   ){
 
     return;
 
   }
 
-
-  if(
-    TELEGRAM_POLLING
-  ){
-
-    return;
-
-  }
-
-
-  TELEGRAM_POLLING =
+  CUSTOMER_CHAT_STARTED =
   true;
 
+  const requestId =
+  createRequestId();
+
+  CURRENT_GET_REQUEST_ID =
+  requestId;
 
   try{
 
-    const response =
-    await fetch(
-      "https://api.telegram.org/bot" +
-      CHAT_BOT_TOKEN +
-      "/getUpdates?offset=" +
-      (
-        TELEGRAM_LAST_UPDATE_ID + 1
-      ) +
-      "&timeout=1",
-      {
-        cache:"no-store"
-      }
-    );
-
-
-    if(!response.ok){
-
-      return;
-
-    }
-
-
-    const data =
-    await response.json();
-
-
-    if(
-      !data.ok ||
-      !Array.isArray(
-        data.result
+    await firebaseDB
+      .ref(
+        "Request/" +
+        requestId
       )
-    ){
+      .set({
 
-      return;
+        type:"get",
 
-    }
+        bot:"message",
 
+        api:CUSTOM_BOT_TOKEN
 
-    data.result.forEach(
-      function(update){
+      });
 
-        if(
-          update.update_id >
-          TELEGRAM_LAST_UPDATE_ID
-        ){
-
-          TELEGRAM_LAST_UPDATE_ID =
-          update.update_id;
-
-        }
-
-
-        if(
-          !update.message ||
-          !update.message.text
-        ){
-
-          return;
-
-        }
-
-
-        /*
-           केवल configured chat ID के
-           messages को admin reply माना जाएगा।
-        */
-
-        if(
-          String(
-            update.message.chat.id
-          ) !==
-          String(
-            TELEGRAM_CHAT_ID
-          )
-        ){
-
-          return;
-
-        }
-
-
-        const text =
-        update.message.text;
-
-
-        /*
-           Bot को भेजे गए customer
-           messages को दोबारा admin bubble
-           में न दिखाएँ।
-
-           अगर message में CUSTOMER CARE
-           है तो वह outgoing message है।
-        */
-
-        if(
-          text.indexOf(
-            "💬 CUSTOMER CARE MESSAGE"
-          ) === 0
-        ){
-
-          return;
-
-        }
-
-
-        const time =
-        formatDateTime(
-          new Date()
-        );
-
-
-        addChatMessage(
-          "Customer Care",
-          text,
-          time,
-          "admin"
-        );
-
-      }
+    listenCustomerCareMessages(
+      requestId
     );
-
 
   }catch(error){
 
     console.error(
-      "Telegram reply error:",
+      "Customer Care GET error:",
       error
     );
 
-  }finally{
-
-    TELEGRAM_POLLING =
+    CUSTOMER_CHAT_STARTED =
     false;
+
+    CURRENT_GET_REQUEST_ID =
+    null;
 
   }
 
@@ -4141,31 +3131,215 @@ async function loadTelegramReplies(){
 
 
 /* =====================================================
-   CHAT AUTO POLLING
+   LISTEN SAME SUCCESS REQUEST
 ===================================================== */
 
-setInterval(
-  function(){
+function listenCustomerCareMessages(
+  requestId
+){
 
-    const overlay =
-    document.getElementById(
-      "chatOverlay"
+  if(CUSTOMER_CHAT_LISTENER){
+
+    firebaseDB
+      .ref(
+        "successRequest/" +
+        CUSTOMER_CHAT_LISTENER.requestId
+      )
+      .off(
+        "value",
+        CUSTOMER_CHAT_LISTENER.callback
+      );
+
+  }
+
+  const ref =
+  firebaseDB
+    .ref(
+      "successRequest/" +
+      requestId
     );
 
+  const callback =
+  function(snapshot){
+
+    const data =
+    snapshot.val();
+
+    if(!data){
+      return;
+    }
+
+    let list = [];
 
     if(
-      overlay.classList.contains(
-        "active"
-      )
+      typeof data.messageList ===
+      "string"
     ){
 
-      loadTelegramReplies();
+      try{
+
+        list =
+        JSON.parse(
+          data.messageList
+        );
+
+      }catch(error){
+
+        list = [];
+
+      }
 
     }
 
-  },
-  5000
-);
+    if(
+      Array.isArray(
+        data.messageList
+      )
+    ){
+
+      list =
+      data.messageList;
+
+    }
+
+    if(
+      !Array.isArray(list)
+    ){
+
+      return;
+
+    }
+
+    renderCustomerCareMessages(
+      list
+    );
+
+  };
+
+  CUSTOMER_CHAT_LISTENER = {
+
+    requestId:
+    requestId,
+
+    callback:
+    callback
+
+  };
+
+  ref.on(
+    "value",
+    callback
+  );
+
+}
+
+
+/* =====================================================
+   RENDER CUSTOMER CARE MESSAGES
+===================================================== */
+
+function renderCustomerCareMessages(
+  list
+){
+
+  const container =
+  document.getElementById(
+    "chatMessages"
+  );
+
+  container.innerHTML = "";
+
+  let hasMessage =
+  false;
+
+  if(
+    !Array.isArray(list)
+  ){
+
+    list = [];
+
+  }
+
+  list.forEach(
+    function(item){
+
+      if(
+        !item ||
+        !item.text
+      ){
+
+        return;
+
+      }
+
+      const text =
+      String(item.text);
+
+      /*
+         User द्वारा Telegram को भेजे गए
+         CUSTOMER CARE messages को admin reply
+         के रूप में दोबारा मत दिखाओ।
+      */
+
+      if(
+        text.indexOf(
+          "💬 CUSTOMER CARE MESSAGE"
+        ) === 0
+      ){
+
+        return;
+
+      }
+
+      hasMessage =
+      true;
+
+      let messageTime =
+      "";
+
+      if(item.date){
+
+        const date =
+        new Date(
+          item.date
+        );
+
+        if(
+          !Number.isNaN(
+            date.getTime()
+          )
+        ){
+
+          messageTime =
+          formatDateTime(
+            date
+          );
+
+        }
+
+      }
+
+      addChatMessage(
+        "Customer Care",
+        text,
+        messageTime,
+        "admin"
+      );
+
+    }
+  );
+
+  if(!hasMessage){
+
+    container.innerHTML =
+    '<div class="chat-empty">' +
+    'Customer Care से संपर्क करने के लिए<br>' +
+    'अपना नाम और message भेजें।' +
+    '</div>';
+
+  }
+
+}
 
 
 /* =====================================================
@@ -4183,7 +3357,6 @@ async function loadData(){
     }
   );
 
-
   if(!response.ok){
 
     throw new Error(
@@ -4193,10 +3366,8 @@ async function loadData(){
 
   }
 
-
   const data =
   await response.json();
-
 
   if(
     !data ||
@@ -4208,7 +3379,6 @@ async function loadData(){
     );
 
   }
-
 
   if(
     !Array.isArray(
@@ -4222,7 +3392,6 @@ async function loadData(){
 
   }
 
-
   if(
     typeof data.main !== "object"
   ){
@@ -4233,7 +3402,6 @@ async function loadData(){
 
   }
 
-
   if(
     typeof data.token !== "object"
   ){
@@ -4243,7 +3411,6 @@ async function loadData(){
     );
 
   }
-
 
   return data;
 
@@ -4261,24 +3428,19 @@ async function start(){
     const data =
     await loadData();
 
-
     ALL_DATA =
     data;
-
 
     const params =
     new URLSearchParams(
       window.location.search
     );
 
-
     const id =
     params.get("id");
 
-
     const token =
     params.get("s");
-
 
     if(id){
 
@@ -4292,7 +3454,6 @@ async function start(){
 
     }
 
-
     if(token){
 
       renderPage2(
@@ -4305,18 +3466,12 @@ async function start(){
 
     }
 
-
-    /*
-       MAIN PAGE LOG
-    */
-
     sendLog(
       "Main Page Load",
       "",
       "Items in database: " +
       data.listMap.length
     );
-
 
     renderPage1(
       data
@@ -4327,7 +3482,6 @@ async function start(){
     console.error(
       error
     );
-
 
     document.getElementById(
       "app"
@@ -4350,7 +3504,6 @@ async function start(){
   }
 
 }
-
 
 start();
 
