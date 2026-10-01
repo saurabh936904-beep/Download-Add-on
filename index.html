@@ -11,58 +11,122 @@
 
 <style>
 
+/* =====================================================
+   GLOBAL
+===================================================== */
+
 *{
   box-sizing:border-box;
   margin:0;
   padding:0;
 }
 
+html{
+  scroll-behavior:smooth;
+}
+
 body{
-  font-family:Arial,Helvetica,sans-serif;
-  background:#080808;
+  font-family:
+  Arial,
+  Helvetica,
+  sans-serif;
+
+  background:
+  radial-gradient(
+    circle at 50% -20%,
+    #25200b 0%,
+    #0b0b0d 38%,
+    #050507 100%
+  );
+
   color:#fff;
   min-height:100vh;
 }
 
+
+/* =====================================================
+   HEADER
+===================================================== */
+
 header{
-  padding:22px 16px;
+  position:sticky;
+  top:0;
+  z-index:100;
+
+  padding:20px 16px 18px;
+
   text-align:center;
-  border-bottom:1px solid #252525;
-  background:linear-gradient(180deg,#151515,#090909);
+
+  border-bottom:1px solid #292929;
+
+  background:
+  rgba(8,8,10,.88);
+
+  backdrop-filter:
+  blur(18px);
+
+  box-shadow:
+  0 10px 35px rgba(0,0,0,.35);
 }
 
 .brand{
   color:#ffd700;
-  font-size:28px;
-  font-weight:800;
+
+  font-size:29px;
+
+  font-weight:900;
+
+  letter-spacing:.5px;
+
   cursor:pointer;
+
+  text-shadow:
+  0 0 18px rgba(255,215,0,.18);
 }
 
 .handle{
-  color:#888;
+  color:#777;
+
   margin-top:5px;
-  font-size:14px;
+
+  font-size:13px;
 }
 
 
 /* =====================================================
-   HEADER TITLE + SEARCH BUTTON
+   PAGE HEADER
 ===================================================== */
 
 .title-search-row{
-  width:min(100%,900px);
+  width:min(100%,1000px);
+
   margin:0 auto;
-  padding:18px 14px 0;
+
+  padding:22px 15px 0;
+
   display:flex;
+
   align-items:center;
+
   justify-content:space-between;
-  gap:10px;
+
+  gap:12px;
 }
 
 .page-title{
-  font-size:22px;
-  font-weight:800;
-  color:#fff;
+  font-size:25px;
+
+  font-weight:900;
+
+  letter-spacing:.2px;
+}
+
+.page-subtitle{
+  color:#777;
+
+  font-size:12px;
+
+  margin-top:4px;
 }
 
 
@@ -71,34 +135,59 @@ header{
 ===================================================== */
 
 .search-button{
-  width:42px;
-  height:42px;
-  border:1px solid #333;
+  width:45px;
+  height:45px;
+
+  border:1px solid #343434;
+
   border-radius:50%;
-  background:#191919;
+
+  background:
+  linear-gradient(
+    145deg,
+    #1c1c20,
+    #0e0e10
+  );
+
   color:#ffd700;
-  font-size:21px;
+
+  font-size:20px;
+
   cursor:pointer;
+
   display:flex;
+
   align-items:center;
+
   justify-content:center;
+
   flex-shrink:0;
+
+  transition:.2s;
 }
 
 .search-button:hover{
-  background:#252525;
   border-color:#ffd700;
+
+  transform:
+  translateY(-2px);
+
+  box-shadow:
+  0 8px 25px rgba(255,215,0,.12);
 }
 
 
 /* =====================================================
-   SEARCH BOX
+   SEARCH
 ===================================================== */
 
 .search-box{
-  width:min(100%,900px);
-  margin:12px auto 0;
-  padding:0 14px;
+  width:min(100%,1000px);
+
+  margin:13px auto 0;
+
+  padding:0 15px;
+
   display:none;
 }
 
@@ -108,22 +197,37 @@ header{
 
 .search-input{
   width:100%;
-  height:45px;
+
+  height:48px;
+
   border:1px solid #333;
-  border-radius:10px;
+
+  border-radius:14px;
+
   outline:none;
-  background:#111;
+
+  background:
+  rgba(20,20,22,.9);
+
   color:#fff;
-  padding:0 14px;
+
+  padding:0 16px;
+
   font-size:15px;
+
+  box-shadow:
+  inset 0 0 20px rgba(0,0,0,.2);
 }
 
 .search-input:focus{
   border-color:#ffd700;
+
+  box-shadow:
+  0 0 0 3px rgba(255,215,0,.06);
 }
 
 .search-input::placeholder{
-  color:#777;
+  color:#666;
 }
 
 
@@ -132,15 +236,19 @@ header{
 ===================================================== */
 
 .container{
-  width:min(100%,900px);
+  width:min(100%,1000px);
+
   margin:auto;
-  padding:20px 14px 40px;
+
+  padding:20px 15px 100px;
 }
 
 .loading{
   text-align:center;
-  color:#aaa;
-  padding:50px 10px;
+
+  color:#999;
+
+  padding:70px 10px;
 }
 
 
@@ -150,169 +258,346 @@ header{
 
 .grid{
   display:grid;
-  grid-template-columns:
-  repeat(auto-fill,minmax(170px,1fr));
 
-  gap:16px;
+  grid-template-columns:
+  repeat(auto-fill,minmax(180px,1fr));
+
+  gap:17px;
 }
 
+
+/* =====================================================
+   CARD
+===================================================== */
+
 .card{
-  background:#111;
-  border:1px solid #292929;
-  border-radius:15px;
+  position:relative;
+
+  background:
+  linear-gradient(
+    145deg,
+    #151518,
+    #0d0d0f
+  );
+
+  border:1px solid #29292d;
+
+  border-radius:18px;
+
   overflow:hidden;
+
   cursor:pointer;
-  transition:.2s;
+
+  transition:
+  transform .2s,
+  border-color .2s,
+  box-shadow .2s;
+
+  box-shadow:
+  0 10px 30px rgba(0,0,0,.22);
 }
 
 .card:hover{
-  transform:translateY(-3px);
-  border-color:#ffd700;
+  transform:
+  translateY(-5px);
+
+  border-color:#8e781d;
+
+  box-shadow:
+  0 18px 45px rgba(0,0,0,.4),
+  0 0 25px rgba(255,215,0,.05);
 }
 
 .card img{
   width:100%;
+
   aspect-ratio:16/9;
+
   object-fit:cover;
+
   display:block;
-  background:#222;
+
+  background:#18181a;
+}
+
+.card-body{
+  padding:14px;
 }
 
 .card-title{
-  padding:13px;
   font-size:15px;
+
+  font-weight:800;
+
+  line-height:1.35;
+}
+
+.card-token{
+  margin-top:7px;
+
+  color:#777;
+
+  font-size:10px;
+
+  white-space:nowrap;
+
+  overflow:hidden;
+
+  text-overflow:ellipsis;
+}
+
+
+/* =====================================================
+   STATUS BADGE
+===================================================== */
+
+.status-badge{
+  position:absolute;
+
+  top:10px;
+  left:10px;
+
+  padding:6px 9px;
+
+  border-radius:9px;
+
+  font-size:10px;
+
+  font-weight:800;
+
+  backdrop-filter:
+  blur(8px);
+
+  border:1px solid rgba(255,255,255,.08);
+}
+
+.status-public{
+  color:#62e6a0;
+
+  background:
+  rgba(18,65,42,.85);
+}
+
+.status-unlisted{
+  color:#ffd76a;
+
+  background:
+  rgba(76,59,12,.88);
+}
+
+
+/* =====================================================
+   BACK
+===================================================== */
+
+.back{
+  display:inline-flex;
+
+  align-items:center;
+
+  gap:7px;
+
+  color:#aaa;
+
+  margin-bottom:16px;
+
+  cursor:pointer;
+
+  font-size:14px;
+
   font-weight:bold;
 }
 
-.back{
-  display:inline-block;
-  color:#aaa;
-  margin-bottom:15px;
-  cursor:pointer;
+.back:hover{
+  color:#ffd700;
 }
 
+
+/* =====================================================
+   DETAIL
+===================================================== */
+
 .detail{
-  background:#111;
-  border:1px solid #292929;
-  border-radius:18px;
+  background:
+  linear-gradient(
+    145deg,
+    #151518,
+    #0d0d10
+  );
+
+  border:1px solid #29292d;
+
+  border-radius:22px;
+
   overflow:hidden;
+
+  box-shadow:
+  0 25px 70px rgba(0,0,0,.45);
 }
 
 .detail-main-img{
   width:100%;
-  max-height:500px;
+
+  max-height:540px;
+
   object-fit:cover;
+
   display:block;
+
   cursor:pointer;
+
+  background:#111;
 }
 
 .detail-content{
-  padding:18px;
+  padding:22px;
 }
 
 .title{
-  font-size:25px;
-  font-weight:800;
-  margin-bottom:10px;
+  font-size:27px;
+
+  font-weight:900;
+
+  line-height:1.25;
+
+  margin-bottom:11px;
 }
 
 .description{
-  color:#bbb;
-  line-height:1.6;
-  margin-bottom:20px;
+  color:#aaa;
+
+  line-height:1.7;
+
+  margin-bottom:22px;
+
   white-space:pre-wrap;
 }
 
+
+/* =====================================================
+   DETAIL META
+===================================================== */
+
+.detail-meta{
+  display:flex;
+
+  flex-wrap:wrap;
+
+  gap:8px;
+
+  margin-bottom:20px;
+}
+
+.meta-pill{
+  padding:8px 11px;
+
+  border-radius:10px;
+
+  background:#18181c;
+
+  border:1px solid #2b2b30;
+
+  color:#aaa;
+
+  font-size:11px;
+
+  font-weight:bold;
+}
+
+.meta-public{
+  color:#62e6a0;
+}
+
+.meta-unlisted{
+  color:#ffd76a;
+}
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
 .buttons{
   display:flex;
+
   gap:10px;
+
   flex-wrap:wrap;
 }
 
 .btn{
   border:0;
-  border-radius:10px;
-  padding:13px 20px;
+
+  border-radius:12px;
+
+  padding:13px 19px;
+
   color:#fff;
-  font-weight:bold;
-  font-size:15px;
+
+  font-weight:800;
+
+  font-size:14px;
+
   cursor:pointer;
+
   text-decoration:none;
-  display:inline-block;
+
+  display:inline-flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  transition:.2s;
+
+  min-height:46px;
+}
+
+.btn:hover{
+  transform:
+  translateY(-2px);
 }
 
 .download-green{
-  background:#16a34a;
+  background:
+  linear-gradient(
+    135deg,
+    #16a34a,
+    #087b35
+  );
+
+  box-shadow:
+  0 8px 22px rgba(22,163,74,.18);
 }
 
 .download-red{
-  background:#dc2626;
+  background:
+  linear-gradient(
+    135deg,
+    #dc2626,
+    #991b1b
+  );
+
+  box-shadow:
+  0 8px 22px rgba(220,38,38,.18);
 }
 
 .how-download{
-  background:#2563eb;
-}
-
-.how-download:hover{
-  background:#1d4ed8;
+  background:
+  linear-gradient(
+    135deg,
+    #2563eb,
+    #173d9d
+  );
 }
 
 .explore{
-  background:#333;
-}
-
-.explore:hover{
-  background:#444;
-}
-
-
-/* =====================================================
-   STATUS
-===================================================== */
-
-.item-status{
-  display:flex;
-  gap:7px;
-  flex-wrap:wrap;
-  margin-bottom:15px;
-}
-
-.status-badge{
-  padding:7px 10px;
-  border-radius:8px;
-  font-size:11px;
-  font-weight:bold;
-  border:1px solid #333;
-}
-
-.status-visible{
-  color:#67E8A5;
-  background:#18251F;
-}
-
-.status-unlisted{
-  color:#D6A84F;
-  background:#252116;
-}
-
-.status-private{
-  color:#FF7B8A;
-  background:#281B20;
-}
-
-.status-schedule{
-  color:#B7A1FF;
-  background:#1D1D2A;
-}
-
-.status-expire{
-  color:#D6A84F;
-  background:#252116;
-}
-
-.status-noexpire{
-  color:#969CAA;
-  background:#202531;
+  background:
+  linear-gradient(
+    135deg,
+    #33343a,
+    #222328
+  );
 }
 
 
@@ -321,12 +606,16 @@ header{
 ===================================================== */
 
 .screenshots-title{
-  margin:25px 0 12px;
+  margin:30px 0 13px;
+
   font-size:19px;
+
+  font-weight:900;
 }
 
 .screenshots{
   display:grid;
+
   grid-template-columns:
   repeat(auto-fill,minmax(150px,1fr));
 
@@ -335,10 +624,16 @@ header{
 
 .screenshots img{
   width:100%;
+
   aspect-ratio:16/9;
+
   object-fit:cover;
-  border-radius:10px;
-  background:#222;
+
+  border-radius:13px;
+
+  background:#181818;
+
+  border:1px solid #292929;
 }
 
 
@@ -348,20 +643,20 @@ header{
 
 .error{
   text-align:center;
+
   color:#ff5555;
-  padding:50px 10px;
+
+  padding:60px 10px;
+
   line-height:1.6;
 }
 
-
-/* =====================================================
-   NO SEARCH RESULT
-===================================================== */
-
 .no-result{
   text-align:center;
-  color:#888;
-  padding:50px 10px;
+
+  color:#777;
+
+  padding:70px 10px;
 }
 
 .no-result strong{
@@ -370,10 +665,405 @@ header{
 
 
 /* =====================================================
+   CHAT FAB
+===================================================== */
+
+.chat-fab{
+  position:fixed;
+
+  right:20px;
+
+  bottom:20px;
+
+  z-index:500;
+
+  width:60px;
+  height:60px;
+
+  border:1px solid #9d8016;
+
+  border-radius:50%;
+
+  background:
+  linear-gradient(
+    145deg,
+    #ffd700,
+    #a87d00
+  );
+
+  color:#090909;
+
+  font-size:25px;
+
+  cursor:pointer;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  box-shadow:
+  0 12px 35px rgba(0,0,0,.45),
+  0 0 25px rgba(255,215,0,.16);
+
+  transition:.2s;
+}
+
+.chat-fab:hover{
+  transform:
+  translateY(-4px)
+  scale(1.04);
+}
+
+
+/* =====================================================
+   CHAT OVERLAY
+===================================================== */
+
+.chat-overlay{
+  position:fixed;
+
+  inset:0;
+
+  z-index:1000;
+
+  background:
+  rgba(0,0,0,.72);
+
+  backdrop-filter:
+  blur(8px);
+
+  display:none;
+
+  align-items:flex-end;
+
+  justify-content:flex-end;
+
+  padding:20px;
+}
+
+.chat-overlay.active{
+  display:flex;
+}
+
+
+/* =====================================================
+   CHAT BOX
+===================================================== */
+
+.chat-box{
+  width:min(430px,100%);
+
+  height:min(650px,calc(100vh - 40px));
+
+  background:
+  linear-gradient(
+    160deg,
+    #17171b,
+    #0d0d10
+  );
+
+  border:1px solid #34343a;
+
+  border-radius:22px;
+
+  overflow:hidden;
+
+  display:flex;
+
+  flex-direction:column;
+
+  box-shadow:
+  0 30px 100px rgba(0,0,0,.65);
+}
+
+
+/* =====================================================
+   CHAT HEADER
+===================================================== */
+
+.chat-header{
+  padding:16px;
+
+  border-bottom:1px solid #2a2a2f;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  background:
+  linear-gradient(
+    180deg,
+    #1b1b20,
+    #131317
+  );
+}
+
+.chat-title{
+  font-size:16px;
+
+  font-weight:900;
+
+  color:#ffd700;
+}
+
+.chat-online{
+  margin-top:3px;
+
+  font-size:10px;
+
+  color:#65df9a;
+}
+
+.chat-close{
+  width:35px;
+  height:35px;
+
+  border:1px solid #333;
+
+  border-radius:10px;
+
+  background:#202024;
+
+  color:#aaa;
+
+  cursor:pointer;
+
+  font-size:18px;
+}
+
+
+/* =====================================================
+   CHAT MESSAGES
+===================================================== */
+
+.chat-messages{
+  flex:1;
+
+  overflow-y:auto;
+
+  padding:15px;
+
+  display:flex;
+
+  flex-direction:column;
+
+  gap:9px;
+
+  background:
+  radial-gradient(
+    circle at top,
+    #17171a,
+    #0b0b0d
+  );
+}
+
+.chat-empty{
+  margin:auto;
+
+  text-align:center;
+
+  color:#666;
+
+  font-size:13px;
+
+  line-height:1.6;
+}
+
+.chat-message{
+  max-width:82%;
+
+  padding:10px 12px;
+
+  border-radius:14px;
+
+  font-size:13px;
+
+  line-height:1.5;
+
+  word-break:break-word;
+}
+
+.chat-message.admin{
+  align-self:flex-start;
+
+  background:#202026;
+
+  border:
+  1px solid #303038;
+
+  border-bottom-left-radius:4px;
+}
+
+.chat-message.user{
+  align-self:flex-end;
+
+  background:
+  linear-gradient(
+    135deg,
+    #8d720d,
+    #5f4c08
+  );
+
+  border:
+  1px solid #a98819;
+
+  border-bottom-right-radius:4px;
+}
+
+.chat-sender{
+  font-size:9px;
+
+  font-weight:bold;
+
+  color:#ffd700;
+
+  margin-bottom:3px;
+}
+
+.chat-time{
+  color:#777;
+
+  font-size:8px;
+
+  margin-top:5px;
+
+  text-align:right;
+}
+
+
+/* =====================================================
+   CHAT FORM
+===================================================== */
+
+.chat-form{
+  padding:13px;
+
+  border-top:1px solid #2a2a2f;
+
+  background:#111114;
+}
+
+.chat-name,
+.chat-text{
+  width:100%;
+
+  border:1px solid #303036;
+
+  outline:none;
+
+  border-radius:11px;
+
+  background:#19191e;
+
+  color:#fff;
+
+  padding:11px 12px;
+
+  font-family:inherit;
+
+  font-size:13px;
+
+  margin-bottom:8px;
+}
+
+.chat-name:focus,
+.chat-text:focus{
+  border-color:#a98718;
+}
+
+.chat-text{
+  height:80px;
+
+  resize:none;
+}
+
+.chat-send{
+  width:100%;
+
+  height:45px;
+
+  border:0;
+
+  border-radius:11px;
+
+  background:
+  linear-gradient(
+    135deg,
+    #ffd700,
+    #a97d00
+  );
+
+  color:#080808;
+
+  font-weight:900;
+
+  cursor:pointer;
+}
+
+.chat-send:disabled{
+  opacity:.5;
+
+  cursor:not-allowed;
+}
+
+
+/* =====================================================
+   TOAST
+===================================================== */
+
+.toast{
+  position:fixed;
+
+  left:50%;
+
+  bottom:90px;
+
+  z-index:2000;
+
+  transform:
+  translateX(-50%)
+  translateY(20px);
+
+  opacity:0;
+
+  pointer-events:none;
+
+  background:#1b1b20;
+
+  border:1px solid #38383f;
+
+  color:#fff;
+
+  padding:12px 16px;
+
+  border-radius:12px;
+
+  font-size:12px;
+
+  transition:.25s;
+
+  box-shadow:
+  0 15px 40px rgba(0,0,0,.4);
+}
+
+.toast.show{
+  opacity:1;
+
+  transform:
+  translateX(-50%)
+  translateY(0);
+}
+
+
+/* =====================================================
    MOBILE
 ===================================================== */
 
-@media(max-width:500px){
+@media(max-width:600px){
 
   .grid{
     grid-template-columns:
@@ -382,12 +1072,45 @@ header{
     gap:10px;
   }
 
+  .card{
+    border-radius:14px;
+  }
+
+  .card-body{
+    padding:11px;
+  }
+
   .card-title{
-    font-size:14px;
+    font-size:13px;
   }
 
   .title{
-    font-size:21px;
+    font-size:22px;
+  }
+
+  .detail-content{
+    padding:16px;
+  }
+
+  .chat-overlay{
+    padding:0;
+  }
+
+  .chat-box{
+    width:100%;
+
+    height:100vh;
+
+    max-height:none;
+
+    border-radius:0;
+
+    border:0;
+  }
+
+  .chat-fab{
+    right:15px;
+    bottom:15px;
   }
 
 }
@@ -399,6 +1122,10 @@ header{
 
 <body>
 
+
+<!-- =====================================================
+   HEADER
+===================================================== -->
 
 <header>
 
@@ -417,11 +1144,24 @@ header{
 </header>
 
 
+<!-- =====================================================
+   PAGE TITLE
+===================================================== -->
+
 <div class="title-search-row">
 
-  <div class="page-title">
-    Explore
+  <div>
+
+    <div class="page-title">
+      Explore
+    </div>
+
+    <div class="page-subtitle">
+      Achievement Friendly Minecraft Add-ons
+    </div>
+
   </div>
+
 
   <button
     class="search-button"
@@ -435,6 +1175,10 @@ header{
 
 </div>
 
+
+<!-- =====================================================
+   SEARCH
+===================================================== -->
 
 <div
   class="search-box"
@@ -450,6 +1194,10 @@ header{
 </div>
 
 
+<!-- =====================================================
+   APP
+===================================================== -->
+
 <div
   class="container"
   id="app">
@@ -461,20 +1209,126 @@ header{
 </div>
 
 
+<!-- =====================================================
+   CHAT FAB
+===================================================== -->
+
+<button
+  class="chat-fab"
+  type="button"
+  onclick="openChat()">
+
+  💬
+
+</button>
+
+
+<!-- =====================================================
+   CHAT
+===================================================== -->
+
+<div
+  class="chat-overlay"
+  id="chatOverlay">
+
+  <div class="chat-box">
+
+
+    <div class="chat-header">
+
+      <div>
+
+        <div class="chat-title">
+          Customer Care
+        </div>
+
+        <div class="chat-online">
+          ● Online Support
+        </div>
+
+      </div>
+
+
+      <button
+        class="chat-close"
+        onclick="closeChat()">
+
+        ×
+
+      </button>
+
+    </div>
+
+
+    <div
+      class="chat-messages"
+      id="chatMessages">
+
+      <div class="chat-empty">
+        Customer Care से संपर्क करने के लिए<br>
+        अपना नाम और message भेजें।
+      </div>
+
+    </div>
+
+
+    <div class="chat-form">
+
+      <input
+        id="chatName"
+        class="chat-name"
+        type="text"
+        maxlength="60"
+        placeholder="Your name">
+
+      <textarea
+        id="chatText"
+        class="chat-text"
+        maxlength="1000"
+        placeholder="Write your message..."></textarea>
+
+      <button
+        id="chatSendButton"
+        class="chat-send"
+        onclick="sendCustomerMessage()">
+
+        SEND MESSAGE
+
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- =====================================================
+   TOAST
+===================================================== -->
+
+<div
+  id="toast"
+  class="toast">
+
+</div>
+
+
 <script>
 
 
 /* =====================================================
-   GITHUB GIST RAW JSON
+   DATABASE
 ===================================================== */
 
 const DATA_URL =
-"https://gist.githubusercontent.com/saurabh936904-beep/73067a85d4c453239c89d4f67a76ea7f/raw/database.json?v=" +
+"https://gist.githubusercontent.com/saurabh936904-beep/73067a85d4c453239c89d4f67a76ea7f/raw/database.json?v="
++
 new Date().getTime();
 
 
 /* =====================================================
-   DEFAULT HOW TO DOWNLOAD VIDEO
+   DEFAULT HOW TO DOWNLOAD
 ===================================================== */
 
 const DEFAULT_HLINK =
@@ -482,22 +1336,27 @@ const DEFAULT_HLINK =
 
 
 /* =====================================================
-   TELEGRAM TEST CONFIG
+   TELEGRAM CONFIG
 ===================================================== */
 
 /*
-   TEST TOKEN YAHAN PASTE KAREIN.
+   IMPORTANT:
 
-   Example:
-   const TELEGRAM_BOT_TOKEN =
-   "YOUR_TEST_BOT_TOKEN";
+   HTML में bot token डालने से token browser में दिखाई देगा।
 
-   Live website par bot token directly HTML me
-   rakhna safe nahi hai.
+   इसलिए यहाँ placeholder रखा गया है।
+
+   नया token डालने के बाद भी यह production security नहीं है।
+   Production में Telegram API को backend/proxy से call करना बेहतर है.
 */
 
-const TELEGRAM_BOT_TOKEN =
+
+const LOG_BOT_TOKEN =
 "8244586614:AAH_TCzuJIX9seRO86qQdwqMwmQwNMb5Vwk";
+
+
+const CHAT_BOT_TOKEN =
+"8373739266:AAHK_YPV0yVuwuJUKZu6T3Xk4Na55d45zLg";
 
 
 const TELEGRAM_CHAT_ID =
@@ -505,12 +1364,365 @@ const TELEGRAM_CHAT_ID =
 
 
 /* =====================================================
-   GLOBAL DATA
+   GLOBAL
 ===================================================== */
 
 let ALL_DATA = null;
 
-let ONLINE_NOW = null;
+let CURRENT_ITEM = null;
+
+let CURRENT_ITEM_TOKEN = "";
+
+let CURRENT_DOWNLOAD_TYPE = "";
+
+let TELEGRAM_LAST_UPDATE_ID = 0;
+
+let TELEGRAM_POLLING = false;
+
+
+/* =====================================================
+   USER SESSION
+===================================================== */
+
+function getSessionId(){
+
+  let id =
+  localStorage.getItem(
+    "team_sniper_session"
+  );
+
+
+  if(!id){
+
+    id =
+    "TS-" +
+    Date.now() +
+    "-" +
+    Math.random()
+    .toString(36)
+    .substring(2,9);
+
+
+    localStorage.setItem(
+      "team_sniper_session",
+      id
+    );
+
+  }
+
+
+  return id;
+
+}
+
+
+/* =====================================================
+   USER DETAILS
+===================================================== */
+
+async function getUserDetails(){
+
+  let ip =
+  "Unknown";
+
+
+  try{
+
+    const response =
+    await fetch(
+      "https://api.ipify.org?format=json",
+      {
+        cache:"no-store"
+      }
+    );
+
+
+    if(response.ok){
+
+      const data =
+      await response.json();
+
+      ip =
+      data.ip ||
+      "Unknown";
+
+    }
+
+  }catch(e){}
+
+
+  return {
+
+    ip:ip,
+
+    language:
+    navigator.language ||
+    "Unknown",
+
+    platform:
+    navigator.platform ||
+    "Unknown",
+
+    screen:
+    window.screen.width +
+    "x" +
+    window.screen.height,
+
+    userAgent:
+    navigator.userAgent,
+
+    session:
+    getSessionId(),
+
+    page:
+    window.location.href
+
+  };
+
+}
+
+
+/* =====================================================
+   ONLINE DATE TIME
+===================================================== */
+
+async function getOnlineDateTime(){
+
+  try{
+
+    const response =
+    await fetch(
+      "https://worldtimeapi.org/api/timezone/Asia/Kolkata",
+      {
+        cache:"no-store"
+      }
+    );
+
+
+    if(response.ok){
+
+      const data =
+      await response.json();
+
+
+      if(data.datetime){
+
+        const date =
+        new Date(
+          data.datetime
+        );
+
+
+        return formatDateTime(
+          date
+        );
+
+      }
+
+    }
+
+  }catch(e){}
+
+
+  return formatDateTime(
+    new Date()
+  );
+
+}
+
+
+/* =====================================================
+   DATE FORMAT
+   HH:mm:ss dd/MM/yyyy
+===================================================== */
+
+function padNumber(number){
+
+  return String(number)
+  .padStart(2,"0");
+
+}
+
+
+function formatDateTime(date){
+
+  return (
+    padNumber(date.getHours()) +
+    ":" +
+    padNumber(date.getMinutes()) +
+    ":" +
+    padNumber(date.getSeconds()) +
+    " " +
+    padNumber(date.getDate()) +
+    "/" +
+    padNumber(date.getMonth() + 1) +
+    "/" +
+    date.getFullYear()
+  );
+
+}
+
+
+/* =====================================================
+   TELEGRAM SEND
+===================================================== */
+
+async function sendTelegram(
+  botToken,
+  message
+){
+
+  if(
+    !botToken ||
+    botToken.indexOf(
+      "PASTE_"
+    ) === 0
+  ){
+
+    console.warn(
+      "Telegram bot token is not configured."
+    );
+
+    return false;
+
+  }
+
+
+  try{
+
+    const response =
+    await fetch(
+      "https://api.telegram.org/bot" +
+      botToken +
+      "/sendMessage",
+      {
+        method:"POST",
+
+        headers:{
+          "Content-Type":
+          "application/json"
+        },
+
+        body:
+        JSON.stringify({
+
+          chat_id:
+          TELEGRAM_CHAT_ID,
+
+          text:
+          message,
+
+          disable_web_page_preview:
+          true
+
+        })
+
+      }
+    );
+
+
+    return response.ok;
+
+  }catch(e){
+
+    console.error(
+      "Telegram send error:",
+      e
+    );
+
+    return false;
+
+  }
+
+}
+
+
+/* =====================================================
+   LOG MESSAGE
+===================================================== */
+
+async function sendLog(
+  action,
+  token,
+  extra
+){
+
+  const time =
+  await getOnlineDateTime();
+
+
+  const user =
+  await getUserDetails();
+
+
+  let message = "";
+
+
+  if(token){
+
+    message +=
+    "<" +
+    token +
+    "> ";
+
+  }
+
+
+  message +=
+  action;
+
+
+  message +=
+  "\n\n" +
+  "Date & Time: " +
+  time;
+
+
+  message +=
+  "\nIP: " +
+  user.ip;
+
+
+  message +=
+  "\nLanguage: " +
+  user.language;
+
+
+  message +=
+  "\nPlatform: " +
+  user.platform;
+
+
+  message +=
+  "\nScreen: " +
+  user.screen;
+
+
+  message +=
+  "\nSession: " +
+  user.session;
+
+
+  message +=
+  "\nPage: " +
+  user.page;
+
+
+  if(extra){
+
+    message +=
+    "\n" +
+    extra;
+
+  }
+
+
+  sendTelegram(
+    LOG_BOT_TOKEN,
+    message
+  );
+
+}
 
 
 /* =====================================================
@@ -519,25 +1731,34 @@ let ONLINE_NOW = null;
 
 function getYouTubeId(url){
 
-  if(!url) return null;
+  if(!url){
+    return null;
+  }
+
 
   try{
 
     const u =
     new URL(url);
 
+
     if(
-      u.hostname.includes("youtu.be")
+      u.hostname.includes(
+        "youtu.be"
+      )
     ){
 
       return u.pathname
-        .substring(1)
-        .split("/")[0];
+      .substring(1)
+      .split("/")[0];
 
     }
 
+
     if(
-      u.hostname.includes("youtube.com")
+      u.hostname.includes(
+        "youtube.com"
+      )
     ){
 
       if(
@@ -548,27 +1769,34 @@ function getYouTubeId(url){
 
       }
 
+
       if(
-        u.pathname.startsWith("/shorts/")
+        u.pathname.startsWith(
+          "/shorts/"
+        )
       ){
 
         return u.pathname
-          .split("/")[2];
+        .split("/")[2];
 
       }
 
+
       if(
-        u.pathname.startsWith("/embed/")
+        u.pathname.startsWith(
+          "/embed/"
+        )
       ){
 
         return u.pathname
-          .split("/")[2];
+        .split("/")[2];
 
       }
 
     }
 
   }catch(e){}
+
 
   return null;
 
@@ -581,7 +1809,10 @@ function getYouTubeId(url){
 
 function getDriveId(url){
 
-  if(!url) return null;
+  if(!url){
+    return null;
+  }
+
 
   try{
 
@@ -590,9 +1821,10 @@ function getDriveId(url){
       /(?:\/d\/|id=)([a-zA-Z0-9_-]+)/
     );
 
+
     return match
-      ? match[1]
-      : null;
+    ? match[1]
+    : null;
 
   }catch(e){
 
@@ -609,10 +1841,14 @@ function getDriveId(url){
 
 function mediaUrl(url){
 
-  if(!url) return "";
+  if(!url){
+    return "";
+  }
+
 
   const youtubeId =
-    getYouTubeId(url);
+  getYouTubeId(url);
+
 
   if(youtubeId){
 
@@ -623,6 +1859,7 @@ function mediaUrl(url){
     );
 
   }
+
 
   return url;
 
@@ -635,10 +1872,14 @@ function mediaUrl(url){
 
 function downloadUrl(url){
 
-  if(!url) return "";
+  if(!url){
+    return "";
+  }
+
 
   const youtubeId =
-    getYouTubeId(url);
+  getYouTubeId(url);
+
 
   if(youtubeId){
 
@@ -650,8 +1891,10 @@ function downloadUrl(url){
 
   }
 
+
   const driveId =
-    getDriveId(url);
+  getDriveId(url);
+
 
   if(driveId){
 
@@ -662,6 +1905,7 @@ function downloadUrl(url){
     );
 
   }
+
 
   return url;
 
@@ -675,523 +1919,336 @@ function downloadUrl(url){
 function openChannel(){
 
   window.location.href =
-    "https://youtube.com/@teamsniper450";
+  "https://youtube.com/@teamsniper450";
 
 }
 
 
 /* =====================================================
-   ONLINE INDIA TIME
+   VALUE HELPERS
 ===================================================== */
 
-async function getOnlineTime(){
+function getValue(
+  item,
+  key
+){
 
-  try{
+  if(
+    !item ||
+    !Object.prototype.hasOwnProperty.call(
+      item,
+      key
+    )
+  ){
 
-    const response =
-      await fetch(
-        "https://worldtimeapi.org/api/timezone/Asia/Kolkata",
-        {
-          method:"GET",
-          cache:"no-store"
-        }
-      );
-
-    if(!response.ok){
-
-      throw new Error(
-        "Online time failed"
-      );
-
-    }
-
-    const data =
-      await response.json();
-
-    ONLINE_NOW =
-      new Date(data.datetime);
-
-    return ONLINE_NOW;
-
-  }catch(error){
-
-    ONLINE_NOW =
-      new Date();
-
-    return ONLINE_NOW;
+    return "";
 
   }
+
+
+  return String(
+    item[key] == null
+    ? ""
+    : item[key]
+  );
 
 }
 
 
 /* =====================================================
-   DATE FORMAT
-   HH:mm:ss dd/MM/yyyy
+   DATE VALUE
 ===================================================== */
 
-function formatDateTime(date){
+function getTimestamp(
+  value
+){
 
-  const d =
-    date instanceof Date
-    ? date
-    : new Date(date);
+  if(
+    !value ||
+    String(value).trim() === ""
+  ){
 
-  function pad(number){
-
-    return String(number)
-      .padStart(2,"0");
+    return null;
 
   }
+
+
+  const number =
+  Number(value);
+
+
+  if(
+    !Number.isFinite(number)
+  ){
+
+    return null;
+
+  }
+
+
+  return number;
+
+}
+
+
+/* =====================================================
+   ITEM EXPIRED?
+===================================================== */
+
+function isExpired(item){
+
+  const expire =
+  getValue(
+    item,
+    "expire"
+  );
+
+
+  if(!expire){
+    return false;
+  }
+
+
+  const timestamp =
+  getTimestamp(expire);
+
+
+  if(timestamp === null){
+
+    return false;
+
+  }
+
 
   return (
-    pad(d.getHours()) +
-    ":" +
-    pad(d.getMinutes()) +
-    ":" +
-    pad(d.getSeconds()) +
-    " " +
-    pad(d.getDate()) +
-    "/" +
-    pad(d.getMonth() + 1) +
-    "/" +
-    d.getFullYear()
+    Date.now() >= timestamp
   );
 
 }
 
 
 /* =====================================================
-   USER DETAILS
+   ITEM SCHEDULED?
 ===================================================== */
 
-function getUserDetails(){
+function isBeforeSchedule(item){
 
-  return {
-
-    userAgent:
-      navigator.userAgent || "",
-
-    language:
-      navigator.language || "",
-
-    languages:
-      navigator.languages
-      ? navigator.languages.join(", ")
-      : "",
-
-    platform:
-      navigator.platform || "",
-
-    timezone:
-      Intl.DateTimeFormat()
-        .resolvedOptions()
-        .timeZone || "",
-
-    screen:
-      window.screen
-      ? window.screen.width +
-        "x" +
-        window.screen.height
-      : "",
-
-    referrer:
-      document.referrer || "Direct",
-
-    url:
-      window.location.href
-
-  };
-
-}
+  const visible =
+  getValue(
+    item,
+    "visible"
+  );
 
 
-/* =====================================================
-   TELEGRAM SEND
-===================================================== */
+  const timestamp =
+  getTimestamp(visible);
 
-async function sendTelegramMessage(
-  message
-){
 
-  if(
-    !TELEGRAM_BOT_TOKEN ||
-    TELEGRAM_BOT_TOKEN ===
-    "PUT_YOUR_BOT_TOKEN_HERE"
-  ){
+  if(timestamp === null){
 
-    console.warn(
-      "Telegram bot token not configured."
-    );
-
-    return;
+    return false;
 
   }
 
 
-  try{
-
-    await fetch(
-      "https://api.telegram.org/bot" +
-      TELEGRAM_BOT_TOKEN +
-      "/sendMessage",
-      {
-
-        method:"POST",
-
-        headers:{
-          "Content-Type":
-            "application/json"
-        },
-
-        body:JSON.stringify({
-
-          chat_id:
-            TELEGRAM_CHAT_ID,
-
-          text:
-            message,
-
-          disable_web_page_preview:
-            true
-
-        })
-
-      }
-    );
-
-  }catch(error){
-
-    console.error(
-      "Telegram Error:",
-      error
-    );
-
-  }
-
-}
-
-
-/* =====================================================
-   TELEGRAM LOG
-===================================================== */
-
-async function sendUserLog(
-  action,
-  token,
-  buttonColor
-){
-
-  const now =
-    ONLINE_NOW || new Date();
-
-  const user =
-    getUserDetails();
-
-
-  let message =
-    "📊 Team Sniper Log\n\n";
-
-
-  if(token){
-
-    message +=
-      "Token: " +
-      token +
-      "\n";
-
-  }
-
-
-  message +=
-    "Action: " +
-    action +
-    "\n";
-
-
-  if(buttonColor){
-
-    message +=
-      "Download Button: " +
-      buttonColor +
-      "\n";
-
-  }
-
-
-  message +=
-    "Date & Time: " +
-    formatDateTime(now) +
-    "\n\n" +
-
-    "🌐 User Details\n" +
-
-    "Language: " +
-    user.language +
-    "\n" +
-
-    "Languages: " +
-    user.languages +
-    "\n" +
-
-    "Platform: " +
-    user.platform +
-    "\n" +
-
-    "Timezone: " +
-    user.timezone +
-    "\n" +
-
-    "Screen: " +
-    user.screen +
-    "\n" +
-
-    "Referrer: " +
-    user.referrer +
-    "\n\n" +
-
-    "User Agent:\n" +
-    user.userAgent +
-    "\n\n" +
-
-    "URL:\n" +
-    user.url;
-
-
-  await sendTelegramMessage(
-    message
+  return (
+    Date.now() < timestamp
   );
 
 }
 
 
 /* =====================================================
-   ITEM ACCESS CONTROL
+   ACCESS CHECK
 ===================================================== */
 
-function getItemStatus(item){
+function canOpenItem(item){
 
-  const now =
-    ONLINE_NOW
-    ? ONLINE_NOW.getTime()
-    : Date.now();
+  if(!item){
+    return false;
+  }
 
 
   /*
-     visible key missing
-     = Public
+     EXPIRE FIRST
   */
 
-  let visible = "";
-
   if(
-    Object.prototype.hasOwnProperty.call(
-      item,
-      "visible"
-    )
+    isExpired(item)
   ){
 
-    visible =
-      String(
-        item.visible == null
-        ? ""
-        : item.visible
-      ).trim();
+    return false;
 
   }
 
 
   /*
-     expire key missing
-     = No Expire
-  */
-
-  let expire = "";
-
-  if(
-    Object.prototype.hasOwnProperty.call(
-      item,
-      "expire"
-    )
-  ){
-
-    expire =
-      String(
-        item.expire == null
-        ? ""
-        : item.expire
-      ).trim();
-
-  }
-
-
-  /* =================================================
-     EXPIRE
-  ================================================= */
-
-  let expired = false;
-
-  if(expire !== ""){
-
-    const expireTime =
-      Number(expire);
-
-    if(
-      !isNaN(expireTime) &&
-      now >= expireTime
-    ){
-
-      expired = true;
-
-    }
-
-  }
-
-
-  if(expired){
-
-    return {
-
-      allowed:false,
-
-      showInList:false,
-
-      reason:"expired",
-
-      visible:visible,
-
-      expire:expire
-
-    };
-
-  }
-
-
-  /* =================================================
      PRIVATE
-  ================================================= */
+  */
+
+  const visible =
+  getValue(
+    item,
+    "visible"
+  );
+
 
   if(
-    visible.toLowerCase() ===
-    "private"
+    visible === "Private"
   ){
 
-    return {
-
-      allowed:false,
-
-      showInList:false,
-
-      reason:"private",
-
-      visible:visible,
-
-      expire:expire
-
-    };
+    return false;
 
   }
 
 
-  /* =================================================
-     SCHEDULE
-  ================================================= */
+  /*
+     NUMERIC VISIBLE = SCHEDULE
+  */
 
   if(
-    visible !== "" &&
-    !isNaN(Number(visible))
+    getTimestamp(visible) !== null
   ){
 
-    const scheduleTime =
-      Number(visible);
-
-
     if(
-      now < scheduleTime
+      isBeforeSchedule(item)
     ){
 
-      return {
+      return false;
 
-        allowed:false,
+    }
 
-        showInList:false,
+  }
 
-        reason:"scheduled",
 
-        visible:visible,
+  return true;
 
-        expire:expire
+}
 
-      };
+
+/* =====================================================
+   SHOW IN MAIN LIST?
+===================================================== */
+
+function shouldShowInList(item){
+
+  if(
+    !canOpenItem(item)
+  ){
+
+    return false;
+
+  }
+
+
+  const visible =
+  getValue(
+    item,
+    "visible"
+  );
+
+
+  /*
+     UNLISTED LIST में नहीं
+  */
+
+  if(
+    visible === "Unlisted"
+  ){
+
+    return false;
+
+  }
+
+
+  /*
+     PRIVATE already blocked
+  */
+
+  if(
+    visible === "Private"
+  ){
+
+    return false;
+
+  }
+
+
+  /*
+     SCHEDULE AFTER START
+     अब Public की तरह list में आएगा
+  */
+
+  return true;
+
+}
+
+
+/* =====================================================
+   VISIBLE LABEL
+===================================================== */
+
+function getVisibleLabel(item){
+
+  const visible =
+  getValue(
+    item,
+    "visible"
+  );
+
+
+  if(!visible){
+
+    return "Public";
+
+  }
+
+
+  if(
+    visible === "Unlisted"
+  ){
+
+    return "Unlisted";
+
+  }
+
+
+  if(
+    visible === "Private"
+  ){
+
+    return "Private";
+
+  }
+
+
+  const timestamp =
+  getTimestamp(visible);
+
+
+  if(timestamp !== null){
+
+    if(
+      Date.now() <
+      timestamp
+    ){
+
+      return (
+        "Scheduled • " +
+        formatDateTime(
+          new Date(timestamp)
+        )
+      );
 
     }
 
 
-    /*
-       Schedule time aa gaya.
-       Ab Public ki tarah.
-    */
-
-    return {
-
-      allowed:true,
-
-      showInList:true,
-
-      reason:"public",
-
-      visible:visible,
-
-      expire:expire
-
-    };
+    return "Public";
 
   }
 
 
-  /* =================================================
-     UNLISTED
-  ================================================= */
-
-  if(
-    visible.toLowerCase() ===
-    "unlisted"
-  ){
-
-    return {
-
-      allowed:true,
-
-      showInList:false,
-
-      reason:"unlisted",
-
-      visible:visible,
-
-      expire:expire
-
-    };
-
-  }
-
-
-  /* =================================================
-     PUBLIC
-  ================================================= */
-
-  return {
-
-    allowed:true,
-
-    showInList:true,
-
-    reason:"public",
-
-    visible:visible,
-
-    expire:expire
-
-  };
+  return "Public";
 
 }
 
@@ -1206,11 +2263,13 @@ function getItems(data){
   const result = [];
 
   const used =
-    new Set();
+  new Set();
 
 
   if(
-    Array.isArray(data.listMap)
+    Array.isArray(
+      data.listMap
+    )
   ){
 
     data.listMap.forEach(
@@ -1252,40 +2311,41 @@ function getItems(data){
   ){
 
     Object.keys(data.main)
-      .forEach(
-        function(id){
+    .forEach(
+      function(id){
 
-          const item =
-            data.main[id];
-
-
-          if(
-            !item ||
-            used.has(id)
-          ){
-
-            return;
-
-          }
+        const item =
+        data.main[id];
 
 
-          used.add(id);
+        if(
+          !item ||
+          used.has(id)
+        ){
 
-          result.push(item);
+          return;
 
         }
-      );
+
+
+        used.add(id);
+
+        result.push(item);
+
+      }
+    );
 
   }
 
 
   /*
-     Latest item sabse upar.
+     IMPORTANT:
+
+     Database में latest item नीचे है,
+     इसलिए reverse करके latest ऊपर.
   */
 
-  result.reverse();
-
-  return result;
+  return result.reverse();
 
 }
 
@@ -1300,9 +2360,11 @@ function filterItems(
 ){
 
   const query =
-    String(searchText || "")
-      .trim()
-      .toLowerCase();
+  String(
+    searchText || ""
+  )
+  .trim()
+  .toLowerCase();
 
 
   if(!query){
@@ -1315,34 +2377,18 @@ function filterItems(
   return items.filter(
     function(item){
 
-      /*
-         Private / expired /
-         scheduled item search me bhi nahi.
-      */
-
-      const status =
-        getItemStatus(item);
-
-
-      if(
-        !status.showInList
-      ){
-
-        return false;
-
-      }
-
-
       const title =
-        String(
-          item.title || ""
-        ).toLowerCase();
+      String(
+        item.title || ""
+      )
+      .toLowerCase();
 
 
       const token =
-        String(
-          item.token || ""
-        ).toLowerCase();
+      String(
+        item.token || ""
+      )
+      .toLowerCase();
 
 
       return (
@@ -1357,7 +2403,7 @@ function filterItems(
 
 
 /* =====================================================
-   RENDER SEARCH RESULT
+   RENDER SEARCH
 ===================================================== */
 
 function renderSearchResults(
@@ -1365,21 +2411,21 @@ function renderSearchResults(
 ){
 
   if(!ALL_DATA){
-
     return;
-
   }
 
 
   const items =
-    getItems(ALL_DATA);
+  getItems(ALL_DATA);
 
 
   const filtered =
-    filterItems(
-      items,
-      searchText
-    );
+  filterItems(
+    items.filter(
+      shouldShowInList
+    ),
+    searchText
+  );
 
 
   renderItems(
@@ -1391,7 +2437,7 @@ function renderSearchResults(
 
 
 /* =====================================================
-   RENDER ITEM GRID
+   RENDER GRID
 ===================================================== */
 
 function renderItems(
@@ -1400,54 +2446,40 @@ function renderItems(
 ){
 
   const app =
-    document.getElementById("app");
+  document.getElementById(
+    "app"
+  );
 
 
   app.innerHTML = "";
 
 
-  const visibleItems =
-    items.filter(
-      function(item){
-
-        const status =
-          getItemStatus(item);
-
-        return status.showInList;
-
-      }
-    );
-
-
   if(
-    visibleItems.length === 0
+    items.length === 0
   ){
 
     const noResult =
-      document.createElement("div");
+    document.createElement(
+      "div"
+    );
+
 
     noResult.className =
-      "no-result";
+    "no-result";
 
 
-    if(searchText){
-
-      noResult.innerHTML =
-        'No result found for <strong>"' +
-        escapeHtml(searchText) +
-        '"</strong>';
-
-    }else{
-
-      noResult.textContent =
-        "No public items found.";
-
-    }
+    noResult.innerHTML =
+    'No result found for <strong>"' +
+    escapeHtml(
+      searchText || ""
+    ) +
+    '"</strong>';
 
 
     app.appendChild(
       noResult
     );
+
 
     return;
 
@@ -1455,53 +2487,140 @@ function renderItems(
 
 
   const grid =
-    document.createElement("div");
+  document.createElement(
+    "div"
+  );
+
 
   grid.className =
-    "grid";
+  "grid";
 
 
-  visibleItems.forEach(
+  items.forEach(
     function(item){
 
       const card =
-        document.createElement("div");
+      document.createElement(
+        "div"
+      );
+
 
       card.className =
-        "card";
+      "card";
+
+
+      const visible =
+      getValue(
+        item,
+        "visible"
+      );
+
+
+      const badge =
+      document.createElement(
+        "div"
+      );
+
+
+      if(
+        visible === "Unlisted"
+      ){
+
+        badge.className =
+        "status-badge status-unlisted";
+
+        badge.textContent =
+        "UNLISTED";
+
+      }else{
+
+        badge.className =
+        "status-badge status-public";
+
+        badge.textContent =
+        "PUBLIC";
+
+      }
 
 
       const img =
-        document.createElement("img");
+      document.createElement(
+        "img"
+      );
 
 
       img.src =
-        mediaUrl(
-          item.thumbnail
-        );
+      mediaUrl(
+        item.thumbnail
+      );
 
 
       img.alt =
-        item.title ||
-        "Thumbnail";
+      item.title ||
+      "Thumbnail";
+
+
+      const body =
+      document.createElement(
+        "div"
+      );
+
+
+      body.className =
+      "card-body";
 
 
       const title =
-        document.createElement("div");
+      document.createElement(
+        "div"
+      );
 
 
       title.className =
-        "card-title";
+      "card-title";
 
 
       title.textContent =
-        item.title ||
-        "Untitled";
+      item.title ||
+      "Untitled";
 
 
-      card.appendChild(img);
+      const token =
+      document.createElement(
+        "div"
+      );
 
-      card.appendChild(title);
+
+      token.className =
+      "card-token";
+
+
+      token.textContent =
+      item.token
+      ? "#" + item.token
+      : "";
+
+
+      body.appendChild(
+        title
+      );
+
+      body.appendChild(
+        token
+      );
+
+
+      card.appendChild(
+        badge
+      );
+
+      card.appendChild(
+        img
+      );
+
+      card.appendChild(
+        body
+      );
 
 
       card.addEventListener(
@@ -1518,58 +2637,42 @@ function renderItems(
 
 
           window.location.href =
-            "?s=" +
-            encodeURIComponent(
-              item.token
-            );
+          "?s=" +
+          encodeURIComponent(
+            item.token
+          );
 
         }
       );
 
 
-      grid.appendChild(card);
+      grid.appendChild(
+        card
+      );
 
     }
   );
 
 
-  app.appendChild(grid);
+  app.appendChild(
+    grid
+  );
 
 }
 
 
 /* =====================================================
-   ESCAPE HTML
+   ESCAPE
 ===================================================== */
 
 function escapeHtml(text){
 
   return String(text)
-
-    .replace(
-      /&/g,
-      "&amp;"
-    )
-
-    .replace(
-      /</g,
-      "&lt;"
-    )
-
-    .replace(
-      />/g,
-      "&gt;"
-    )
-
-    .replace(
-      /"/g,
-      "&quot;"
-    )
-
-    .replace(
-      /'/g,
-      "&#039;"
-    );
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
 
 }
 
@@ -1581,24 +2684,32 @@ function escapeHtml(text){
 function renderPage1(data){
 
   const app =
-    document.getElementById("app");
+  document.getElementById(
+    "app"
+  );
 
 
   app.innerHTML = "";
 
 
   const items =
-    getItems(data);
+  getItems(data);
+
+
+  const visibleItems =
+  items.filter(
+    shouldShowInList
+  );
 
 
   if(
-    items.length === 0
+    visibleItems.length === 0
   ){
 
     app.innerHTML =
-      '<div class="error">' +
-      'No items found.' +
-      '</div>';
+    '<div class="no-result">' +
+    'No public items found.' +
+    '</div>';
 
     return;
 
@@ -1606,7 +2717,7 @@ function renderPage1(data){
 
 
   renderItems(
-    items,
+    visibleItems,
     ""
   );
 
@@ -1614,7 +2725,7 @@ function renderPage1(data){
 
 
 /* =====================================================
-   FIND ITEM BY ID
+   FIND BY ID
 ===================================================== */
 
 function findItemById(
@@ -1623,7 +2734,7 @@ function findItemById(
 ){
 
   const items =
-    getItems(data);
+  getItems(data);
 
 
   for(
@@ -1633,7 +2744,8 @@ function findItemById(
   ){
 
     if(
-      items[i].id === id
+      String(items[i].id) ===
+      String(id)
     ){
 
       return items[i];
@@ -1659,7 +2771,7 @@ function findItemById(
 
 
 /* =====================================================
-   FIND ITEM BY TOKEN
+   FIND BY TOKEN
 ===================================================== */
 
 function findItemByToken(
@@ -1668,7 +2780,7 @@ function findItemByToken(
 ){
 
   const items =
-    getItems(data);
+  getItems(data);
 
 
   for(
@@ -1678,7 +2790,10 @@ function findItemByToken(
   ){
 
     if(
-      items[i].token === token
+      String(
+        items[i].token
+      ) ===
+      String(token)
     ){
 
       return items[i];
@@ -1707,92 +2822,43 @@ function findItemByToken(
 
 
 /* =====================================================
-   STATUS TEXT
+   BLOCKED ITEM PAGE
 ===================================================== */
 
-function getVisibleText(
-  status
+function renderBlockedPage(
+  reason
 ){
 
-  if(
-    status.reason === "unlisted"
-  ){
-
-    return "● Unlisted";
-
-  }
+  const app =
+  document.getElementById(
+    "app"
+  );
 
 
-  if(
-    status.visible === ""
-  ){
+  app.innerHTML =
+  '<div class="error">' +
 
-    return "● Public";
+  '<h2 style="color:#ffd700;margin-bottom:10px;">' +
 
-  }
+  'Access Unavailable' +
 
+  '</h2>' +
 
-  if(
-    status.visible.toLowerCase() ===
-    "private"
-  ){
+  '<p style="color:#888;">' +
 
-    return "● Private";
+  escapeHtml(reason) +
 
-  }
+  '</p>' +
 
+  '<br>' +
 
-  if(
-    !isNaN(Number(status.visible))
-  ){
+  '<button class="btn explore" onclick="renderPage1(ALL_DATA)">' +
 
-    return (
-      "● Schedule: " +
-      formatDateTime(
-        Number(status.visible)
-      )
-    );
+  '← Back to Explore' +
 
-  }
+  '</button>' +
 
-
-  return "● " + status.visible;
-
-}
-
-
-/* =====================================================
-   EXPIRE TEXT
-===================================================== */
-
-function getExpireText(
-  status
-){
-
-  if(
-    status.expire === ""
-  ){
-
-    return "♾ No Expire";
-
-  }
-
-
-  if(
-    !isNaN(Number(status.expire))
-  ){
-
-    return (
-      "⌛ Expire: " +
-      formatDateTime(
-        Number(status.expire)
-      )
-    );
-
-  }
-
-
-  return "⌛ " + status.expire;
+  '</div>';
 
 }
 
@@ -1808,13 +2874,12 @@ function renderPage2(
 ){
 
   const app =
-    document.getElementById("app");
+  document.getElementById(
+    "app"
+  );
 
 
   let item = null;
-
-  let isTokenLink =
-    false;
 
 
   if(
@@ -1822,10 +2887,10 @@ function renderPage2(
   ){
 
     item =
-      findItemById(
-        data,
-        value
-      );
+    findItemById(
+      data,
+      value
+    );
 
   }
 
@@ -1835,13 +2900,10 @@ function renderPage2(
   ){
 
     item =
-      findItemByToken(
-        data,
-        value
-      );
-
-    isTokenLink =
-      true;
+    findItemByToken(
+      data,
+      value
+    );
 
   }
 
@@ -1855,126 +2917,172 @@ function renderPage2(
   }
 
 
-  /* =================================================
-     ACCESS CONTROL
-  ================================================= */
-
-  const status =
-    getItemStatus(item);
-
+  /*
+     SECURITY RULES
+  */
 
   if(
-    !status.allowed
+    isExpired(item)
   ){
 
-    app.innerHTML =
-      '<div class="error">' +
+    sendLog(
+      "Expired item page blocked",
+      item.token || "",
+      "Title: " +
+      (item.title || "")
+    );
 
-      '<h3>Item Not Available</h3>' +
 
-      '<br>' +
+    renderBlockedPage(
+      "This item has expired."
+    );
 
-      'This item is currently unavailable.' +
-
-      '</div>';
 
     return;
 
   }
 
 
-  app.innerHTML = "";
+  if(
+    getValue(
+      item,
+      "visible"
+    ) === "Private"
+  ){
 
-
-  /* =================================================
-     TELEGRAM ITEM PAGE LOAD
-  ================================================= */
-
-  sendUserLog(
-    "Page Load",
-    item.token || "",
-    ""
-  );
-
-
-  /* =================================================
-     BACK
-  ================================================= */
-
-  const back =
-    document.createElement("div");
-
-
-  back.className =
-    "back";
-
-
-  back.textContent =
-    "← Explore";
-
-
-  back.onclick =
-    function(){
-
-      window.location.href =
-        window.location.pathname;
-
-    };
-
-
-  app.appendChild(back);
-
-
-  /* =================================================
-     DETAIL
-  ================================================= */
-
-  const detail =
-    document.createElement("div");
-
-
-  detail.className =
-    "detail";
-
-
-  /* =================================================
-     MAIN IMAGE
-  ================================================= */
-
-  const mainImg =
-    document.createElement("img");
-
-
-  mainImg.className =
-    "detail-main-img";
-
-
-  mainImg.src =
-    mediaUrl(
-      item.thumbnail
+    sendLog(
+      "Private item page blocked",
+      item.token || "",
+      "Title: " +
+      (item.title || "")
     );
 
 
+    renderBlockedPage(
+      "This item is private."
+    );
+
+
+    return;
+
+  }
+
+
+  if(
+    isBeforeSchedule(item)
+  ){
+
+    sendLog(
+      "Scheduled item page blocked",
+      item.token || "",
+      "Title: " +
+      (item.title || "")
+    );
+
+
+    renderBlockedPage(
+      "This item is not available yet."
+    );
+
+
+    return;
+
+  }
+
+
+  CURRENT_ITEM =
+  item;
+
+
+  CURRENT_ITEM_TOKEN =
+  item.token || "";
+
+
+  sendLog(
+    "Page Load",
+    CURRENT_ITEM_TOKEN,
+    "Title: " +
+    (item.title || "")
+  );
+
+
+  app.innerHTML = "";
+
+
+  const back =
+  document.createElement(
+    "div"
+  );
+
+
+  back.className =
+  "back";
+
+
+  back.textContent =
+  "← Explore";
+
+
+  back.onclick =
+  function(){
+
+    window.location.href =
+    window.location.pathname;
+
+  };
+
+
+  app.appendChild(
+    back
+  );
+
+
+  const detail =
+  document.createElement(
+    "div"
+  );
+
+
+  detail.className =
+  "detail";
+
+
+  const mainImg =
+  document.createElement(
+    "img"
+  );
+
+
+  mainImg.className =
+  "detail-main-img";
+
+
+  mainImg.src =
+  mediaUrl(
+    item.thumbnail
+  );
+
+
   mainImg.alt =
-    item.title ||
-    "Thumbnail";
+  item.title ||
+  "Thumbnail";
 
 
   mainImg.onclick =
-    function(){
+  function(){
 
-      if(
-        item.Vlink
-      ){
+    if(
+      item.Vlink
+    ){
 
-        window.open(
-          item.Vlink,
-          "_blank"
-        );
+      window.open(
+        item.Vlink,
+        "_blank"
+      );
 
-      }
+    }
 
-    };
+  };
 
 
   detail.appendChild(
@@ -1982,172 +3090,171 @@ function renderPage2(
   );
 
 
-  /* =================================================
-     CONTENT
-  ================================================= */
-
   const content =
-    document.createElement("div");
+  document.createElement(
+    "div"
+  );
 
 
   content.className =
-    "detail-content";
+  "detail-content";
 
-
-  /* =================================================
-     STATUS
-  ================================================= */
-
-  const statusRow =
-    document.createElement("div");
-
-
-  statusRow.className =
-    "item-status";
-
-
-  const visibleBadge =
-    document.createElement("span");
-
-
-  visibleBadge.className =
-    "status-badge";
-
-
-  if(
-    status.visible === ""
-  ){
-
-    visibleBadge.classList.add(
-      "status-visible"
-    );
-
-  }else if(
-    status.visible.toLowerCase() ===
-    "unlisted"
-  ){
-
-    visibleBadge.classList.add(
-      "status-unlisted"
-    );
-
-  }else if(
-    status.visible.toLowerCase() ===
-    "private"
-  ){
-
-    visibleBadge.classList.add(
-      "status-private"
-    );
-
-  }else{
-
-    visibleBadge.classList.add(
-      "status-schedule"
-    );
-
-  }
-
-
-  visibleBadge.textContent =
-    getVisibleText(status);
-
-
-  const expireBadge =
-    document.createElement("span");
-
-
-  expireBadge.className =
-    "status-badge";
-
-
-  if(
-    status.expire === ""
-  ){
-
-    expireBadge.classList.add(
-      "status-noexpire"
-    );
-
-  }else{
-
-    expireBadge.classList.add(
-      "status-expire"
-    );
-
-  }
-
-
-  expireBadge.textContent =
-    getExpireText(status);
-
-
-  statusRow.appendChild(
-    visibleBadge
-  );
-
-  statusRow.appendChild(
-    expireBadge
-  );
-
-
-  content.appendChild(
-    statusRow
-  );
-
-
-  /* =================================================
-     TITLE
-  ================================================= */
 
   const title =
-    document.createElement("div");
+  document.createElement(
+    "div"
+  );
 
 
   title.className =
-    "title";
+  "title";
 
 
   title.textContent =
-    item.title ||
-    "Untitled";
+  item.title ||
+  "Untitled";
 
-
-  /* =================================================
-     DESCRIPTION
-  ================================================= */
 
   const description =
-    document.createElement("div");
+  document.createElement(
+    "div"
+  );
 
 
   description.className =
-    "description";
+  "description";
 
 
   description.textContent =
-    item.description ||
-    "";
+  item.description ||
+  "";
 
 
-  /* =================================================
-     BUTTONS
-  ================================================= */
+  const meta =
+  document.createElement(
+    "div"
+  );
+
+
+  meta.className =
+  "detail-meta";
+
+
+  const visiblePill =
+  document.createElement(
+    "div"
+  );
+
+
+  visiblePill.className =
+  "meta-pill";
+
+
+  const visibleLabel =
+  getVisibleLabel(item);
+
+
+  if(
+    getValue(
+      item,
+      "visible"
+    ) === "Unlisted"
+  ){
+
+    visiblePill.classList.add(
+      "meta-unlisted"
+    );
+
+  }else{
+
+    visiblePill.classList.add(
+      "meta-public"
+    );
+
+  }
+
+
+  visiblePill.textContent =
+  "● " +
+  visibleLabel;
+
+
+  meta.appendChild(
+    visiblePill
+  );
+
+
+  const expirePill =
+  document.createElement(
+    "div"
+  );
+
+
+  expirePill.className =
+  "meta-pill";
+
+
+  const expireValue =
+  getValue(
+    item,
+    "expire"
+  );
+
+
+  const expireTimestamp =
+  getTimestamp(
+    expireValue
+  );
+
+
+  if(
+    expireTimestamp !== null
+  ){
+
+    expirePill.textContent =
+    "⌛ Expires " +
+    formatDateTime(
+      new Date(
+        expireTimestamp
+      )
+    );
+
+  }else{
+
+    expirePill.textContent =
+    "♾ No Expire";
+
+  }
+
+
+  meta.appendChild(
+    expirePill
+  );
+
 
   const buttons =
-    document.createElement("div");
+  document.createElement(
+    "div"
+  );
 
 
   buttons.className =
-    "buttons";
+  "buttons";
 
 
-  /* =================================================
-     DOWNLOAD
-  ================================================= */
+  /*
+     TOKEN LINK = RED
+     ID LINK = GREEN
+  */
+
+  const isTokenLink =
+  type === "token";
+
 
   const download =
-    document.createElement("a");
+  document.createElement(
+    "a"
+  );
 
 
   if(
@@ -2155,50 +3262,57 @@ function renderPage2(
   ){
 
     download.className =
-      "btn download-red";
+    "btn download-red";
 
     download.textContent =
-      "Download Now";
+    "Download Now";
+
+    CURRENT_DOWNLOAD_TYPE =
+    "RED";
 
     download.href =
-      downloadUrl(
-        item.Slink
-      );
+    downloadUrl(
+      item.Slink
+    );
 
   }else{
 
     download.className =
-      "btn download-green";
+    "btn download-green";
 
     download.textContent =
-      "Download Now";
+    "Download Now";
+
+    CURRENT_DOWNLOAD_TYPE =
+    "GREEN";
 
     download.href =
-      downloadUrl(
-        item.link
-      );
+    downloadUrl(
+      item.link
+    );
 
   }
 
 
   download.target =
-    "_blank";
+  "_blank";
 
 
   download.rel =
-    "noopener";
+  "noopener";
 
 
   download.addEventListener(
     "click",
     function(){
 
-      sendUserLog(
+      sendLog(
         "Download Button Click",
         item.token || "",
-        isTokenLink
-          ? "RED"
-          : "GREEN"
+        "Title: " +
+        (item.title || "") +
+        "\nDownload Button: " +
+        CURRENT_DOWNLOAD_TYPE
       );
 
     }
@@ -2210,24 +3324,26 @@ function renderPage2(
   );
 
 
-  /* =================================================
+  /*
      HOW TO DOWNLOAD
-  ================================================= */
+  */
 
   const howDownload =
-    document.createElement("a");
+  document.createElement(
+    "a"
+  );
 
 
   howDownload.className =
-    "btn how-download";
+  "btn how-download";
 
 
   howDownload.textContent =
-    "How to Download";
+  "How to Download";
 
 
   let howToLink =
-    DEFAULT_HLINK;
+  DEFAULT_HLINK;
 
 
   if(
@@ -2236,31 +3352,32 @@ function renderPage2(
   ){
 
     howToLink =
-      item.Hlink.trim();
+    item.Hlink.trim();
 
   }
 
 
   howDownload.href =
-    howToLink;
+  howToLink;
 
 
   howDownload.target =
-    "_blank";
+  "_blank";
 
 
   howDownload.rel =
-    "noopener";
+  "noopener";
 
 
   howDownload.addEventListener(
     "click",
     function(){
 
-      sendUserLog(
+      sendLog(
         "How To Download Click",
         item.token || "",
-        ""
+        "Title: " +
+        (item.title || "")
       );
 
     }
@@ -2272,24 +3389,26 @@ function renderPage2(
   );
 
 
-  /* =================================================
+  /*
      EXPLORE
-  ================================================= */
+  */
 
   const explore =
-    document.createElement("a");
+  document.createElement(
+    "a"
+  );
 
 
   explore.className =
-    "btn explore";
+  "btn explore";
 
 
   explore.textContent =
-    "Explore";
+  "Explore";
 
 
   explore.href =
-    window.location.pathname;
+  window.location.pathname;
 
 
   buttons.appendChild(
@@ -2297,26 +3416,29 @@ function renderPage2(
   );
 
 
-  /* =================================================
-     APPEND
-  ================================================= */
-
   content.appendChild(
     title
   );
 
+
+  content.appendChild(
+    meta
+  );
+
+
   content.appendChild(
     description
   );
+
 
   content.appendChild(
     buttons
   );
 
 
-  /* =================================================
+  /*
      SCREENSHOTS
-  ================================================= */
+  */
 
   if(
     Array.isArray(
@@ -2326,38 +3448,44 @@ function renderPage2(
   ){
 
     const screenshotTitle =
-      document.createElement("div");
+    document.createElement(
+      "div"
+    );
 
 
     screenshotTitle.className =
-      "screenshots-title";
+    "screenshots-title";
 
 
     screenshotTitle.textContent =
-      "Screenshots";
+    "Screenshots";
 
 
     const screenshots =
-      document.createElement("div");
+    document.createElement(
+      "div"
+    );
 
 
     screenshots.className =
-      "screenshots";
+    "screenshots";
 
 
     item.screenshot.forEach(
       function(url){
 
         const img =
-          document.createElement("img");
+        document.createElement(
+          "img"
+        );
 
 
         img.src =
-          mediaUrl(url);
+        mediaUrl(url);
 
 
         img.alt =
-          "Screenshot";
+        "Screenshot";
 
 
         screenshots.appendChild(
@@ -2399,15 +3527,15 @@ function renderPage2(
 function toggleSearch(){
 
   const searchBox =
-    document.getElementById(
-      "searchBox"
-    );
+  document.getElementById(
+    "searchBox"
+  );
 
 
   const searchInput =
-    document.getElementById(
-      "searchInput"
-    );
+  document.getElementById(
+    "searchInput"
+  );
 
 
   searchBox.classList.toggle(
@@ -2446,17 +3574,598 @@ function toggleSearch(){
 ===================================================== */
 
 document
-  .getElementById("searchInput")
-  .addEventListener(
-    "input",
+.getElementById(
+  "searchInput"
+)
+.addEventListener(
+  "input",
+  function(){
+
+    renderSearchResults(
+      this.value
+    );
+
+  }
+);
+
+
+/* =====================================================
+   TOAST
+===================================================== */
+
+function showToast(
+  message
+){
+
+  const toast =
+  document.getElementById(
+    "toast"
+  );
+
+
+  toast.textContent =
+  message;
+
+
+  toast.classList.add(
+    "show"
+  );
+
+
+  setTimeout(
     function(){
 
-      renderSearchResults(
-        this.value
+      toast.classList.remove(
+        "show"
+      );
+
+    },
+    2500
+  );
+
+}
+
+
+/* =====================================================
+   CHAT OPEN
+===================================================== */
+
+function openChat(){
+
+  document
+  .getElementById(
+    "chatOverlay"
+  )
+  .classList.add(
+    "active"
+  );
+
+
+  loadTelegramReplies();
+
+}
+
+
+/* =====================================================
+   CHAT CLOSE
+===================================================== */
+
+function closeChat(){
+
+  document
+  .getElementById(
+    "chatOverlay"
+  )
+  .classList.remove(
+    "active"
+  );
+
+}
+
+
+/* =====================================================
+   CHAT DISPLAY
+===================================================== */
+
+function addChatMessage(
+  sender,
+  text,
+  time,
+  type
+){
+
+  const container =
+  document.getElementById(
+    "chatMessages"
+  );
+
+
+  const empty =
+  container.querySelector(
+    ".chat-empty"
+  );
+
+
+  if(empty){
+
+    empty.remove();
+
+  }
+
+
+  const message =
+  document.createElement(
+    "div"
+  );
+
+
+  message.className =
+  "chat-message " +
+  type;
+
+
+  const senderDiv =
+  document.createElement(
+    "div"
+  );
+
+
+  senderDiv.className =
+  "chat-sender";
+
+
+  senderDiv.textContent =
+  sender;
+
+
+  const textDiv =
+  document.createElement(
+    "div"
+  );
+
+
+  textDiv.textContent =
+  text;
+
+
+  const timeDiv =
+  document.createElement(
+    "div"
+  );
+
+
+  timeDiv.className =
+  "chat-time";
+
+
+  timeDiv.textContent =
+  time ||
+  "";
+
+
+  message.appendChild(
+    senderDiv
+  );
+
+
+  message.appendChild(
+    textDiv
+  );
+
+
+  message.appendChild(
+    timeDiv
+  );
+
+
+  container.appendChild(
+    message
+  );
+
+
+  container.scrollTop =
+  container.scrollHeight;
+
+}
+
+
+/* =====================================================
+   SEND CUSTOMER MESSAGE
+===================================================== */
+
+async function sendCustomerMessage(){
+
+  const nameInput =
+  document.getElementById(
+    "chatName"
+  );
+
+
+  const textInput =
+  document.getElementById(
+    "chatText"
+  );
+
+
+  const sendButton =
+  document.getElementById(
+    "chatSendButton"
+  );
+
+
+  const name =
+  nameInput.value.trim();
+
+
+  const text =
+  textInput.value.trim();
+
+
+  if(!name){
+
+    showToast(
+      "Please enter your name."
+    );
+
+    return;
+
+  }
+
+
+  if(!text){
+
+    showToast(
+      "Please enter a message."
+    );
+
+    return;
+
+  }
+
+
+  if(
+    !CHAT_BOT_TOKEN ||
+    CHAT_BOT_TOKEN.indexOf(
+      "PASTE_"
+    ) === 0
+  ){
+
+    showToast(
+      "Chat bot token is not configured."
+    );
+
+    return;
+
+  }
+
+
+  sendButton.disabled =
+  true;
+
+
+  try{
+
+    const time =
+    await getOnlineDateTime();
+
+
+    const user =
+    await getUserDetails();
+
+
+    let message =
+    "💬 CUSTOMER CARE MESSAGE\n\n";
+
+
+    message +=
+    "Name: " +
+    name;
+
+
+    message +=
+    "\nMessage: " +
+    text;
+
+
+    if(
+      CURRENT_ITEM_TOKEN
+    ){
+
+      message +=
+      "\nToken: " +
+      CURRENT_ITEM_TOKEN;
+
+    }else{
+
+      message +=
+      "\nToken: Main Page";
+
+    }
+
+
+    message +=
+    "\n\nDate & Time: " +
+    time;
+
+
+    message +=
+    "\nIP: " +
+    user.ip;
+
+
+    message +=
+    "\nLanguage: " +
+    user.language;
+
+
+    message +=
+    "\nPlatform: " +
+    user.platform;
+
+
+    message +=
+    "\nScreen: " +
+    user.screen;
+
+
+    message +=
+    "\nSession: " +
+    user.session;
+
+
+    message +=
+    "\nPage: " +
+    user.page;
+
+
+    const sent =
+    await sendTelegram(
+      CHAT_BOT_TOKEN,
+      message
+    );
+
+
+    if(!sent){
+
+      throw new Error(
+        "Message not sent"
       );
 
     }
-  );
+
+
+    addChatMessage(
+      "You",
+      text,
+      time,
+      "user"
+    );
+
+
+    textInput.value = "";
+
+
+    showToast(
+      "Message sent successfully."
+    );
+
+
+  }catch(error){
+
+    console.error(error);
+
+
+    showToast(
+      "Message send failed."
+    );
+
+  }
+
+
+  sendButton.disabled =
+  false;
+
+}
+
+
+/* =====================================================
+   TELEGRAM REPLIES
+===================================================== */
+
+async function loadTelegramReplies(){
+
+  if(
+    !CHAT_BOT_TOKEN ||
+    CHAT_BOT_TOKEN.indexOf(
+      "PASTE_"
+    ) === 0
+  ){
+
+    return;
+
+  }
+
+
+  if(
+    TELEGRAM_POLLING
+  ){
+
+    return;
+
+  }
+
+
+  TELEGRAM_POLLING =
+  true;
+
+
+  try{
+
+    const response =
+    await fetch(
+      "https://api.telegram.org/bot" +
+      CHAT_BOT_TOKEN +
+      "/getUpdates?offset=" +
+      (
+        TELEGRAM_LAST_UPDATE_ID + 1
+      ) +
+      "&timeout=1",
+      {
+        cache:"no-store"
+      }
+    );
+
+
+    if(!response.ok){
+
+      return;
+
+    }
+
+
+    const data =
+    await response.json();
+
+
+    if(
+      !data.ok ||
+      !Array.isArray(
+        data.result
+      )
+    ){
+
+      return;
+
+    }
+
+
+    data.result.forEach(
+      function(update){
+
+        if(
+          update.update_id >
+          TELEGRAM_LAST_UPDATE_ID
+        ){
+
+          TELEGRAM_LAST_UPDATE_ID =
+          update.update_id;
+
+        }
+
+
+        if(
+          !update.message ||
+          !update.message.text
+        ){
+
+          return;
+
+        }
+
+
+        /*
+           केवल configured chat ID के
+           messages को admin reply माना जाएगा।
+        */
+
+        if(
+          String(
+            update.message.chat.id
+          ) !==
+          String(
+            TELEGRAM_CHAT_ID
+          )
+        ){
+
+          return;
+
+        }
+
+
+        const text =
+        update.message.text;
+
+
+        /*
+           Bot को भेजे गए customer
+           messages को दोबारा admin bubble
+           में न दिखाएँ।
+
+           अगर message में CUSTOMER CARE
+           है तो वह outgoing message है।
+        */
+
+        if(
+          text.indexOf(
+            "💬 CUSTOMER CARE MESSAGE"
+          ) === 0
+        ){
+
+          return;
+
+        }
+
+
+        const time =
+        formatDateTime(
+          new Date()
+        );
+
+
+        addChatMessage(
+          "Customer Care",
+          text,
+          time,
+          "admin"
+        );
+
+      }
+    );
+
+
+  }catch(error){
+
+    console.error(
+      "Telegram reply error:",
+      error
+    );
+
+  }finally{
+
+    TELEGRAM_POLLING =
+    false;
+
+  }
+
+}
+
+
+/* =====================================================
+   CHAT AUTO POLLING
+===================================================== */
+
+setInterval(
+  function(){
+
+    const overlay =
+    document.getElementById(
+      "chatOverlay"
+    );
+
+
+    if(
+      overlay.classList.contains(
+        "active"
+      )
+    ){
+
+      loadTelegramReplies();
+
+    }
+
+  },
+  5000
+);
 
 
 /* =====================================================
@@ -2466,13 +4175,13 @@ document
 async function loadData(){
 
   const response =
-    await fetch(
-      DATA_URL,
-      {
-        method:"GET",
-        cache:"no-store"
-      }
-    );
+  await fetch(
+    DATA_URL,
+    {
+      method:"GET",
+      cache:"no-store"
+    }
+  );
 
 
   if(!response.ok){
@@ -2486,7 +4195,7 @@ async function loadData(){
 
 
   const data =
-    await response.json();
+  await response.json();
 
 
   if(
@@ -2542,55 +4251,34 @@ async function loadData(){
 
 
 /* =====================================================
-   START
+   MAIN PAGE LOAD
 ===================================================== */
 
 async function start(){
 
   try{
 
-    /*
-       Pehle online India time
-    */
-
-    await getOnlineTime();
-
-
-    /*
-       JSON load
-    */
-
     const data =
-      await loadData();
+    await loadData();
 
 
     ALL_DATA =
-      data;
-
-
-    console.log(
-      "Total listMap items:",
-      data.listMap.length
-    );
+    data;
 
 
     const params =
-      new URLSearchParams(
-        window.location.search
-      );
+    new URLSearchParams(
+      window.location.search
+    );
 
 
     const id =
-      params.get("id");
+    params.get("id");
 
 
     const token =
-      params.get("s");
+    params.get("s");
 
-
-    /* =================================================
-       DIRECT ID PAGE
-    ================================================= */
 
     if(id){
 
@@ -2605,10 +4293,6 @@ async function start(){
     }
 
 
-    /* =================================================
-       TOKEN PAGE
-    ================================================= */
-
     if(token){
 
       renderPage2(
@@ -2622,14 +4306,15 @@ async function start(){
     }
 
 
-    /* =================================================
-       MAIN PAGE
-    ================================================= */
+    /*
+       MAIN PAGE LOG
+    */
 
-    sendUserLog(
+    sendLog(
       "Main Page Load",
       "",
-      ""
+      "Items in database: " +
+      data.listMap.length
     );
 
 
@@ -2637,29 +4322,30 @@ async function start(){
       data
     );
 
-
   }catch(error){
 
-    console.error(error);
+    console.error(
+      error
+    );
 
 
     document.getElementById(
       "app"
     ).innerHTML =
 
-      '<div class="error">' +
+    '<div class="error">' +
 
-      '<h3>Something went wrong</h3>' +
+    '<h3>Something went wrong</h3>' +
 
-      '<br>' +
+    '<br>' +
 
-      'JSON Load Error: ' +
+    'JSON Load Error: ' +
 
-      escapeHtml(
-        error.message
-      ) +
+    escapeHtml(
+      error.message
+    ) +
 
-      '</div>';
+    '</div>';
 
   }
 
