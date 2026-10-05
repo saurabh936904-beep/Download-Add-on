@@ -2694,6 +2694,45 @@ function renderPage2(
 
   app.appendChild(detail);
 
+  /* GREEN button wale page (?id=...) par automatic Download button tak scroll */
+  if(!isTokenLink){
+
+    let scrolled = false;
+
+    const goToDownload = function(){
+
+      if(scrolled){
+        return;
+      }
+
+      scrolled = true;
+
+      download.scrollIntoView({
+        behavior:"smooth",
+        block:"center"
+      });
+
+    };
+
+    /* image load hone ke baad scroll, warna layout shift se position bigad jati hai */
+    if(mainImg.complete){
+
+      setTimeout(goToDownload, 300);
+
+    }else{
+
+      mainImg.addEventListener("load", function(){
+        setTimeout(goToDownload, 200);
+      });
+
+      mainImg.addEventListener("error", goToDownload);
+
+      setTimeout(goToDownload, 2500);
+
+    }
+
+  }
+
 }
 
 
