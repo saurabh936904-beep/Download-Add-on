@@ -24,12 +24,7 @@ html{
 body{
   font-family:Arial,Helvetica,sans-serif;
   background:
-  radial-gradient(
-    circle at 50% -20%,
-    #25200b 0%,
-    #0b0b0d 38%,
-    #050507 100%
-  );
+  radial-gradient(circle at 50% -20%,#25200b 0%,#0b0b0d 38%,#050507 100%);
   color:#fff;
   min-height:100vh;
 }
@@ -88,8 +83,7 @@ header{
   height:45px;
   border:1px solid #343434;
   border-radius:50%;
-  background:
-  linear-gradient(145deg,#1c1c20,#0e0e10);
+  background:linear-gradient(145deg,#1c1c20,#0e0e10);
   color:#ffd700;
   font-size:20px;
   cursor:pointer;
@@ -159,25 +153,19 @@ header{
 
 .card{
   position:relative;
-  background:
-  linear-gradient(145deg,#151518,#0d0d0f);
+  background:linear-gradient(145deg,#151518,#0d0d0f);
   border:1px solid #29292d;
   border-radius:18px;
   overflow:hidden;
   cursor:pointer;
-  transition:
-  transform .2s,
-  border-color .2s,
-  box-shadow .2s;
+  transition:transform .2s,border-color .2s,box-shadow .2s;
   box-shadow:0 10px 30px rgba(0,0,0,.22);
 }
 
 .card:hover{
   transform:translateY(-5px);
   border-color:#8e781d;
-  box-shadow:
-  0 18px 45px rgba(0,0,0,.4),
-  0 0 25px rgba(255,215,0,.05);
+  box-shadow:0 18px 45px rgba(0,0,0,.4),0 0 25px rgba(255,215,0,.05);
 }
 
 .card img{
@@ -245,8 +233,7 @@ header{
 }
 
 .detail{
-  background:
-  linear-gradient(145deg,#151518,#0d0d10);
+  background:linear-gradient(145deg,#151518,#0d0d10);
   border:1px solid #29292d;
   border-radius:22px;
   overflow:hidden;
@@ -332,26 +319,178 @@ header{
 }
 
 .download-green{
-  background:
-  linear-gradient(135deg,#16a34a,#087b35);
+  background:linear-gradient(135deg,#16a34a,#087b35);
   box-shadow:0 8px 22px rgba(22,163,74,.18);
 }
 
 .download-red{
-  background:
-  linear-gradient(135deg,#dc2626,#991b1b);
+  background:linear-gradient(135deg,#dc2626,#991b1b);
   box-shadow:0 8px 22px rgba(220,38,38,.18);
 }
 
 .how-download{
-  background:
-  linear-gradient(135deg,#2563eb,#173d9d);
+  background:linear-gradient(135deg,#2563eb,#173d9d);
 }
 
 .explore{
-  background:
-  linear-gradient(135deg,#33343a,#222328);
+  background:linear-gradient(135deg,#33343a,#222328);
 }
+
+
+/* =====================================================
+   COUPON BUTTON
+===================================================== */
+
+.download-coupon{
+  background:linear-gradient(135deg,#242424,#111);
+  color:#ffd700;
+  border:1px solid #806b18;
+  box-shadow:0 8px 22px rgba(255,215,0,.08);
+}
+
+.download-coupon:hover{
+  border-color:#ffd700;
+  box-shadow:0 8px 25px rgba(255,215,0,.16);
+}
+
+
+/* =====================================================
+   COUPON MODAL
+===================================================== */
+
+.coupon-overlay{
+  position:fixed;
+  inset:0;
+  z-index:3000;
+  background:rgba(0,0,0,.78);
+  backdrop-filter:blur(8px);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+.coupon-overlay.active{
+  display:flex;
+}
+
+.coupon-box{
+  width:min(390px,100%);
+  background:linear-gradient(160deg,#18181c,#0d0d10);
+  border:1px solid #45401f;
+  border-radius:22px;
+  padding:22px;
+  box-shadow:
+  0 30px 100px rgba(0,0,0,.7),
+  0 0 35px rgba(255,215,0,.08);
+}
+
+.coupon-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:8px;
+}
+
+.coupon-title{
+  color:#ffd700;
+  font-size:21px;
+  font-weight:900;
+}
+
+.coupon-close{
+  width:35px;
+  height:35px;
+  border:1px solid #333;
+  border-radius:10px;
+  background:#202024;
+  color:#aaa;
+  cursor:pointer;
+  font-size:20px;
+}
+
+.coupon-close:hover{
+  color:#fff;
+  border-color:#ffd700;
+}
+
+.coupon-subtitle{
+  color:#777;
+  font-size:12px;
+  line-height:1.5;
+  margin-bottom:17px;
+}
+
+.coupon-input{
+  width:100%;
+  height:48px;
+  border:1px solid #343434;
+  border-radius:12px;
+  outline:none;
+  background:#17171b;
+  color:#fff;
+  padding:0 14px;
+  font-size:15px;
+  text-transform:uppercase;
+}
+
+.coupon-input:focus{
+  border-color:#ffd700;
+  box-shadow:0 0 0 3px rgba(255,215,0,.06);
+}
+
+.coupon-input::placeholder{
+  color:#555;
+  text-transform:none;
+}
+
+.coupon-message{
+  min-height:21px;
+  margin-top:10px;
+  font-size:12px;
+  text-align:center;
+}
+
+.coupon-success{
+  color:#62e6a0;
+}
+
+.coupon-error{
+  color:#ff5b5b;
+}
+
+.coupon-actions{
+  display:flex;
+  gap:9px;
+  margin-top:13px;
+}
+
+.coupon-cancel,
+.coupon-verify{
+  flex:1;
+  min-height:45px;
+  border:0;
+  border-radius:11px;
+  font-size:13px;
+  font-weight:900;
+  cursor:pointer;
+}
+
+.coupon-cancel{
+  background:#29292e;
+  color:#ccc;
+}
+
+.coupon-verify{
+  background:linear-gradient(135deg,#ffd700,#aa7f00);
+  color:#090909;
+}
+
+.coupon-verify:disabled{
+  opacity:.55;
+  cursor:not-allowed;
+}
+
 
 .screenshots-title{
   margin:30px 0 13px;
@@ -400,17 +539,14 @@ header{
   height:60px;
   border:1px solid #9d8016;
   border-radius:50%;
-  background:
-  linear-gradient(145deg,#ffd700,#a87d00);
+  background:linear-gradient(145deg,#ffd700,#a87d00);
   color:#090909;
   font-size:25px;
   cursor:pointer;
   display:flex;
   align-items:center;
   justify-content:center;
-  box-shadow:
-  0 12px 35px rgba(0,0,0,.45),
-  0 0 25px rgba(255,215,0,.16);
+  box-shadow:0 12px 35px rgba(0,0,0,.45),0 0 25px rgba(255,215,0,.16);
   transition:.2s;
 }
 
@@ -437,8 +573,7 @@ header{
 .chat-box{
   width:min(430px,100%);
   height:min(650px,calc(100vh - 40px));
-  background:
-  linear-gradient(160deg,#17171b,#0d0d10);
+  background:linear-gradient(160deg,#17171b,#0d0d10);
   border:1px solid #34343a;
   border-radius:22px;
   overflow:hidden;
@@ -453,8 +588,7 @@ header{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  background:
-  linear-gradient(180deg,#1b1b20,#131317);
+  background:linear-gradient(180deg,#1b1b20,#131317);
 }
 
 .chat-title{
@@ -487,8 +621,7 @@ header{
   display:flex;
   flex-direction:column;
   gap:9px;
-  background:
-  radial-gradient(circle at top,#17171a,#0b0b0d);
+  background:radial-gradient(circle at top,#17171a,#0b0b0d);
 }
 
 .chat-empty{
@@ -517,8 +650,7 @@ header{
 
 .chat-message.user{
   align-self:flex-end;
-  background:
-  linear-gradient(135deg,#8d720d,#5f4c08);
+  background:linear-gradient(135deg,#8d720d,#5f4c08);
   border:1px solid #a98819;
   border-bottom-right-radius:4px;
 }
@@ -572,8 +704,7 @@ header{
   height:45px;
   border:0;
   border-radius:11px;
-  background:
-  linear-gradient(135deg,#ffd700,#a97d00);
+  background:linear-gradient(135deg,#ffd700,#a97d00);
   color:#080808;
   font-weight:900;
   cursor:pointer;
@@ -588,7 +719,7 @@ header{
   position:fixed;
   left:50%;
   bottom:90px;
-  z-index:2000;
+  z-index:4000;
   transform:translateX(-50%) translateY(20px);
   opacity:0;
   pointer-events:none;
@@ -651,11 +782,18 @@ header{
     bottom:15px;
   }
 
+  .coupon-overlay{
+    padding:15px;
+  }
+
+  .coupon-box{
+    border-radius:18px;
+  }
+
 }
 
 </style>
 
-<!-- Firebase SDK -->
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-database-compat.js"></script>
 
@@ -723,6 +861,74 @@ header{
   </div>
 
 </div>
+
+
+<!-- =====================================================
+     COUPON MODAL
+===================================================== -->
+
+<div
+  class="coupon-overlay"
+  id="couponOverlay">
+
+  <div class="coupon-box">
+
+    <div class="coupon-header">
+
+      <div class="coupon-title">
+        🎟️ Use Coupon
+      </div>
+
+      <button
+        class="coupon-close"
+        type="button"
+        onclick="closeCoupon()">
+        ×
+      </button>
+
+    </div>
+
+    <div class="coupon-subtitle">
+      Enter your coupon code to unlock this download.
+    </div>
+
+    <input
+      id="couponInput"
+      class="coupon-input"
+      type="text"
+      maxlength="100"
+      placeholder="Enter coupon code"
+      autocomplete="off"
+      autocapitalize="characters">
+
+    <div
+      id="couponMessage"
+      class="coupon-message">
+    </div>
+
+    <div class="coupon-actions">
+
+      <button
+        class="coupon-cancel"
+        type="button"
+        onclick="closeCoupon()">
+        Cancel
+      </button>
+
+      <button
+        id="couponVerifyButton"
+        class="coupon-verify"
+        type="button"
+        onclick="verifyCoupon()">
+        VERIFY COUPON
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
 
 <button
   class="chat-fab"
@@ -802,6 +1008,7 @@ header{
   id="toast"
   class="toast">
 </div>
+
 
 <script>
 
@@ -893,6 +1100,18 @@ let CURRENT_GET_REQUEST_ID = null;
 let CUSTOMER_CHAT_LISTENER = null;
 
 let CUSTOMER_CHAT_STARTED = false;
+
+
+/* =====================================================
+   COUPON GLOBAL
+===================================================== */
+
+/*
+   जिस item पर coupon button दबाया गया,
+   वही item यहाँ रहेगा।
+*/
+
+let COUPON_CURRENT_ITEM = null;
 
 
 /* =====================================================
@@ -1371,6 +1590,446 @@ function downloadUrl(url){
   return url;
 
 }
+
+
+/* =====================================================
+   COUPON OPEN
+===================================================== */
+
+function openCoupon(item){
+
+  if(
+    !item ||
+    !item.link
+  ){
+
+    showToast(
+      "Download link not found."
+    );
+
+    return;
+
+  }
+
+  COUPON_CURRENT_ITEM =
+  item;
+
+  const overlay =
+  document.getElementById(
+    "couponOverlay"
+  );
+
+  const input =
+  document.getElementById(
+    "couponInput"
+  );
+
+  const message =
+  document.getElementById(
+    "couponMessage"
+  );
+
+  const button =
+  document.getElementById(
+    "couponVerifyButton"
+  );
+
+  input.value = "";
+
+  message.textContent = "";
+
+  message.className =
+  "coupon-message";
+
+  button.disabled =
+  false;
+
+  button.textContent =
+  "VERIFY COUPON";
+
+  overlay.classList.add(
+    "active"
+  );
+
+  setTimeout(
+    function(){
+
+      input.focus();
+
+    },
+    100
+  );
+
+}
+
+
+/* =====================================================
+   COUPON CLOSE
+===================================================== */
+
+function closeCoupon(){
+
+  const overlay =
+  document.getElementById(
+    "couponOverlay"
+  );
+
+  overlay.classList.remove(
+    "active"
+  );
+
+  COUPON_CURRENT_ITEM =
+  null;
+
+}
+
+
+/* =====================================================
+   VERIFY COUPON
+===================================================== */
+
+async function verifyCoupon(){
+
+  const input =
+  document.getElementById(
+    "couponInput"
+  );
+
+  const message =
+  document.getElementById(
+    "couponMessage"
+  );
+
+  const button =
+  document.getElementById(
+    "couponVerifyButton"
+  );
+
+  const code =
+  input.value
+    .trim()
+    .toUpperCase();
+
+
+  /* -------------------------
+     EMPTY CODE
+  ------------------------- */
+
+  if(!code){
+
+    message.className =
+    "coupon-message coupon-error";
+
+    message.textContent =
+    "Please enter coupon code.";
+
+    return;
+
+  }
+
+
+  /* -------------------------
+     ITEM CHECK
+  ------------------------- */
+
+  if(
+    !COUPON_CURRENT_ITEM ||
+    !COUPON_CURRENT_ITEM.link
+  ){
+
+    message.className =
+    "coupon-message coupon-error";
+
+    message.textContent =
+    "Download link not found.";
+
+    return;
+
+  }
+
+
+  /* -------------------------
+     LOADING
+  ------------------------- */
+
+  button.disabled =
+  true;
+
+  button.textContent =
+  "CHECKING...";
+
+  message.className =
+  "coupon-message";
+
+  message.textContent =
+  "Verifying coupon...";
+
+
+  try{
+
+    const couponRef =
+    firebaseDB.ref(
+      "coupons/" +
+      code
+    );
+
+
+    /* =================================================
+       ATOMIC TRANSACTION
+
+       limit 3:
+       3 → 2
+
+       limit 2:
+       2 → 1
+
+       limit 1:
+       coupon deleted
+    ================================================= */
+
+    const result =
+    await couponRef.transaction(
+      function(currentData){
+
+        /* Coupon doesn't exist */
+
+        if(
+          currentData === null
+        ){
+
+          return;
+
+        }
+
+
+        /* Coupon data must be object */
+
+        if(
+          typeof currentData !== "object" ||
+          currentData === null
+        ){
+
+          return;
+
+        }
+
+
+        const limit =
+        Number(
+          currentData.limit
+        );
+
+
+        /* Invalid / expired */
+
+        if(
+          !Number.isFinite(limit) ||
+          limit <= 0
+        ){
+
+          return;
+
+        }
+
+
+        /* Last use */
+
+        if(
+          limit === 1
+        ){
+
+          return null;
+
+        }
+
+
+        /* Reduce limit */
+
+        currentData.limit =
+        limit - 1;
+
+        return currentData;
+
+      }
+    );
+
+
+    /* =================================================
+       FAILED
+    ================================================= */
+
+    if(
+      !result.committed
+    ){
+
+      message.className =
+      "coupon-message coupon-error";
+
+      message.textContent =
+      "Invalid or expired coupon.";
+
+      button.disabled =
+      false;
+
+      button.textContent =
+      "VERIFY COUPON";
+
+      return;
+
+    }
+
+
+    /* =================================================
+       SUCCESS
+    ================================================= */
+
+    message.className =
+    "coupon-message coupon-success";
+
+    message.textContent =
+    "Coupon verified! Opening download...";
+
+
+    /* =================================================
+       SAME GREEN DOWNLOAD LOGIC
+
+       IMPORTANT:
+       Coupon हमेशा item.link use करेगा।
+
+       item.link
+          ↓
+       downloadUrl()
+          ↓
+       Drive direct URL / normal URL
+    ================================================= */
+
+    const finalDownloadUrl =
+    downloadUrl(
+      COUPON_CURRENT_ITEM.link
+    );
+
+
+    /* Coupon success log */
+
+    sendLog(
+      "Coupon Download",
+      COUPON_CURRENT_ITEM.token || "",
+      "Title: " +
+      (COUPON_CURRENT_ITEM.title || "") +
+      "\nCoupon: " +
+      code +
+      "\nDownload: " +
+      finalDownloadUrl
+    );
+
+
+    /* Open after small delay */
+
+    setTimeout(
+      function(){
+
+        closeCoupon();
+
+        window.open(
+          finalDownloadUrl,
+          "_blank"
+        );
+
+      },
+      500
+    );
+
+
+  }catch(error){
+
+    console.error(
+      "Coupon error:",
+      error
+    );
+
+    message.className =
+    "coupon-message coupon-error";
+
+    message.textContent =
+    "Something went wrong. Please try again.";
+
+    button.disabled =
+    false;
+
+    button.textContent =
+    "VERIFY COUPON";
+
+  }
+
+}
+
+
+/* =====================================================
+   COUPON OUTSIDE CLICK
+===================================================== */
+
+document
+  .getElementById(
+    "couponOverlay"
+  )
+  .addEventListener(
+    "click",
+    function(event){
+
+      if(
+        event.target ===
+        this
+      ){
+
+        closeCoupon();
+
+      }
+
+    }
+  );
+
+
+/* =====================================================
+   COUPON ENTER / ESC
+===================================================== */
+
+document.addEventListener(
+  "keydown",
+  function(event){
+
+    const overlay =
+    document.getElementById(
+      "couponOverlay"
+    );
+
+    if(
+      !overlay.classList.contains(
+        "active"
+      )
+    ){
+
+      return;
+
+    }
+
+    if(
+      event.key === "Enter"
+    ){
+
+      verifyCoupon();
+
+    }
+
+    if(
+      event.key === "Escape"
+    ){
+
+      closeCoupon();
+
+    }
+
+  }
+);
 
 
 /* =====================================================
@@ -2557,7 +3216,45 @@ function renderPage2(
     }
   );
 
-  buttons.appendChild(download);
+  buttons.appendChild(
+    download
+  );
+
+
+  /* =====================================================
+     COUPON BUTTON
+     
+     Coupon हमेशा GREEN download link
+     यानी item.link use करेगा।
+  ===================================================== */
+
+  const couponButton =
+  document.createElement(
+    "button"
+  );
+
+  couponButton.type =
+  "button";
+
+  couponButton.className =
+  "btn download-coupon";
+
+  couponButton.textContent =
+  "🎟️ Use Coupon";
+
+  couponButton.addEventListener(
+    "click",
+    function(){
+
+      openCoupon(item);
+
+    }
+  );
+
+  buttons.appendChild(
+    couponButton
+  );
+
 
   const howDownload =
   document.createElement(
@@ -2694,7 +3391,9 @@ function renderPage2(
 
   app.appendChild(detail);
 
-  /* GREEN button wale page (?id=...) par automatic Download button tak scroll */
+
+  /* GREEN button wale page par automatic scroll */
+
   if(!isTokenLink){
 
     let scrolled = false;
@@ -2714,20 +3413,36 @@ function renderPage2(
 
     };
 
-    /* image load hone ke baad scroll, warna layout shift se position bigad jati hai */
     if(mainImg.complete){
 
-      setTimeout(goToDownload, 300);
+      setTimeout(
+        goToDownload,
+        300
+      );
 
     }else{
 
-      mainImg.addEventListener("load", function(){
-        setTimeout(goToDownload, 200);
-      });
+      mainImg.addEventListener(
+        "load",
+        function(){
 
-      mainImg.addEventListener("error", goToDownload);
+          setTimeout(
+            goToDownload,
+            200
+          );
 
-      setTimeout(goToDownload, 2500);
+        }
+      );
+
+      mainImg.addEventListener(
+        "error",
+        goToDownload
+      );
+
+      setTimeout(
+        goToDownload,
+        2500
+      );
 
     }
 
@@ -3106,12 +3821,6 @@ async function sendCustomerMessage(){
 
 async function startCustomerCareReceive(){
 
-  /*
-     एक session में सिर्फ एक GET request.
-     नया request तभी बनेगा जब current session
-     में GET शुरू नहीं हुआ हो।
-  */
-
   if(
     CUSTOMER_CHAT_STARTED &&
     CURRENT_GET_REQUEST_ID
@@ -3313,12 +4022,6 @@ function renderCustomerCareMessages(
 
       const text =
       String(item.text);
-
-      /*
-         User द्वारा Telegram को भेजे गए
-         CUSTOMER CARE messages को admin reply
-         के रूप में दोबारा मत दिखाओ।
-      */
 
       if(
         text.indexOf(
